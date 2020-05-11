@@ -1,6 +1,7 @@
 {
   "name": "microformats-parser",
   "version": "1.0.4",
+  "description": "A JavaScript microformats v2 parser",
   "main": "dist/index.js",
   "repository": "https://github.com/aimee-gm/microformats-parser.git",
   "author": "Aimee Gamble-Milner (https://github.com/aimee-gm)",
@@ -12,6 +13,8 @@
     "indieweb"
   ],
   "scripts": {
+    "demo": "parcel serve demo/index.html",
+    "demo:build": "parcel build demo/index.html --out-dir public --public-url ./",
     "build": "tsc",
     "lint": "eslint --cache './**/*.{ts,js}'",
     "prettier:list": "prettier '**/*.{ts,json,md}' --list-different",
@@ -49,6 +52,8 @@
     "microformat-tests": "https://github.com/microformats/tests",
     "mocha": "^7.1.2",
     "nyc": "^15.0.1",
+    "parcel-bundler": "^1.12.4",
+    "posthtml-expressions": "^1.4.0",
     "prettier": "^2.0.5",
     "source-map-support": "^0.5.19",
     "ts-node": "^8.10.1",
