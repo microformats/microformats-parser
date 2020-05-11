@@ -12,8 +12,7 @@ Follows the [microformats2 parsing specification](http://microformats.org/wiki/m
 - [API](#api)
   - [mf2()](#mf2)
 - [Contributing](#contributing)
-- [Limitiations](#limitiations)
-  - [Microformats v1 support](#microformats-v1-support)
+- [Microformats v1 support](#microformats-v1-support)
 
 ## Quick start
 
@@ -80,8 +79,6 @@ Returns the parsed microformats from the HTML string
 
 See our [contributing guidelines](./CONTRIBUTING.md) for more information.
 
-## Limitiations
-
-### Microformats v1 support
+## Microformats v1 support
 
 This package will parse microformats v1, however support will be limited to the v1 tests in the [microformats test suite](https://github.com/microformats/tests).
