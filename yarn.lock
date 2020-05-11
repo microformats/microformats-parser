@@ -1742,9 +1742,9 @@ merge-stream@^2.0.0:
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"
   integrity sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==
 
-"microformat-tests@https://github.com/aimee-gm/tests":
+"microformat-tests@https://github.com/microformats/tests":
   version "0.1.26"
-  resolved "https://github.com/aimee-gm/tests#3bd484edfab77a52c19922d1e312e6ce57339532"
+  resolved "https://github.com/microformats/tests#bef8e1bf7c8a930613f6f6c23a472f49dff8405c"
 
 micromatch@^4.0.2:
   version "4.0.2"

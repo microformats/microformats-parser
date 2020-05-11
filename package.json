@@ -37,7 +37,7 @@
     "glob": "^7.1.6",
     "husky": ">=4",
     "lint-staged": ">=10",
-    "microformat-tests": "https://github.com/aimee-gm/tests",
+    "microformat-tests": "https://github.com/microformats/tests",
     "mocha": "^7.1.2",
     "nyc": "^15.0.1",
     "prettier": "^2.0.5",
