@@ -1,0 +1,68 @@
+{
+  "name": "microformats-parser",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/aimee-gm/microformats-parser.git",
+  "author": "Aimee Gamble-Milner <https://github.com/aimee-gm>",
+  "license": "MIT",
+  "keywords": [
+    "microformats",
+    "parser",
+    "mf2",
+    "indieweb"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --cache './**/*.{ts,js}'",
+    "prettier:list": "prettier '**/*.{ts,json,md}' --list-different",
+    "test": "nyc mocha --require ts-node/register test/**/*.spec.ts",
+    "test:package": "mocha test/package.spec.js"
+  },
+  "dependencies": {
+    "parse5": "^6.0.0"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/chai": "^4.2.11",
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^12",
+    "@types/parse5": "^5.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "glob": "^7.1.6",
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "microformat-tests": "https://github.com/aimee-gm/tests",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,json,css,md}": "prettier --write",
+    "*.{js,ts}": "eslint --cache --fix"
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "all": true,
+    "check-coverage": true,
+    "include": [
+      "src/**"
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  }
+}

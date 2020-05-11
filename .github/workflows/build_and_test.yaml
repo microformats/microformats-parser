@@ -1,0 +1,49 @@
+name: Build and test
+
+on: [push]
+
+env:
+  TZ: Europe/London
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn
+      - name: Lint code
+        run: yarn lint
+      - name: Run prettier list
+        run: yarn prettier:list
+      - name: Test code
+        run: yarn test
+      - name: Build package
+        run: yarn build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
+  test_dist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [build_and_test]
+    strategy:
+      matrix:
+        node: [10, 12, 14]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Install dependencies
+        run: yarn
+      - name: Download build artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: dist
+      - name: Test package
+        run: yarn test:package

@@ -1,0 +1,12 @@
+.github
+.nyc_output
+node_modules
+src
+test
+.eslintcache
+.eslintrc.js
+.gitignore
+.npmignore
+.nvmrc
+tsconfig.json
+yarn.lock
