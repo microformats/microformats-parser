@@ -23,9 +23,9 @@
   },
   "files": [
     "/dist",
-    "README.md",
-    "LICENSE",
-    "CONTRIBUTING.md"
+    "/README.md",
+    "/LICENSE",
+    "/CONTRIBUTING.md"
   ],
   "dependencies": {
     "parse5": "^6.0.0"
