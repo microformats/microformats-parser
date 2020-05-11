@@ -2,6 +2,7 @@
 
 - [Ways to contribute](#ways-to-contribute)
 - [Developer environment](#developer-environment)
+- [Node support](#node-support)
 - [Developer tools](#developer-tools)
 - [Microformats specifications](#microformats-specifications)
 - [License](#license)
@@ -18,6 +19,10 @@ Anyone can contribute to this project in one of many ways, for example:
 ## Developer environment
 
 This project is developed using the latest LTS version of node and yarn. If you use `nvm`, you can run `nvm use` in the root of this project to switch to the correct version of node.
+
+## Node support
+
+We support all versions that are currently supported on the [node LTS schedule](https://nodejs.org/en/about/releases/).
 
 ## Developer tools
 
