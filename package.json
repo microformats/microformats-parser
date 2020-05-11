@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "demo": "parcel serve demo/index.html",
-    "demo:build": "parcel build demo/index.html --out-dir public",
+    "demo:build": "parcel build demo/index.html --out-dir public --public-url ./",
     "build": "tsc",
     "lint": "eslint --cache './**/*.{ts,js}'",
     "prettier:list": "prettier '**/*.{ts,json,md}' --list-different",
