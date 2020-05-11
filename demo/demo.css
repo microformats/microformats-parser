@@ -1,0 +1,141 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+p,
+ul,
+li,
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+a {
+  color: #177e89;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2b3238;
+}
+
+nav {
+  background: #2b3238;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 0.5rem;
+}
+
+nav a {
+  color: #fff;
+}
+
+nav a:hover {
+  color: #177e89;
+}
+
+header {
+  background: #e9ecef;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  margin-bottom: 2rem;
+}
+
+footer {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.description {
+  margin-bottom: 2rem;
+}
+
+.container {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.documentation,
+button[type="submit"] {
+  background: #08605f;
+  color: #fff;
+  display: inline-block;
+  border-radius: 0.25rem;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+.submit {
+  text-align: center;
+}
+
+.documentation {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+}
+
+.documentation:hover,
+button[type="submit"]:hover {
+  background: #2b3238;
+  color: #fff;
+  cursor: pointer;
+}
+
+#result {
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+  min-height: 10rem;
+  overflow: scroll;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}
+
+form label {
+  display: block;
+  padding: 1rem 0;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  display: block;
+  border: 1px solid #177e89;
+  background: #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+form textarea {
+  min-height: 10rem;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.error {
+  border: 1px solid #df3b57;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: #df3b57;
+  margin: 2rem 0;
+}
+
+.hide {
+  display: none;
+}
