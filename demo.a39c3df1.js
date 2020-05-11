@@ -115,4 +115,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./parser":"hs36","./validator":"adv6"}],"lgAh":[function(require,module,exports) {
 var e=require("../dist"),r=e.mf2,t=function(e){var r=JSON.stringify(e,null,2).replace(/</g,"&lt;").replace(/>/g,"&gt;");document.getElementById("result").innerHTML=r},n=function(e){var r=document.getElementById("error");r.innerHTML="<b>Error</b>: ".concat(e),r.classList.remove("hide")},a=function(e,a){var l=a.baseUrl;document.getElementById("error").classList.add("hide");try{var c=r(e,{baseUrl:l});t(c)}catch(u){n(u.message)}return!1};window.parseHtml=function(){var e=document.getElementById("html").value,r=document.getElementById("base-url").value;return a(e,{baseUrl:r})};
 },{"../dist":"Bzn5"}]},{},["lgAh"], null)
-//# sourceMappingURL=/demo.a39c3df1.js.map
+//# sourceMappingURL=demo.a39c3df1.js.map
