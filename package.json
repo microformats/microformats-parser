@@ -1,6 +1,6 @@
 {
   "name": "microformats-parser",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "repository": "https://github.com/aimee-gm/microformats-parser.git",
   "author": "Aimee Gamble-Milner (https://github.com/aimee-gm)",
