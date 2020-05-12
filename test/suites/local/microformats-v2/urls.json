@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "url": [
+          {
+            "properties": {
+              "name": ["microformats"]
+            },
+            "type": ["h-card"],
+            "value": "microformats"
+          }
+        ]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "name": [""],
+        "url": ["http://example.com/"]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "name": ["A link"],
+        "url": ["http://example.com/"]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}

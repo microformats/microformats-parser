@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "name": ["7pm"],
+        "end": ["19:00"]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "name": ["23:24 on 2020-03-20"],
+        "published": ["2020-03-20 23:24-0700"],
+        "updated": ["2020-03-20 23:24-0700"]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}
