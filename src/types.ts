@@ -65,6 +65,7 @@ export type RelUrls = Record<
     title?: string;
     media?: string;
     hreflang?: string;
+    type?: string;
   }
 >;
 
