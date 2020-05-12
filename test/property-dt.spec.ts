@@ -25,4 +25,26 @@ describe("specification // dt-property", () => {
       );
     });
   });
+
+  it("should reorder datetime elements in the value-class-pattern matcher", () => {
+    const input = `<div class="h-entry"><span class="dt-published published dt-updated updated"><time class="value" datetime="23:24-0700">23:24</time> on <time class="value">2020-03-20</time></span></div>`;
+    const expected = {
+      items: [
+        {
+          type: ["h-entry"],
+          properties: {
+            name: ["23:24 on 2020-03-20"],
+            published: ["2020-03-20 23:24-0700"],
+            updated: ["2020-03-20 23:24-0700"],
+          },
+        },
+      ],
+      rels: {},
+      "rel-urls": {},
+    };
+
+    expect(mf2(input, { baseUrl: "http://example.com" })).to.deep.equal(
+      expected
+    );
+  });
 });
