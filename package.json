@@ -1,6 +1,6 @@
 {
   "name": "microformats-parser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A JavaScript microformats v2 parser",
   "main": "dist/index.js",
   "repository": "https://github.com/aimee-gm/microformats-parser.git",
