@@ -17,6 +17,7 @@ export const parseRel = (
   const title = getAttributeValue(child, "title");
   const media = getAttributeValue(child, "media");
   const hreflang = getAttributeValue(child, "hreflang");
+  const type = getAttributeValue(child, "type");
 
   /* istanbul ignore if */
   if (!rel || !href) {
@@ -52,6 +53,10 @@ export const parseRel = (
 
     if (hreflang && !relUrls[href].hreflang) {
       relUrls[href].hreflang = hreflang;
+    }
+
+    if (type && !relUrls[href].type) {
+      relUrls[href].type = type;
     }
   });
 };

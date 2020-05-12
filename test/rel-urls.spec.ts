@@ -25,4 +25,25 @@ describe("specification // rel-urls", () => {
       );
     });
   });
+
+  it("should report the rel type attribute", () => {
+    const input = `<div><a rel="me" href="http://example.com" type="text/html">My name</a></div>`;
+    const expected = {
+      rels: {
+        me: ["http://example.com"],
+      },
+      "rel-urls": {
+        "http://example.com": {
+          rels: ["me"],
+          text: "My name",
+          type: "text/html",
+        },
+      },
+      items: [],
+    };
+
+    expect(mf2(input, { baseUrl: "http://example.com" })).to.deep.equal(
+      expected
+    );
+  });
 });
