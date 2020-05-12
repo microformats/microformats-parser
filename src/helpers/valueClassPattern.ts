@@ -19,8 +19,13 @@ const valueTitle = (node: ParentNode): string | undefined => {
   return;
 };
 
-const handleDate = (dateString: string): string | undefined =>
-  dateString
+const handleDate = (dateStrings: string[]): string | undefined =>
+  dateStrings
+    .sort((a) =>
+      // Sort the date elements to move date components to the start
+      a.match(/^[0-9]{4}/) ? -1 : 1
+    )
+    .join(" ")
     .trim()
     .replace(
       // remove ":" from timezones
@@ -57,11 +62,9 @@ export const valueClassPattern = (
   }
 
   if (datetime) {
-    const date = values
-      .map(
-        (node) => datetimeProp(node) ?? valueTitle(node) ?? textContent(node)
-      )
-      .join(" ");
+    const date = values.map(
+      (node) => datetimeProp(node) ?? valueTitle(node) ?? textContent(node)
+    );
     return handleDate(date);
   }
 
