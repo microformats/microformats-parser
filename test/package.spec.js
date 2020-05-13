@@ -1,13 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { expect } = require("chai");
+const path = require("path");
 
 const { mf2 } = require("../dist");
 const loadScenarios = require("./utils/loadScenarios");
 
-const v1 = loadScenarios("microformats-v1");
-const v2 = loadScenarios("microformats-v2");
-const mixed = loadScenarios("microformats-mixed");
+const scenarioDir = path.resolve(
+  __dirname,
+  `../node_modules/microformat-tests/tests`
+);
+
+const v1 = loadScenarios(scenarioDir, "microformats-v1");
+const v2 = loadScenarios(scenarioDir, "microformats-v2");
+const mixed = loadScenarios(scenarioDir, "microformats-mixed");
 
 const options = {
   baseUrl: "http://example.com",

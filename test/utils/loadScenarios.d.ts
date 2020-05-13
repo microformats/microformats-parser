@@ -4,6 +4,6 @@ interface Scenario {
   expected: string;
 }
 
-declare function loadScenarios(dir: string): Scenario[];
+declare function loadScenarios(baseDir: string, dir: string): Scenario[];
 
 export = loadScenarios;

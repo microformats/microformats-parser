@@ -36,6 +36,7 @@ We use a few developer tools to help maintain code quality.
   - Mocha tests for the built package is ran against all supported LTS versions of node.
   - Tests require 100% code coverage to pass.
   - Tests are not required to pass to be able to commit.
+  - More information on adding new tests is available in the [test suite README](./test/suites/README.md).
 
 ## Microformats specifications
 
