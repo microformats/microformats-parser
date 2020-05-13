@@ -2,6 +2,9 @@ import { BackcompatRoot } from "./backcompat";
 
 export interface ParserOptions {
   baseUrl: string;
+  experimental?: {
+    lang?: boolean;
+  };
 }
 
 export interface ParsingOptions extends ParserOptions {

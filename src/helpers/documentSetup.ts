@@ -9,6 +9,9 @@ interface DocumentSetupResult {
   rels: Rels;
   relUrls: RelUrls;
   baseUrl: string;
+  experimental?: {
+    lang?: boolean;
+  };
 }
 
 export const findBase = (node: ParentNode): string | undefined => {
@@ -91,6 +94,7 @@ export const documentSetup = (
     rels: {},
     relUrls: {},
     baseUrl: findBase(node) ?? options.baseUrl,
+    experimental: options.experimental,
   };
 
   handleNode(node, result);

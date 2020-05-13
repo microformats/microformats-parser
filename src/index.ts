@@ -4,6 +4,9 @@ import { ParsedDocument } from "./types";
 
 export interface Options {
   baseUrl: string;
+  experimental?: {
+    lang?: boolean;
+  };
 }
 
 export const mf2 = (html: string, options: Options): ParsedDocument => {
