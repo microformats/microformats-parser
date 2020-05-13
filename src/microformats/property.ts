@@ -102,15 +102,17 @@ export const parseProperty = (
   getPropertyClassNames(child, options)
     .map((className): ParsedProperty | undefined => {
       const type = getType(className);
+      const key = className.replace(propertyRegexp, "");
+      const value =
+        ["u", "p", "e"].includes(type) && isMicroformatRoot(child)
+          ? parseMicroformat(child, {
+              ...options,
+              valueType: type,
+              valueKey: key,
+            })
+          : handleProperty(child, type, options);
 
-      return {
-        type,
-        key: className.replace(propertyRegexp, ""),
-        value:
-          ["u", "p"].includes(type) && isMicroformatRoot(child)
-            ? parseMicroformat(child, { ...options, valueType: type })
-            : handleProperty(child, type, options),
-      };
+      return { type, key, value };
     })
     .filter((p): p is ParsedProperty => Boolean(p));
 

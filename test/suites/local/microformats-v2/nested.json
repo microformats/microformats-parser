@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "content": [
+          {
+            "type": ["h-card"],
+            "properties": {
+              "name": ["Jane Doe"]
+            },
+            "html": "<p class=\"p-name\">Jane Doe</p>",
+            "value": "Jane Doe"
+          }
+        ]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "photo": [
+          {
+            "type": ["h-card"],
+            "properties": {
+              "name": ["My name"],
+              "photo": [
+                { "alt": "My name", "value": "http://example.com/photo.jpg" }
+              ]
+            },
+            "value": "http://example.com/photo.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "photo": [
+          {
+            "type": ["h-card"],
+            "properties": {
+              "name": [""],
+              "photo": ["http://example.com/photo.jpg"]
+            },
+            "value": "http://example.com/photo.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "photo": [
+          {
+            "type": ["h-card"],
+            "properties": {
+              "name": [""]
+            },
+            "value": ""
+          }
+        ]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}
