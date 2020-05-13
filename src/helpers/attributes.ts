@@ -3,7 +3,13 @@ import { ParentNode, Attribute } from "../types";
 export const getAttribute = (
   node: ParentNode,
   name: string
-): Attribute | undefined => node.attrs.find((attr) => attr.name === name);
+): Attribute | undefined => {
+  if (node && node.attrs) {
+    return node.attrs.find((attr) => attr.name === name);
+  }
+
+  return undefined;
+};
 
 export const getAttributeValue = (
   node: ParentNode,
