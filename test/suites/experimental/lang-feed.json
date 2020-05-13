@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "type": ["h-feed"],
+      "lang": "en",
+      "properties": {
+        "name": ["Test Feed"]
+      },
+      "children": [
+        {
+          "type": ["h-entry"],
+          "lang": "en",
+          "properties": {
+            "name": ["This test is in English."]
+          }
+        },
+        {
+          "type": ["h-entry"],
+          "lang": "es",
+          "properties": {
+            "name": ["Esta prueba está en español."]
+          }
+        },
+        {
+          "type": ["h-entry"],
+          "lang": "fr",
+          "properties": {
+            "name": ["Ce test est en français."]
+          }
+        }
+      ]
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}
