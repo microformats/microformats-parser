@@ -18,9 +18,11 @@ import {
   BackcompatRoot,
 } from "../backcompat";
 import { applyIncludesToRoot } from "../helpers/includes";
+import { parseE } from "./property";
 
 interface ParseMicroformatOptions extends ParsingOptions {
   valueType?: PropertyType;
+  valueKey?: string;
 }
 
 const getMicroformatType = (node: ParentNode): string[] => {
@@ -71,6 +73,28 @@ export const parseMicroformat = (
   if (options.valueType === "u") {
     item.value =
       (item.properties.url && item.properties.url[0]) ?? textContent(node);
+  }
+
+  /**
+   * There is some ambigutity on how this should be handled.
+   * At the moment, we're following other parsers and keeping `value` a string
+   * and adding `html` as an undocumented property.
+   */
+  if (options.valueType === "e") {
+    return { ...parseE(node), ...item };
+  }
+
+  if (options.valueKey && !item.value) {
+    /**
+     * There's a lot of complexity and ambiguity on how this case should be handled.
+     * We should fall back to the `value` property of the nested MicroformatRoot or Image
+     */
+    const value =
+      item.properties[options.valueKey] && item.properties[options.valueKey][0];
+
+    if (value) {
+      item.value = typeof value === "string" ? value : value.value;
+    }
   }
 
   return item;
