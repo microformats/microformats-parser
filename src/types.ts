@@ -23,6 +23,7 @@ export interface Attribute {
 
 export interface ParentNode {
   attrs: Attribute[];
+  parentNode: ParentNode;
   childNodes: (ParentNode | TextNode)[];
   tagName: string;
 }
