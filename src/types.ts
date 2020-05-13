@@ -41,6 +41,7 @@ export type MicroformatProperties = Record<string, MicroformatProperty[]>;
 
 export interface MicroformatRoot {
   id?: string;
+  lang?: string;
   type?: string[];
   properties: MicroformatProperties;
   children?: MicroformatRoot[];
