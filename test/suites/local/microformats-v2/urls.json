@@ -24,7 +24,7 @@
     {
       "type": ["h-entry"],
       "properties": {
-        "name": ["A link"],
+        "name": [""],
         "url": ["http://example.com/"]
       }
     }
