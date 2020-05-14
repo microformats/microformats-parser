@@ -2,11 +2,14 @@
 <html>
   <head>
     <title>{{ name }} demo</title>
-    <link rel="stylesheet" href="./demo.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="{{ description }}">
-    <meta name="keywords" content="{{ keywords }}">
+    <link rel="stylesheet" href="./demo.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="{{ keywords }}" />
   </head>
   <body>
     <nav>
@@ -36,7 +39,7 @@
       <form onsubmit="return parseHtml()">
         <label>
           <span>Base URL</span>
-          <input type="text" name="base-url" id="base-url"/>
+          <input type="text" name="base-url" id="base-url" />
         </label>
 
         <label>
@@ -58,7 +61,10 @@
       <div class="error">
         <h1>JavaScript is disabled</h1>
         <p>It looks like you have JavaScript disabled.</p>
-        <p>You need JavaScript to be enabled to view the demo; it's a JavaScript component!</p>
+        <p>
+          You need JavaScript to be enabled to view the demo; it's a JavaScript
+          component!
+        </p>
       </div>
     </noscript>
     <footer>
