@@ -20,9 +20,6 @@ const experimental = loadScenarios(suitesDir, "experimental");
 
 const options = {
   baseUrl: "http://example.com",
-  experimental: {
-    lang: true,
-  },
 };
 
 describe("mf2() // scenarios", () => {
@@ -66,7 +63,10 @@ describe("mf2() // local scenarios", () => {
 describe("mf2() // experimental scenarios", () => {
   experimental.forEach(({ name, input, expected }) => {
     it(`should correctly parse ${name}`, () => {
-      const result = mf2(input, options);
+      const result = mf2(
+        input,
+        Object.assign(options, { experimental: { lang: true } })
+      );
       expect(result).to.deep.equal(expected);
     });
   });
