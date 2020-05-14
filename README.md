@@ -67,11 +67,13 @@ Outputs:
 
 ### mf2()
 
-Use: `mf2(html: string, options: { baseUrl: string })`
+Use: `mf2(html: string, options: { baseUrl: string, experimental: object })`
 
 - `html` (string, required) - the HTML string to be parsed
 - `options` (object, required) - parsing options, with the following properties:
   - `baseUrl` (string, required) - a base URL to resolve relative URLs
+  - `experimental` (object, optional) - experimental (non-standard) options
+    - `lang` (boolean, optional) - whether to enable support for parsing `lang` attributes
 
 Returns the parsed microformats from the HTML string
 

@@ -16,7 +16,7 @@ export const parser = (
 
   const { idRefs, rels, relUrls, baseUrl } = documentSetup(doc, options);
 
-  const parsingOptions = { baseUrl, roots: [], idRefs };
+  const parsingOptions = { ...options, baseUrl, roots: [], idRefs };
 
   return {
     rels,

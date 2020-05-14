@@ -44,6 +44,28 @@ export const validator = (html: unknown, options: unknown): void => {
 
   // verify the url provided is valid
   new URL(baseUrl);
+
+  // eslint-disable-next-line
+  //@ts-ignore
+  const { experimental } = options;
+
+  if (typeof experimental !== "undefined" && typeof experimental !== "object") {
+    throw new TypeError("Microformats parser: experimental is not an object");
+  }
+
+  if (typeof experimental === "object" && Array.isArray(experimental)) {
+    throw new TypeError("Microformats parser: experimental is not an object");
+  }
+
+  if (
+    experimental &&
+    "lang" in experimental &&
+    typeof experimental.lang !== "boolean"
+  ) {
+    throw new TypeError(
+      "Microformats parser: experimental.lang is not a boolean"
+    );
+  }
 };
 
 export const validateParsedHtml = (doc: ParentNode): void => {

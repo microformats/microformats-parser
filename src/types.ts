@@ -8,6 +8,9 @@ import { BackcompatRoot } from "./backcompat";
 
 export interface ParserOptions {
   baseUrl: string;
+  experimental?: {
+    lang?: boolean;
+  };
 }
 
 export interface ParsingOptions extends ParserOptions {
@@ -29,6 +32,7 @@ export type MicroformatProperties = Record<string, MicroformatProperty[]>;
 
 export interface MicroformatRoot {
   id?: string;
+  lang?: string;
   type?: string[];
   properties: MicroformatProperties;
   children?: MicroformatRoot[];
