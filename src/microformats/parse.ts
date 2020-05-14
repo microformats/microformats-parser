@@ -73,7 +73,7 @@ export const parseMicroformat = (
     item.id = id;
   }
 
-  if (lang && options.experimental && options.experimental.lang) {
+  if (lang && options.experimental?.lang) {
     item.lang = lang;
   }
 
