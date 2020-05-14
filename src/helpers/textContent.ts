@@ -1,10 +1,9 @@
 import { MixedNode, ParentNode } from "../types";
 import { getAttributeValue } from "./attributes";
-
-const isParentNode = (node: MixedNode): node is ParentNode =>
-  Boolean(node.hasOwnProperty("tagName") && node.hasOwnProperty("childNodes"));
+import { isParentNode, isTextNode } from "./nodeMatchers";
 
 const walk = (current: string, node: MixedNode): string => {
+  /* istanbul ignore else */
   if (isParentNode(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
@@ -20,12 +19,16 @@ const walk = (current: string, node: MixedNode): string => {
     }
 
     return node.childNodes.reduce<string>(walk, current);
-  } else {
+  } else if (isTextNode(node)) {
     return `${current}${node.value}`;
   }
+
+  /* istanbul ignore next */
+  return current;
 };
 
 const impliedWalk = (current: string, node: MixedNode): string => {
+  /* istanbul ignore else */
   if (isParentNode(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
@@ -37,9 +40,12 @@ const impliedWalk = (current: string, node: MixedNode): string => {
     }
 
     return node.childNodes.reduce<string>(impliedWalk, current);
-  } else {
+  } else if (isTextNode(node)) {
     return `${current}${node.value}`;
   }
+
+  /* istanbul ignore next */
+  return current;
 };
 
 export const textContent = (node: ParentNode): string =>

@@ -1,3 +1,5 @@
+import { DefaultTreeTextNode } from "parse5";
+
 import { MixedNode, ParentNode } from "../types";
 import {
   getAttribute,
@@ -18,6 +20,9 @@ const propClassRegex = classRegex("(p|e|u|dt)");
 
 export const isParentNode = (node: MixedNode): node is ParentNode =>
   Boolean(node.hasOwnProperty("tagName") && node.hasOwnProperty("childNodes"));
+
+export const isTextNode = (node: MixedNode): node is DefaultTreeTextNode =>
+  Boolean(node.hasOwnProperty("value"));
 
 export const isMicroformatV2Root = (node: ParentNode): boolean =>
   getClassNames(node).some((cl) => cl.match(rootClassRegex));

@@ -1,4 +1,6 @@
-import { ParentNode, Attribute } from "../types";
+import { Attribute } from "parse5";
+
+import { ParentNode } from "../types";
 
 export const getAttribute = (
   node: ParentNode,
