@@ -11,6 +11,7 @@ import { findChildren } from "../helpers/findChildren";
 import {
   isMicroformatChild,
   isMicroformatV2Root,
+  isParentNode,
 } from "../helpers/nodeMatchers";
 import {
   convertV1RootClassNames,
@@ -41,7 +42,7 @@ const getLanguage = (node: ParentNode): string | undefined => {
 
   if (lang) {
     return lang;
-  } else if (node.parentNode) {
+  } else if (node.parentNode && isParentNode(node.parentNode)) {
     return getLanguage(node.parentNode);
   }
 
