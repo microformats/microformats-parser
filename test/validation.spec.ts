@@ -106,5 +106,30 @@ describe("validation", () => {
         );
       });
     });
+
+    describe("experimental", () => {
+      it("should throw an error if it is not an object", () => {
+        expect(() =>
+          mf2(html, { baseUrl: "http://example.com", experimental: "" })
+        ).to.throw("Microformats parser: experimental is not an object");
+      });
+
+      it("should throw an error if it is not an object", () => {
+        expect(() =>
+          mf2(html, { baseUrl: "http://example.com", experimental: [] })
+        ).to.throw("Microformats parser: experimental is not an object");
+      });
+
+      describe("lang", () => {
+        it("should throw an error if it is not a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { lang: "true" },
+            })
+          ).to.throw("Microformats parser: experimental.lang is not a boolean");
+        });
+      });
+    });
   });
 });
