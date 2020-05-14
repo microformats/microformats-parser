@@ -14,12 +14,9 @@ export const parser = (
   const doc = parse(html) as ParentNode;
   validateParsedHtml(doc);
 
-  const { idRefs, rels, relUrls, baseUrl, experimental } = documentSetup(
-    doc,
-    options
-  );
+  const { idRefs, rels, relUrls, baseUrl } = documentSetup(doc, options);
 
-  const parsingOptions = { baseUrl, experimental, roots: [], idRefs };
+  const parsingOptions = { ...options, baseUrl, roots: [], idRefs };
 
   return {
     rels,
