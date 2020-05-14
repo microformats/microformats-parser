@@ -108,6 +108,12 @@ describe("validation", () => {
     });
 
     describe("experimental", () => {
+      it("should not throw an error if it is an empty object", () => {
+        expect(() =>
+          mf2(html, { baseUrl: "http://example.com", experimental: {} })
+        ).to.not.throw();
+      });
+
       it("should throw an error if it is not an object", () => {
         expect(() =>
           mf2(html, { baseUrl: "http://example.com", experimental: "" })
