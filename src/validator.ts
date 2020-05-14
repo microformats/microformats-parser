@@ -1,70 +1,72 @@
 import { ParentNode } from "./types";
 import { isParentNode } from "./helpers/nodeMatchers";
 
-export const validator = (html: unknown, options: unknown): void => {
-  if (typeof html === "undefined") {
-    throw new TypeError("Microformats parser: HTML not provided");
+const assertIsString = (str: unknown, name: string): string => {
+  if (typeof str === "undefined") {
+    throw new TypeError(`Microformats parser: ${name} not provided`);
   }
 
-  if (typeof html !== "string") {
-    throw new TypeError("Microformats parser: HTML is not a string");
+  if (typeof str !== "string") {
+    throw new TypeError(`Microformats parser: ${name} is not a string`);
   }
 
-  if (html === "") {
-    throw new TypeError("Microformats parser: HTML cannot be empty");
+  if (str === "") {
+    throw new TypeError(`Microformats parser: ${name} cannot be empty`);
   }
 
-  if (typeof options === "undefined") {
-    throw new TypeError("Microformats parser: options is not provided");
+  return str;
+};
+
+const assertIsBoolean = (bool: unknown, name: string): boolean => {
+  if (typeof bool !== "boolean") {
+    throw new TypeError(`Microformats parser: ${name} is not a boolean`);
   }
 
-  if (typeof options !== "object") {
-    throw new TypeError("Microformats parser: options is not an object");
+  return bool;
+};
+
+const assertIsObject = (
+  obj: unknown,
+  name: string
+): Record<string, unknown> => {
+  if (typeof obj === "undefined") {
+    throw new TypeError(`Microformats parser: ${name} is not provided`);
   }
 
-  if (options === null) {
-    throw new TypeError("Microformats parser: options cannot be null");
+  if (typeof obj !== "object") {
+    throw new TypeError(`Microformats parser: ${name} is not an object`);
   }
 
-  // eslint-disable-next-line
-  //@ts-ignore
-  const { baseUrl } = options;
-
-  if (typeof baseUrl === "undefined") {
-    throw new TypeError("Microformats parser: baseUrl not provided");
+  if (Array.isArray(obj)) {
+    throw new TypeError(`Microformats parser: ${name} is not an object`);
   }
 
-  if (typeof baseUrl !== "string") {
-    throw new TypeError("Microformats parser: baseUrl is not a string");
+  if (obj === null) {
+    throw new TypeError(`Microformats parser: ${name} cannot be null`);
   }
 
-  if (baseUrl === "") {
-    throw new TypeError("Microformats parser: baseUrl cannot be empty");
-  }
+  return obj as Record<string, unknown>;
+};
+
+export const validator = (
+  unknownHtml: unknown,
+  unknownOptions: unknown
+): void => {
+  assertIsString(unknownHtml, "HTML");
+
+  const options = assertIsObject(unknownOptions, "options");
+
+  const baseUrl = assertIsString(options.baseUrl, "baseUrl");
 
   // verify the url provided is valid
   new URL(baseUrl);
 
-  // eslint-disable-next-line
-  //@ts-ignore
-  const { experimental } = options;
+  if ("experimental" in options) {
+    const experimental = assertIsObject(options.experimental, "experimental");
 
-  if (typeof experimental !== "undefined" && typeof experimental !== "object") {
-    throw new TypeError("Microformats parser: experimental is not an object");
-  }
-
-  if (typeof experimental === "object" && Array.isArray(experimental)) {
-    throw new TypeError("Microformats parser: experimental is not an object");
-  }
-
-  if (
-    experimental &&
-    "lang" in experimental &&
-    typeof experimental.lang !== "boolean"
-  ) {
-    throw new TypeError(
-      "Microformats parser: experimental.lang is not a boolean"
-    );
+    if ("lang" in experimental) {
+      assertIsBoolean(experimental.lang, "experimental.lang");
+    }
   }
 };
 

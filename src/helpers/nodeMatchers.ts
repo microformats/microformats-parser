@@ -19,10 +19,10 @@ const rootClassRegex = classRegex("h");
 const propClassRegex = classRegex("(p|e|u|dt)");
 
 export const isParentNode = (node: MixedNode): node is ParentNode =>
-  Boolean(node.hasOwnProperty("tagName") && node.hasOwnProperty("childNodes"));
+  "tagName" in node && "childNodes" in node;
 
 export const isTextNode = (node: MixedNode): node is DefaultTreeTextNode =>
-  Boolean(node.hasOwnProperty("value"));
+  "value" in node;
 
 export const isMicroformatV2Root = (node: ParentNode): boolean =>
   getClassNames(node).some((cl) => cl.match(rootClassRegex));
