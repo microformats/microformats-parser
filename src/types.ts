@@ -1,3 +1,9 @@
+import {
+  DefaultTreeElement,
+  DefaultTreeNode,
+  DefaultTreeTextNode,
+} from "parse5";
+
 import { BackcompatRoot } from "./backcompat";
 
 export interface ParserOptions {
@@ -16,22 +22,8 @@ export interface ParsedDocument {
   items: MicroformatRoot[];
 }
 
-export interface Attribute {
-  name: string;
-  value: string;
-}
-
-export interface ParentNode {
-  attrs: Attribute[];
-  childNodes: (ParentNode | TextNode)[];
-  tagName: string;
-}
-
-export interface TextNode {
-  value: string;
-}
-
-export type MixedNode = ParentNode | TextNode;
+export type ParentNode = DefaultTreeElement;
+export type MixedNode = ParentNode | DefaultTreeTextNode | DefaultTreeNode;
 
 export type MicroformatProperties = Record<string, MicroformatProperty[]>;
 
