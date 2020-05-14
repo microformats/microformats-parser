@@ -14,9 +14,12 @@ export interface ParserOptions {
 }
 
 export interface ParsingOptions extends ParserOptions {
-  roots: BackcompatRoot[];
   implyProperties?: boolean;
   idRefs: IdRefs;
+  inherited: {
+    roots: BackcompatRoot[];
+    lang?: string;
+  };
 }
 
 export interface ParsedDocument {

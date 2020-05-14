@@ -35,7 +35,7 @@ const getPropertyNodes = (
   node: ParentNode,
   options: ParsingOptions
 ): ParentNode[] =>
-  !options.roots.length
+  !options.inherited.roots.length
     ? findChildren(node, isMicroformatV2Property, options)
     : findChildren(node, isMicroformatV1Property, options);
 
@@ -53,7 +53,7 @@ export const microformatProperties = (
     .map(postParseNode)
     .forEach((prop) => addProperty(properties, prop));
 
-  if (options.implyProperties && !options.roots.length) {
+  if (options.implyProperties && !options.inherited.roots.length) {
     if (typeof properties.name === "undefined") {
       addProperty(properties, {
         key: "name",

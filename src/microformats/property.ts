@@ -66,10 +66,10 @@ export const parseE = (node: ParentNode): Html => ({
 
 const getPropertyClassNames = (
   node: ParentNode,
-  { roots }: ParsingOptions
+  { inherited: parent }: ParsingOptions
 ): string[] => {
-  if (roots.length) {
-    return convertV1PropertyClassNames(node, roots);
+  if (parent.roots.length) {
+    return convertV1PropertyClassNames(node, parent.roots);
   }
 
   return getClassNames(node, /^(p|u|e|dt)-/);
