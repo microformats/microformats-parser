@@ -1,8 +1,4 @@
-import {
-  DefaultTreeElement,
-  DefaultTreeNode,
-  DefaultTreeTextNode,
-} from "parse5";
+import { DefaultTreeElement } from "parse5";
 
 import { BackcompatRoot } from "./backcompat";
 
@@ -27,9 +23,6 @@ export interface ParsedDocument {
   "rel-urls": RelUrls;
   items: MicroformatRoot[];
 }
-
-export type ParentNode = DefaultTreeElement;
-export type MixedNode = ParentNode | DefaultTreeTextNode | DefaultTreeNode;
 
 export type MicroformatProperties = Record<string, MicroformatProperty[]>;
 
@@ -69,7 +62,7 @@ export type RelUrls = Record<
   }
 >;
 
-export type IdRefs = Record<string, ParentNode>;
+export type IdRefs = Record<string, DefaultTreeElement>;
 
 export type PropertyType = "p" | "u" | "e" | "dt";
 

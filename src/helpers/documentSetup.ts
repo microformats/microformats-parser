@@ -1,4 +1,6 @@
-import { ParserOptions, ParentNode, IdRefs, Rels, RelUrls } from "../types";
+import { DefaultTreeElement } from "parse5";
+
+import { ParserOptions, IdRefs, Rels, RelUrls } from "../types";
 import { getAttribute, getAttributeValue } from "./attributes";
 import { isLocalLink, applyBaseUrl } from "./url";
 import { isParentNode, isRel, isBase } from "./nodeMatchers";
@@ -12,7 +14,7 @@ interface DocumentSetupResult {
   lang?: string;
 }
 
-export const findBase = (node: ParentNode): string | undefined => {
+export const findBase = (node: DefaultTreeElement): string | undefined => {
   for (const child of node.childNodes) {
     if (!isParentNode(child)) {
       continue;
@@ -34,7 +36,10 @@ export const findBase = (node: ParentNode): string | undefined => {
 
 // this is mutating the object, and will mutate it for everything else :-/
 
-const handleNode = (node: ParentNode, result: DocumentSetupResult): void => {
+const handleNode = (
+  node: DefaultTreeElement,
+  result: DocumentSetupResult
+): void => {
   for (const i in node.childNodes) {
     const child = node.childNodes[i];
 
@@ -101,7 +106,7 @@ const handleNode = (node: ParentNode, result: DocumentSetupResult): void => {
 };
 
 export const documentSetup = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   options: ParserOptions
 ): DocumentSetupResult => {
   const result = {

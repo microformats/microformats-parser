@@ -1,4 +1,5 @@
-import { ParentNode } from "./types";
+import { DefaultTreeElement } from "parse5";
+
 import { isParentNode } from "./helpers/nodeMatchers";
 
 const assertIsString = (str: unknown, name: string): string => {
@@ -91,11 +92,11 @@ export const validator = (
   }
 };
 
-export const validateParsedHtml = (doc: ParentNode): void => {
+export const validateParsedHtml = (doc: DefaultTreeElement): void => {
   // <html> and <body> are always defined (based on tests)
   // Provide error handling in the event they are ever not defined
   const html = doc.childNodes.find(
-    (child): child is ParentNode =>
+    (child): child is DefaultTreeElement =>
       isParentNode(child) && child.tagName === "html"
   );
 
@@ -105,7 +106,7 @@ export const validateParsedHtml = (doc: ParentNode): void => {
   }
 
   const body = html.childNodes.find(
-    (child): child is ParentNode =>
+    (child): child is DefaultTreeElement =>
       isParentNode(child) && child.tagName === "body"
   );
 

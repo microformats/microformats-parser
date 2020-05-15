@@ -1,6 +1,7 @@
+import { DefaultTreeElement } from "parse5";
+
 import {
   ParsedProperty,
-  ParentNode,
   MicroformatProperties,
   ParsingOptions,
 } from "../types";
@@ -32,15 +33,15 @@ const addProperty = (
 };
 
 const getPropertyNodes = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   options: ParsingOptions
-): ParentNode[] =>
+): DefaultTreeElement[] =>
   !options.inherited.roots.length
     ? findChildren(node, isMicroformatV2Property, options)
     : findChildren(node, isMicroformatV1Property, options);
 
 export const microformatProperties = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   options: ParsingOptions
 ): MicroformatProperties => {
   const properties: MicroformatProperties = {};

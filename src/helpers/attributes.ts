@@ -1,19 +1,17 @@
-import { Attribute } from "parse5";
-
-import { ParentNode } from "../types";
+import { Attribute, DefaultTreeElement } from "parse5";
 
 export const getAttribute = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   name: string
 ): Attribute | undefined => node.attrs.find((attr) => attr.name === name);
 
 export const getAttributeValue = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   name: string
 ): string | undefined => getAttribute(node, name)?.value;
 
 export const getClassNames = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   matcher?: RegExp | string
 ): string[] => {
   const classNames = getAttributeValue(node, "class")?.split(" ") || [];
@@ -28,30 +26,32 @@ export const getClassNames = (
 };
 
 export const getClassNameIntersect = <T extends string>(
-  node: ParentNode,
+  node: DefaultTreeElement,
   toCompare: T[]
 ): T[] =>
   getClassNames(node).filter((name: string): name is T =>
     toCompare.includes(name as T)
   );
 
-export const hasClassName = (node: ParentNode, className: string): boolean =>
-  getClassNames(node).some((name) => name === className);
+export const hasClassName = (
+  node: DefaultTreeElement,
+  className: string
+): boolean => getClassNames(node).some((name) => name === className);
 
 export const hasClassNameIntersect = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   toCompare: string[]
 ): boolean => getClassNames(node).some((name) => toCompare.includes(name));
 
 export const getAttributeIfTag = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   tagNames: string[],
   attr: string
 ): string | undefined =>
   tagNames.includes(node.tagName) ? getAttributeValue(node, attr) : undefined;
 
 export const hasRelIntersect = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   toCompare: string[]
 ): boolean =>
   Boolean(
@@ -61,7 +61,7 @@ export const hasRelIntersect = (
   );
 
 export const getRelIntersect = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   toCompare: string[]
 ): string[] =>
   getAttributeValue(node, "rel")

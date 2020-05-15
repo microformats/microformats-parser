@@ -1,3 +1,5 @@
+import { DefaultTreeElement } from "parse5";
+
 import { adr } from "./adr";
 import { geo } from "./geo";
 import { hentry } from "./hentry";
@@ -14,7 +16,6 @@ import {
   getAttributeValue,
   getClassNames,
 } from "../helpers/attributes";
-import { ParentNode } from "../types";
 import { hreviewAggregate } from "./hreview-aggregate";
 import { hresume } from "./hresume";
 import { vevent } from "./vevent";
@@ -41,10 +42,10 @@ export type BackcompatRoot = keyof typeof backcompat;
 export const backcompatRoots = Object.keys(backcompat) as BackcompatRoot[];
 
 export const getBackcompatRootClassNames = (
-  node: ParentNode
+  node: DefaultTreeElement
 ): BackcompatRoot[] => getClassNameIntersect(node, backcompatRoots);
 
-export const convertV1RootClassNames = (node: ParentNode): string[] => {
+export const convertV1RootClassNames = (node: DefaultTreeElement): string[] => {
   const classNames = getBackcompatRootClassNames(node)
     .map((cl) => backcompat[cl].type)
     .reduce(flatten);
@@ -55,7 +56,7 @@ export const convertV1RootClassNames = (node: ParentNode): string[] => {
 };
 
 export const hasBackcompatMicroformatProperty = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   roots: BackcompatRoot[]
 ): boolean =>
   roots.some((root) => {
@@ -67,7 +68,7 @@ export const hasBackcompatMicroformatProperty = (
   });
 
 export const convertV1PropertyClassNames = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   roots: BackcompatRoot[]
 ): string[] => [
   ...new Set(
@@ -91,7 +92,7 @@ export const convertV1PropertyClassNames = (
   ),
 ];
 
-export const getV1IncludeNames = (node: ParentNode): string[] => {
+export const getV1IncludeNames = (node: DefaultTreeElement): string[] => {
   const itemref = getAttributeValue(node, "itemref");
 
   if (itemref) {
