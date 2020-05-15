@@ -26,7 +26,7 @@ export const parser = (
   return {
     rels,
     "rel-urls": relUrls,
-    items: findChildren(doc, isMicroformatRoot, parsingOptions).map((mf) =>
+    items: findChildren(doc, isMicroformatRoot).map((mf) =>
       parseMicroformat(mf, parsingOptions)
     ),
   };

@@ -2,7 +2,7 @@ import { DefaultTreeElement } from "parse5";
 
 import {
   isMicroformatV2Root,
-  isParentNode,
+  isElement,
   isMicroformatRoot,
 } from "./nodeMatchers";
 import { ParsingOptions } from "../types";
@@ -23,7 +23,7 @@ const applyIncludes = (
 
   node.childNodes.forEach(
     (child) =>
-      isParentNode(child) &&
+      isElement(child) &&
       !isMicroformatRoot(child) &&
       applyIncludes(child, options)
   );

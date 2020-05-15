@@ -1,7 +1,6 @@
 import { DefaultTreeElement } from "parse5";
 
-import { ParsingOptions, IdRefs } from "../types";
-import { isMicroformatRoot, isParentNode } from "./nodeMatchers";
+import { isMicroformatRoot, isElement } from "./nodeMatchers";
 import { BackcompatRoot, getBackcompatRootClassNames } from "../backcompat";
 
 type Matcher =
@@ -11,11 +10,10 @@ type Matcher =
 interface ReducerOptions {
   matcher: Matcher;
   roots: BackcompatRoot[];
-  idRefs: IdRefs;
 }
 
-const getNodeChildren = (node: DefaultTreeElement): DefaultTreeElement[] =>
-  node.childNodes.filter(Boolean).filter(isParentNode);
+const getElementChildren = (node: DefaultTreeElement): DefaultTreeElement[] =>
+  node.childNodes.filter(Boolean).filter(isElement);
 
 const reducer = (
   microformats: DefaultTreeElement[],
@@ -34,27 +32,24 @@ const reducer = (
     return microformats;
   }
 
-  const childMicroformats = getNodeChildren(node).reduce<DefaultTreeElement[]>(
-    (prev, curr) => reducer(prev, curr, options),
-    match ? [match] : []
-  );
+  const childMicroformats = getElementChildren(node).reduce<
+    DefaultTreeElement[]
+  >((prev, curr) => reducer(prev, curr, options), match ? [match] : []);
 
   return [...microformats, ...childMicroformats];
 };
 
 export const findChildren = (
   parent: DefaultTreeElement,
-  matcher: Matcher,
-  options: Pick<ParsingOptions, "idRefs"> = { idRefs: {} }
+  matcher: Matcher
 ): DefaultTreeElement[] => {
   const findOptions = {
-    ...options,
-    roots: isParentNode(parent) ? getBackcompatRootClassNames(parent) : [],
+    roots: isElement(parent) ? getBackcompatRootClassNames(parent) : [],
     stopAtRoot: true,
     matcher,
   };
 
-  return getNodeChildren(parent).reduce<DefaultTreeElement[]>(
+  return getElementChildren(parent).reduce<DefaultTreeElement[]>(
     (prev, curr) => reducer(prev, curr, findOptions),
     []
   );

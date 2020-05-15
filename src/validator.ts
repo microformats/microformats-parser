@@ -1,6 +1,6 @@
 import { DefaultTreeElement } from "parse5";
 
-import { isParentNode } from "./helpers/nodeMatchers";
+import { isElement } from "./helpers/nodeMatchers";
 
 const assertIsString = (str: unknown, name: string): string => {
   if (typeof str === "undefined") {
@@ -97,7 +97,7 @@ export const validateParsedHtml = (doc: DefaultTreeElement): void => {
   // Provide error handling in the event they are ever not defined
   const html = doc.childNodes.find(
     (child): child is DefaultTreeElement =>
-      isParentNode(child) && child.tagName === "html"
+      isElement(child) && child.tagName === "html"
   );
 
   /* istanbul ignore if */
@@ -107,7 +107,7 @@ export const validateParsedHtml = (doc: DefaultTreeElement): void => {
 
   const body = html.childNodes.find(
     (child): child is DefaultTreeElement =>
-      isParentNode(child) && child.tagName === "body"
+      isElement(child) && child.tagName === "body"
   );
 
   /* istanbul ignore if */
@@ -116,7 +116,7 @@ export const validateParsedHtml = (doc: DefaultTreeElement): void => {
   }
 
   // if we have no body children, it's the result of invalid HTML
-  if (!body.childNodes.filter(isParentNode).length) {
+  if (!body.childNodes.filter(isElement).length) {
     throw new Error("Microformats parser: unable to parse HTML");
   }
 };

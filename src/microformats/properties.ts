@@ -37,8 +37,8 @@ const getPropertyNodes = (
   options: ParsingOptions
 ): DefaultTreeElement[] =>
   !options.inherited.roots.length
-    ? findChildren(node, isMicroformatV2Property, options)
-    : findChildren(node, isMicroformatV1Property, options);
+    ? findChildren(node, isMicroformatV2Property)
+    : findChildren(node, isMicroformatV1Property);
 
 export const microformatProperties = (
   node: DefaultTreeElement,

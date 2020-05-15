@@ -1,11 +1,11 @@
 import { DefaultTreeNode, DefaultTreeElement } from "parse5";
 
 import { getAttributeValue } from "./attributes";
-import { isParentNode, isTextNode } from "./nodeMatchers";
+import { isElement, isTextNode } from "./nodeMatchers";
 
 const walk = (current: string, node: DefaultTreeNode): string => {
   /* istanbul ignore else */
-  if (isParentNode(node)) {
+  if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
     }
@@ -30,7 +30,7 @@ const walk = (current: string, node: DefaultTreeNode): string => {
 
 const impliedWalk = (current: string, node: DefaultTreeNode): string => {
   /* istanbul ignore else */
-  if (isParentNode(node)) {
+  if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
     }

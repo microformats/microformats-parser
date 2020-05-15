@@ -21,9 +21,8 @@ const classRegex = (prefix: string): RegExp =>
 const rootClassRegex = classRegex("h");
 const propClassRegex = classRegex("(p|e|u|dt)");
 
-export const isParentNode = (
-  node: DefaultTreeNode
-): node is DefaultTreeElement => "tagName" in node && "childNodes" in node;
+export const isElement = (node: DefaultTreeNode): node is DefaultTreeElement =>
+  "tagName" in node && "childNodes" in node;
 
 export const isTextNode = (
   node: DefaultTreeNode
@@ -56,15 +55,15 @@ export const isMicroformatChild = (
 
 export const isBase = (node: DefaultTreeElement): boolean =>
   Boolean(
-    isParentNode(node) && node.tagName === "base" && getAttribute(node, "href")
+    isElement(node) && node.tagName === "base" && getAttribute(node, "href")
   );
 
 export const isValueClass = (node: DefaultTreeElement): boolean =>
-  isParentNode(node) && hasClassNameIntersect(node, ["value", "value-title"]);
+  isElement(node) && hasClassNameIntersect(node, ["value", "value-title"]);
 
 export const isRel = (node: DefaultTreeElement): boolean =>
   Boolean(
-    isParentNode(node) &&
+    isElement(node) &&
       node.attrs.some((attr) => attr.name === "rel") &&
       node.attrs.some((attr) => attr.name === "href")
   );

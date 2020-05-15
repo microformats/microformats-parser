@@ -3,7 +3,7 @@ import { DefaultTreeElement } from "parse5";
 import { ParserOptions, IdRefs, Rels, RelUrls } from "../types";
 import { getAttribute, getAttributeValue } from "./attributes";
 import { isLocalLink, applyBaseUrl } from "./url";
-import { isParentNode, isRel, isBase } from "./nodeMatchers";
+import { isElement, isRel, isBase } from "./nodeMatchers";
 import { parseRel } from "../rels/rels";
 
 interface DocumentSetupResult {
@@ -16,7 +16,7 @@ interface DocumentSetupResult {
 
 export const findBase = (node: DefaultTreeElement): string | undefined => {
   for (const child of node.childNodes) {
-    if (!isParentNode(child)) {
+    if (!isElement(child)) {
       continue;
     }
 
@@ -43,7 +43,7 @@ const handleNode = (
   for (const i in node.childNodes) {
     const child = node.childNodes[i];
 
-    if (!isParentNode(child)) {
+    if (!isElement(child)) {
       continue;
     }
 

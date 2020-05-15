@@ -42,7 +42,7 @@ export const parseMicroformat = (
   const roots = getRoots(node);
   const id = getId(node);
   const lang = getAttributeValue(node, "lang") || options.inherited.lang;
-  const children = findChildren(node, isMicroformatChild, options);
+  const children = findChildren(node, isMicroformatChild);
   const inherited = { lang, roots };
 
   const item: MicroformatRoot = {

@@ -3,7 +3,7 @@ import { DefaultTreeElement } from "parse5";
 import { Image } from "../types";
 import { parseImage } from "../helpers/images";
 import { getAttributeValue, getClassNames } from "../helpers/attributes";
-import { isParentNode, isMicroformatV2Root } from "../helpers/nodeMatchers";
+import { isElement, isMicroformatV2Root } from "../helpers/nodeMatchers";
 
 const parseNode = (node: DefaultTreeElement): Image | string | undefined => {
   if (node.tagName === "img") {
@@ -17,10 +17,8 @@ const parseNode = (node: DefaultTreeElement): Image | string | undefined => {
   return;
 };
 
-const parseChildren = (
-  node: DefaultTreeElement
-): Image | string | undefined => {
-  const children = node.childNodes.filter(isParentNode);
+const parseChild = (node: DefaultTreeElement): Image | string | undefined => {
+  const children = node.childNodes.filter(isElement);
   const imgs = children.filter((child) => child.tagName === "img");
   const objects = children.filter((child) => child.tagName === "object");
 
@@ -33,11 +31,11 @@ const parseChildren = (
   return;
 };
 
-const parseChildsChildren = (
+const parseGrandchild = (
   node: DefaultTreeElement
 ): string | Image | undefined => {
-  const children = node.childNodes.filter(isParentNode);
-  return children.length === 1 ? parseChildren(children[0]) : undefined;
+  const children = node.childNodes.filter(isElement);
+  return children.length === 1 ? parseChild(children[0]) : undefined;
 };
 
 export const impliedPhoto = (
@@ -48,5 +46,5 @@ export const impliedPhoto = (
     return;
   }
 
-  return parseNode(node) ?? parseChildren(node) ?? parseChildsChildren(node);
+  return parseNode(node) ?? parseChild(node) ?? parseGrandchild(node);
 };
