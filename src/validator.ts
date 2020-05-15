@@ -27,6 +27,7 @@ const assertIsBoolean = (bool: unknown, name: string): boolean => {
 
 const assertIsObject = (
   obj: unknown,
+  allowedKeys: string[],
   name: string
 ): Record<string, unknown> => {
   if (typeof obj === "undefined") {
@@ -45,6 +46,18 @@ const assertIsObject = (
     throw new TypeError(`Microformats parser: ${name} cannot be null`);
   }
 
+  const unknownKeys = Object.keys(obj).filter(
+    (key) => !allowedKeys.includes(key)
+  );
+
+  if (unknownKeys.length) {
+    throw new TypeError(
+      `Microformats parser: ${name} contains unknown properties: ${unknownKeys.join(
+        ", "
+      )}`
+    );
+  }
+
   return obj as Record<string, unknown>;
 };
 
@@ -54,7 +67,11 @@ export const validator = (
 ): void => {
   assertIsString(unknownHtml, "HTML");
 
-  const options = assertIsObject(unknownOptions, "options");
+  const options = assertIsObject(
+    unknownOptions,
+    ["baseUrl", "experimental"],
+    "options"
+  );
 
   const baseUrl = assertIsString(options.baseUrl, "baseUrl");
 
@@ -62,7 +79,11 @@ export const validator = (
   new URL(baseUrl);
 
   if ("experimental" in options) {
-    const experimental = assertIsObject(options.experimental, "experimental");
+    const experimental = assertIsObject(
+      options.experimental,
+      ["lang"],
+      "experimental"
+    );
 
     if ("lang" in experimental) {
       assertIsBoolean(experimental.lang, "experimental.lang");
