@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "id": "postfrag123",
+      "properties": {
+        "name": ["En svensk titel"],
+        "content": [
+          {
+            "html": "With an <em>english</em> summary",
+            "value": "With an english summary"
+          },
+          {
+            "html": "Och <em>svensk</em> huvudtext",
+            "value": "Och svensk huvudtext"
+          }
+        ]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}

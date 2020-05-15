@@ -11,7 +11,6 @@ import { findChildren } from "../helpers/findChildren";
 import {
   isMicroformatChild,
   isMicroformatV2Root,
-  isParentNode,
 } from "../helpers/nodeMatchers";
 import {
   convertV1RootClassNames,
@@ -37,18 +36,6 @@ const getRoots = (node: ParentNode): BackcompatRoot[] =>
 const getId = (node: ParentNode): string | undefined =>
   isMicroformatV2Root(node) ? getAttributeValue(node, "id") : undefined;
 
-const getLanguage = (node: ParentNode): string | undefined => {
-  const lang = getAttributeValue(node, "lang");
-
-  if (lang) {
-    return lang;
-  } else if (node.parentNode && isParentNode(node.parentNode)) {
-    return getLanguage(node.parentNode);
-  }
-
-  return undefined;
-};
-
 export const parseMicroformat = (
   node: ParentNode,
   options: ParseMicroformatOptions
@@ -57,15 +44,16 @@ export const parseMicroformat = (
 
   const roots = getRoots(node);
   const id = getId(node);
-  const lang = getLanguage(node);
+  const lang = getAttributeValue(node, "lang") || options.inherited.lang;
   const children = findChildren(node, isMicroformatChild, options);
+  const inherited = { lang, roots };
 
   const item: MicroformatRoot = {
     type: getMicroformatType(node).sort(),
     properties: microformatProperties(node, {
       ...options,
       implyProperties: !children.length,
-      roots,
+      inherited,
     }),
   };
 
@@ -73,12 +61,14 @@ export const parseMicroformat = (
     item.id = id;
   }
 
-  if (lang && options.experimental && options.experimental.lang) {
+  if (options.experimental?.lang && lang) {
     item.lang = lang;
   }
 
   if (children.length) {
-    item.children = children.map((child) => parseMicroformat(child, options));
+    item.children = children.map((child) =>
+      parseMicroformat(child, { ...options, inherited })
+    );
   }
 
   if (options.valueType === "p") {
@@ -99,7 +89,7 @@ export const parseMicroformat = (
    * and adding `html` as an undocumented property.
    */
   if (options.valueType === "e") {
-    return { ...parseE(node), ...item };
+    return { ...parseE(node, options), ...item };
   }
 
   if (options.valueKey && !item.value) {

@@ -14,9 +14,12 @@ export interface ParserOptions {
 }
 
 export interface ParsingOptions extends ParserOptions {
-  roots: BackcompatRoot[];
   implyProperties?: boolean;
   idRefs: IdRefs;
+  inherited: {
+    roots: BackcompatRoot[];
+    lang?: string;
+  };
 }
 
 export interface ParsedDocument {
@@ -47,6 +50,7 @@ export interface Image {
 export interface Html {
   html: string;
   value: string;
+  lang?: string;
 }
 
 export type MicroformatProperty = MicroformatRoot | Image | Html | string;

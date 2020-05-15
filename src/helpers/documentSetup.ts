@@ -9,6 +9,7 @@ interface DocumentSetupResult {
   rels: Rels;
   relUrls: RelUrls;
   baseUrl: string;
+  lang?: string;
 }
 
 export const findBase = (node: ParentNode): string | undefined => {
@@ -46,6 +47,23 @@ const handleNode = (node: ParentNode, result: DocumentSetupResult): void => {
      */
     if (child.tagName === "template") {
       delete node.childNodes[i];
+    }
+
+    /**
+     * Extract 'lang' from the <html> or a <meta> tag
+     * Always take the first value found
+     */
+    if (!result.lang) {
+      if (child.tagName === "html") {
+        result.lang = getAttributeValue(child, "lang");
+      }
+
+      if (
+        child.tagName === "meta" &&
+        getAttributeValue(child, "http-equiv") === "Content-Language"
+      ) {
+        result.lang = getAttributeValue(child, "content");
+      }
     }
 
     /**
@@ -91,6 +109,7 @@ export const documentSetup = (
     rels: {},
     relUrls: {},
     baseUrl: findBase(node) ?? options.baseUrl,
+    lang: undefined,
   };
 
   handleNode(node, result);

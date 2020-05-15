@@ -3,7 +3,12 @@ import { parse } from "parse5";
 import { findChildren } from "./helpers/findChildren";
 import { parseMicroformat } from "./microformats/parse";
 import { isMicroformatRoot } from "./helpers/nodeMatchers";
-import { ParsedDocument, ParentNode, ParserOptions } from "./types";
+import {
+  ParsedDocument,
+  ParentNode,
+  ParserOptions,
+  ParsingOptions,
+} from "./types";
 import { validateParsedHtml } from "./validator";
 import { documentSetup } from "./helpers/documentSetup";
 
@@ -14,9 +19,14 @@ export const parser = (
   const doc = parse(html) as ParentNode;
   validateParsedHtml(doc);
 
-  const { idRefs, rels, relUrls, baseUrl } = documentSetup(doc, options);
+  const { idRefs, rels, relUrls, baseUrl, lang } = documentSetup(doc, options);
 
-  const parsingOptions = { ...options, baseUrl, roots: [], idRefs };
+  const parsingOptions: ParsingOptions = {
+    ...options,
+    baseUrl,
+    idRefs,
+    inherited: { roots: [], lang },
+  };
 
   return {
     rels,
