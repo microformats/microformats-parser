@@ -1,4 +1,4 @@
-import { serialize } from "parse5";
+import { serialize, DefaultTreeElement } from "parse5";
 
 import {
   getAttributeIfTag,
@@ -7,7 +7,6 @@ import {
 } from "../helpers/attributes";
 import {
   ParsedProperty,
-  ParentNode,
   MicroformatProperty,
   Html,
   PropertyType,
@@ -29,7 +28,7 @@ const getType = (className: string): PropertyType =>
   (className.startsWith("e-") && "e") ||
   "dt";
 
-export const parseP = (node: ParentNode): string =>
+export const parseP = (node: DefaultTreeElement): string =>
   valueClassPattern(node) ??
   getAttributeIfTag(node, ["abbr", "link"], "title") ??
   getAttributeIfTag(node, ["data"], "value") ??
@@ -37,7 +36,7 @@ export const parseP = (node: ParentNode): string =>
   textContent(node);
 
 export const parseU = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   options: ParsingOptions
 ): MicroformatProperty => {
   const url =
@@ -56,14 +55,17 @@ export const parseU = (
     : url;
 };
 
-const parseDt = (node: ParentNode): string =>
+const parseDt = (node: DefaultTreeElement): string =>
   valueClassPattern(node, { datetime: true }) ??
   getAttributeIfTag(node, ["time", "ins", "del"], "datetime") ??
   getAttributeIfTag(node, ["abbr"], "title") ??
   getAttributeIfTag(node, ["data", "input"], "value") ??
   textContent(node);
 
-export const parseE = (node: ParentNode, options: ParsingOptions): Html => {
+export const parseE = (
+  node: DefaultTreeElement,
+  options: ParsingOptions
+): Html => {
   const value = {
     value: textContent(node),
     html: serialize(node).trim(),
@@ -77,7 +79,7 @@ export const parseE = (node: ParentNode, options: ParsingOptions): Html => {
 };
 
 const getPropertyClassNames = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   { inherited }: ParsingOptions
 ): string[] => {
   if (inherited.roots.length) {
@@ -88,7 +90,7 @@ const getPropertyClassNames = (
 };
 
 const handleProperty = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   type: PropertyType,
   options: ParsingOptions
 ): MicroformatProperty => {
@@ -108,7 +110,7 @@ const handleProperty = (
 };
 
 export const parseProperty = (
-  child: ParentNode,
+  child: DefaultTreeElement,
   options: ParsingOptions
 ): ParsedProperty[] =>
   getPropertyClassNames(child, options)

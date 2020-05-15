@@ -1,25 +1,25 @@
-import { ParentNode, ParsingOptions, IdRefs } from "../types";
-import { isMicroformatRoot, isParentNode } from "./nodeMatchers";
+import { DefaultTreeElement } from "parse5";
+
+import { isMicroformatRoot, isElement } from "./nodeMatchers";
 import { BackcompatRoot, getBackcompatRootClassNames } from "../backcompat";
 
 type Matcher =
-  | ((node: ParentNode) => boolean)
-  | ((node: ParentNode, roots: BackcompatRoot[]) => boolean);
+  | ((node: DefaultTreeElement) => boolean)
+  | ((node: DefaultTreeElement, roots: BackcompatRoot[]) => boolean);
 
 interface ReducerOptions {
   matcher: Matcher;
   roots: BackcompatRoot[];
-  idRefs: IdRefs;
 }
 
-const getNodeChildren = (node: ParentNode): ParentNode[] =>
-  node.childNodes.filter(Boolean).filter(isParentNode);
+const getElementChildren = (node: DefaultTreeElement): DefaultTreeElement[] =>
+  node.childNodes.filter(Boolean).filter(isElement);
 
 const reducer = (
-  microformats: ParentNode[],
-  node: ParentNode,
+  microformats: DefaultTreeElement[],
+  node: DefaultTreeElement,
   options: ReducerOptions
-): ParentNode[] => {
+): DefaultTreeElement[] => {
   const { matcher, roots } = options;
   const match = matcher(node, roots) && node;
 
@@ -32,27 +32,24 @@ const reducer = (
     return microformats;
   }
 
-  const childMicroformats = getNodeChildren(node).reduce<ParentNode[]>(
-    (prev, curr) => reducer(prev, curr, options),
-    match ? [match] : []
-  );
+  const childMicroformats = getElementChildren(node).reduce<
+    DefaultTreeElement[]
+  >((prev, curr) => reducer(prev, curr, options), match ? [match] : []);
 
   return [...microformats, ...childMicroformats];
 };
 
 export const findChildren = (
-  parent: ParentNode,
-  matcher: Matcher,
-  options: Pick<ParsingOptions, "idRefs"> = { idRefs: {} }
-): ParentNode[] => {
+  parent: DefaultTreeElement,
+  matcher: Matcher
+): DefaultTreeElement[] => {
   const findOptions = {
-    ...options,
-    roots: isParentNode(parent) ? getBackcompatRootClassNames(parent) : [],
+    roots: isElement(parent) ? getBackcompatRootClassNames(parent) : [],
     stopAtRoot: true,
     matcher,
   };
 
-  return getNodeChildren(parent).reduce<ParentNode[]>(
+  return getElementChildren(parent).reduce<DefaultTreeElement[]>(
     (prev, curr) => reducer(prev, curr, findOptions),
     []
   );

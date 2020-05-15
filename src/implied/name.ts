@@ -1,25 +1,26 @@
-import { ParentNode } from "../types";
+import { DefaultTreeElement } from "parse5";
+
 import { impliedTextContent } from "../helpers/textContent";
-import { isParentNode } from "../helpers/nodeMatchers";
+import { isElement } from "../helpers/nodeMatchers";
 import { getClassNames, getAttributeIfTag } from "../helpers/attributes";
 
-const parseNode = (node: ParentNode): string | undefined =>
+const parseNode = (node: DefaultTreeElement): string | undefined =>
   getAttributeIfTag(node, ["img", "area"], "alt") ??
   getAttributeIfTag(node, ["abbr"], "title");
 
-const parseChildren = (node: ParentNode): string | undefined => {
-  const children = node.childNodes.filter(isParentNode);
+const parseChild = (node: DefaultTreeElement): string | undefined => {
+  const children = node.childNodes.filter(isElement);
   return children.length ? parseNode(children[0]) : undefined;
 };
 
-const parseChildsChildren = (node: ParentNode): string | undefined => {
-  const children = node.childNodes.filter(isParentNode);
-  return children.length === 1 ? parseChildren(children[0]) : undefined;
+const parseGrandchild = (node: DefaultTreeElement): string | undefined => {
+  const children = node.childNodes.filter(isElement);
+  return children.length === 1 ? parseChild(children[0]) : undefined;
 };
 
 export const impliedName = (
-  node: ParentNode,
-  children: ParentNode[]
+  node: DefaultTreeElement,
+  children: DefaultTreeElement[]
 ): string | undefined => {
   if (children.some((child) => getClassNames(child, /^(p|e|h)-/).length)) {
     return;
@@ -27,8 +28,8 @@ export const impliedName = (
 
   return (
     parseNode(node) ??
-    parseChildren(node) ??
-    parseChildsChildren(node) ??
+    parseChild(node) ??
+    parseGrandchild(node) ??
     impliedTextContent(node)
   );
 };

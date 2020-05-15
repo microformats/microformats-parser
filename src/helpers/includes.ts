@@ -1,12 +1,17 @@
+import { DefaultTreeElement } from "parse5";
+
 import {
   isMicroformatV2Root,
-  isParentNode,
+  isElement,
   isMicroformatRoot,
 } from "./nodeMatchers";
-import { ParentNode, ParsingOptions } from "../types";
+import { ParsingOptions } from "../types";
 import { getV1IncludeNames } from "../backcompat";
 
-const applyIncludes = (node: ParentNode, options: ParsingOptions): void => {
+const applyIncludes = (
+  node: DefaultTreeElement,
+  options: ParsingOptions
+): void => {
   const includeNames = getV1IncludeNames(node);
 
   includeNames.forEach((name) => {
@@ -18,14 +23,14 @@ const applyIncludes = (node: ParentNode, options: ParsingOptions): void => {
 
   node.childNodes.forEach(
     (child) =>
-      isParentNode(child) &&
+      isElement(child) &&
       !isMicroformatRoot(child) &&
       applyIncludes(child, options)
   );
 };
 
 export const applyIncludesToRoot = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   options: ParsingOptions
 ): void => {
   if (isMicroformatV2Root(node)) {

@@ -1,9 +1,6 @@
-import {
-  MicroformatRoot,
-  ParentNode,
-  PropertyType,
-  ParsingOptions,
-} from "../types";
+import { DefaultTreeElement } from "parse5";
+
+import { MicroformatRoot, PropertyType, ParsingOptions } from "../types";
 import { microformatProperties } from "./properties";
 import { textContent } from "../helpers/textContent";
 import { getAttributeValue, getClassNames } from "../helpers/attributes";
@@ -25,19 +22,19 @@ interface ParseMicroformatOptions extends ParsingOptions {
   valueKey?: string;
 }
 
-const getMicroformatType = (node: ParentNode): string[] => {
+const getMicroformatType = (node: DefaultTreeElement): string[] => {
   const v2 = getClassNames(node, "h-");
   return v2.length ? v2 : convertV1RootClassNames(node);
 };
 
-const getRoots = (node: ParentNode): BackcompatRoot[] =>
+const getRoots = (node: DefaultTreeElement): BackcompatRoot[] =>
   isMicroformatV2Root(node) ? [] : getBackcompatRootClassNames(node);
 
-const getId = (node: ParentNode): string | undefined =>
+const getId = (node: DefaultTreeElement): string | undefined =>
   isMicroformatV2Root(node) ? getAttributeValue(node, "id") : undefined;
 
 export const parseMicroformat = (
-  node: ParentNode,
+  node: DefaultTreeElement,
   options: ParseMicroformatOptions
 ): MicroformatRoot => {
   applyIncludesToRoot(node, options);
@@ -45,7 +42,7 @@ export const parseMicroformat = (
   const roots = getRoots(node);
   const id = getId(node);
   const lang = getAttributeValue(node, "lang") || options.inherited.lang;
-  const children = findChildren(node, isMicroformatChild, options);
+  const children = findChildren(node, isMicroformatChild);
   const inherited = { lang, roots };
 
   const item: MicroformatRoot = {

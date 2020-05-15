@@ -1,10 +1,11 @@
-import { MixedNode, ParentNode } from "../types";
-import { getAttributeValue } from "./attributes";
-import { isParentNode, isTextNode } from "./nodeMatchers";
+import { DefaultTreeNode, DefaultTreeElement } from "parse5";
 
-const walk = (current: string, node: MixedNode): string => {
+import { getAttributeValue } from "./attributes";
+import { isElement, isTextNode } from "./nodeMatchers";
+
+const walk = (current: string, node: DefaultTreeNode): string => {
   /* istanbul ignore else */
-  if (isParentNode(node)) {
+  if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
     }
@@ -27,9 +28,9 @@ const walk = (current: string, node: MixedNode): string => {
   return current;
 };
 
-const impliedWalk = (current: string, node: MixedNode): string => {
+const impliedWalk = (current: string, node: DefaultTreeNode): string => {
   /* istanbul ignore else */
-  if (isParentNode(node)) {
+  if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
     }
@@ -48,11 +49,11 @@ const impliedWalk = (current: string, node: MixedNode): string => {
   return current;
 };
 
-export const textContent = (node: ParentNode): string =>
+export const textContent = (node: DefaultTreeElement): string =>
   node.childNodes.reduce<string>(walk, "").trim();
 
-export const impliedTextContent = (node: ParentNode): string =>
+export const impliedTextContent = (node: DefaultTreeElement): string =>
   node.childNodes.reduce<string>(impliedWalk, "").trim();
 
-export const relTextContent = (node: ParentNode): string =>
+export const relTextContent = (node: DefaultTreeElement): string =>
   node.childNodes.reduce<string>(impliedWalk, "");
