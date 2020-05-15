@@ -78,6 +78,12 @@ describe("validation", () => {
       );
     });
 
+    it("should throw an error if it contains unknown keys", () => {
+      expect(() => mf2(html, { random: true })).to.throw(
+        "Microformats parser: options contains unknown properties: random"
+      );
+    });
+
     describe("baseUrl", () => {
       it("should throw an error if it is not provided", () => {
         expect(() => mf2(html, {})).to.throw(
@@ -124,6 +130,17 @@ describe("validation", () => {
         expect(() =>
           mf2(html, { baseUrl: "http://example.com", experimental: [] })
         ).to.throw("Microformats parser: experimental is not an object");
+      });
+
+      it("should throw an error if it contains unknown keys", () => {
+        expect(() =>
+          mf2(html, {
+            baseUrl: "http://example.com",
+            experimental: { random: true },
+          })
+        ).to.throw(
+          "Microformats parser: experimental contains unknown properties: random"
+        );
       });
 
       describe("lang", () => {
