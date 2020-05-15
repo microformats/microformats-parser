@@ -50,10 +50,20 @@ const handleNode = (node: ParentNode, result: DocumentSetupResult): void => {
     }
 
     /**
-     * Extract 'lang' from the <html> tag
+     * Extract 'lang' from the <html> or a <meta> tag
+     * Always take the first value found
      */
-    if (child.tagName === "html") {
-      result.lang = getAttributeValue(child, "lang");
+    if (!result.lang) {
+      if (child.tagName === "html") {
+        result.lang = getAttributeValue(child, "lang");
+      }
+
+      if (
+        child.tagName === "meta" &&
+        getAttributeValue(child, "http-equiv") === "Content-Language"
+      ) {
+        result.lang = getAttributeValue(child, "content");
+      }
     }
 
     /**

@@ -50,6 +50,7 @@ export interface Image {
 export interface Html {
   html: string;
   value: string;
+  lang?: string;
 }
 
 export type MicroformatProperty = MicroformatRoot | Image | Html | string;

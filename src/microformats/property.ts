@@ -1,6 +1,10 @@
 import { serialize } from "parse5";
 
-import { getAttributeIfTag, getClassNames } from "../helpers/attributes";
+import {
+  getAttributeIfTag,
+  getClassNames,
+  getAttributeValue,
+} from "../helpers/attributes";
 import {
   ParsedProperty,
   ParentNode,
@@ -59,17 +63,25 @@ const parseDt = (node: ParentNode): string =>
   getAttributeIfTag(node, ["data", "input"], "value") ??
   textContent(node);
 
-export const parseE = (node: ParentNode): Html => ({
-  value: textContent(node),
-  html: serialize(node).trim(),
-});
+export const parseE = (node: ParentNode, options: ParsingOptions): Html => {
+  const value = {
+    value: textContent(node),
+    html: serialize(node).trim(),
+  };
+
+  const lang =
+    options.experimental?.lang &&
+    (getAttributeValue(node, "lang") || options.inherited.lang);
+
+  return lang ? { ...value, lang } : value;
+};
 
 const getPropertyClassNames = (
   node: ParentNode,
-  { inherited: parent }: ParsingOptions
+  { inherited }: ParsingOptions
 ): string[] => {
-  if (parent.roots.length) {
-    return convertV1PropertyClassNames(node, parent.roots);
+  if (inherited.roots.length) {
+    return convertV1PropertyClassNames(node, inherited.roots);
   }
 
   return getClassNames(node, /^(p|u|e|dt)-/);
@@ -85,7 +97,7 @@ const handleProperty = (
   }
 
   if (type === "e") {
-    return parseE(node);
+    return parseE(node, options);
   }
 
   if (type === "u") {

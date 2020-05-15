@@ -51,11 +51,13 @@
         "content": [
           {
             "html": "With an <em>english</em> summary",
-            "value": "With an english summary"
+            "value": "With an english summary",
+            "lang": "en"
           },
           {
             "html": "Och <em>svensk</em> huvudtext",
-            "value": "Och svensk huvudtext"
+            "value": "Och svensk huvudtext",
+            "lang": "sv"
           }
         ]
       }

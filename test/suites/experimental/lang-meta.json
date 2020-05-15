@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "es",
+      "properties": {
+        "name": ["Esta prueba está en español."]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["This test is in English."]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}

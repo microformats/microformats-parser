@@ -46,14 +46,14 @@ export const parseMicroformat = (
   const id = getId(node);
   const lang = getAttributeValue(node, "lang") || options.inherited.lang;
   const children = findChildren(node, isMicroformatChild, options);
-  const parent = { lang, roots };
+  const inherited = { lang, roots };
 
   const item: MicroformatRoot = {
     type: getMicroformatType(node).sort(),
     properties: microformatProperties(node, {
       ...options,
       implyProperties: !children.length,
-      inherited: parent,
+      inherited,
     }),
   };
 
@@ -61,13 +61,13 @@ export const parseMicroformat = (
     item.id = id;
   }
 
-  if (options.experimental && options.experimental.lang && lang) {
+  if (options.experimental?.lang && lang) {
     item.lang = lang;
   }
 
   if (children.length) {
     item.children = children.map((child) =>
-      parseMicroformat(child, { ...options, inherited: parent })
+      parseMicroformat(child, { ...options, inherited })
     );
   }
 
@@ -89,7 +89,7 @@ export const parseMicroformat = (
    * and adding `html` as an undocumented property.
    */
   if (options.valueType === "e") {
-    return { ...parseE(node), ...item };
+    return { ...parseE(node, options), ...item };
   }
 
   if (options.valueKey && !item.value) {
