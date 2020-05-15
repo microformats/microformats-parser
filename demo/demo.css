@@ -33,6 +33,10 @@ nav {
   background: #2b3238;
 }
 
+nav ul {
+  margin: 0 -1rem;
+}
+
 nav ul li {
   display: inline-block;
   padding: 0.5rem;
@@ -69,6 +73,7 @@ footer {
 .container {
   max-width: 750px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .documentation,
