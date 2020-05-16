@@ -13,11 +13,11 @@ const setError = (error) => {
   el.classList.remove("hide");
 };
 
-const parse = (html, { baseUrl }) => {
+const parse = (html, options) => {
   document.getElementById("error").classList.add("hide");
 
   try {
-    const result = mf2(html, { baseUrl });
+    const result = mf2(html, options);
     setResult(result);
   } catch (err) {
     setError(err.message);
@@ -29,6 +29,7 @@ const parse = (html, { baseUrl }) => {
 window.parseHtml = () => {
   const html = document.getElementById("html").value;
   const baseUrl = document.getElementById("base-url").value;
+  const lang = document.getElementById("lang").checked;
 
-  return parse(html, { baseUrl });
+  return parse(html, { baseUrl, experimental: { lang } });
 };
