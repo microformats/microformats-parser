@@ -1,5 +1,5 @@
 ---
-name: Parsing Bug report
+name: Parsing bug report
 about: Create a bug report for when microformats are incorrectly parsed
 title: ''
 labels: bug
