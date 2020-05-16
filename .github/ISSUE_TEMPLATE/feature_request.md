@@ -1,10 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea for new microformats support
-title: ''
+title: ""
 labels: enhancement
-assignees: ''
-
+assignees: ""
 ---
 
 **What type of feature is it?**
@@ -20,6 +19,7 @@ Please provide a couple of sentences describing what will change with this featu
 Provide clear examples of input HTML that covers the proposed feature.
 
 ```html
+
 ```
 
 **Example of output**
@@ -27,6 +27,7 @@ Provide clear examples of input HTML that covers the proposed feature.
 Please provide the expected JSON output for the provided HTML.
 
 ```json
+
 ```
 
 **Additional context**

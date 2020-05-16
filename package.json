@@ -20,6 +20,7 @@
     "build": "tsc",
     "lint": "eslint --cache './**/*.{ts,js}'",
     "prettier:list": "prettier '**/*.{ts,json,md,html}' --list-different",
+    "prettier:fix": "prettier '**/*.{ts,json,md,html}' --write",
     "test": "nyc mocha --require ts-node/register test/**/*.spec.ts",
     "test:package": "mocha test/package.spec.js"
   },

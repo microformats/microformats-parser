@@ -1,21 +1,21 @@
 ---
 name: Parsing bug report
 about: Create a bug report for when microformats are incorrectly parsed
-title: ''
+title: ""
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the bug**
 
-A clear and concise description of what the bug is. Please include a reference to the specification, other discussions or other parser behaviour. 
+A clear and concise description of what the bug is. Please include a reference to the specification, other discussions or other parser behaviour.
 
 **To Reproduce**
 
 HTML input:
 
 ```html
+
 ```
 
 **Expected behavior**
@@ -23,6 +23,7 @@ HTML input:
 Correct JSON output:
 
 ```json
+
 ```
 
 **Additional context**
