@@ -13,9 +13,14 @@ export const parseRel = (
   child: DefaultTreeElement,
   { rels, relUrls }: ParseRelOptions
 ): void => {
+  /**
+   * Ignores used as this metho is only ever called if they are defined
+   * But required for TS typechecking
+   */
   const text = relTextContent(child);
   const rel = getAttributeValue(child, "rel");
-  const href = getAttributeValue(child, "href");
+  /* istanbul ignore next */
+  const href = getAttributeValue(child, "href")?.trim();
   const title = getAttributeValue(child, "title");
   const media = getAttributeValue(child, "media");
   const hreflang = getAttributeValue(child, "hreflang");

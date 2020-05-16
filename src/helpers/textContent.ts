@@ -36,7 +36,7 @@ const impliedWalk = (current: string, node: DefaultTreeNode): string => {
     }
 
     if (node.tagName === "img") {
-      const value = getAttributeValue(node, "alt");
+      const value = getAttributeValue(node, "alt") || "";
       return `${current}${value}`;
     }
 

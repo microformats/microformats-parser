@@ -50,9 +50,11 @@ export const parseU = (
     getAttributeIfTag(node, ["data", "input"], "value") ??
     textContent(node);
 
-  return typeof url === "string" && isLocalLink(url)
-    ? applyBaseUrl(url, options.baseUrl)
-    : url;
+  if (typeof url === "string" && isLocalLink(url)) {
+    return applyBaseUrl(url, options.baseUrl);
+  }
+
+  return typeof url === "string" ? url.trim() : url;
 };
 
 const parseDt = (node: DefaultTreeElement): string =>
