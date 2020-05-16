@@ -18,4 +18,4 @@ Provide clear examples of input HTML that covers the proposed feature.
 Please provide the expected JSON output for the provided HTML.
 
 **Additional context**
-Add any other context or screenshots about the feature request here.
+Add any other context or information about the feature request here.
