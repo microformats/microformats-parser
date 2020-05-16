@@ -68,8 +68,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,json,css,md,html}": "prettier --write",
-    "*.{js,ts}": "eslint --cache --fix"
+    "*.{js,ts,json,css,md,html}": "prettier --write"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",

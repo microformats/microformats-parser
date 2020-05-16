@@ -2,6 +2,8 @@
 
 - [Ways to contribute](#ways-to-contribute)
 - [Making Changes](#making-changes)
+  - [I don't know TypeScript or my tests won't pass](#i-dont-know-typescript-or-my-tests-wont-pass)
+  - [Testing your changes](#testing-your-changes)
 - [Microformats specifications](#microformats-specifications)
 - [Node support](#node-support)
 - [Developer environment](#developer-environment)
@@ -28,6 +30,16 @@ Anyone can contribute to this project in one of many ways, for example:
 6. Commit your changes using `git commit -am 'A description of the change'`. We try to follow [conventional commit types](https://github.com/commitizen/conventional-commit-types), but this is not required.
 7. Push the branch to your fork: `git push -u origin branch-name`.
 8. Create a new pull request!
+
+### I don't know TypeScript or my tests won't pass
+
+You don't need to make your Pull Request perfect! The important thing is to get a PR open so we can begin making this parser better.
+
+We're more than happy to help with any TypeScript, linting or test problems, or to refactor after a merge. These should not be a barrier to contributing!
+
+### Testing your changes
+
+You can test your changes using the interactive demo. Just run `yarn demo` and visit `http://localhost:1234` to parse a real-world example.
 
 ## Microformats specifications
 
