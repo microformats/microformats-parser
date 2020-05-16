@@ -38,6 +38,13 @@
     </header>
     <main class="container">
       <h2>Try it out</h2>
+      <noscript>
+        <div class="error">
+          <h1>JavaScript is disabled</h1>
+          <p>It looks like you have JavaScript disabled.</p>
+          <p>You need JavaScript to be enabled to view the demo.</p>
+        </div>
+      </noscript>
       <form onsubmit="return parseHtml()">
         <label>
           <span>Base URL</span>
@@ -49,6 +56,14 @@
           <textarea name="html" id="html"></textarea>
         </label>
 
+        <h3>Experimental options</h3>
+        <p class="experimental">
+          <label>
+            <input type="checkbox" name="lang" id="lang" value="true" checked />
+            <span>Language parsing</span>
+          </label>
+        </p>
+
         <div class="submit">
           <button type="submit">Parse</button>
         </div>
@@ -59,16 +74,6 @@
         <pre id="result"></pre>
       </div>
     </main>
-    <noscript>
-      <div class="error">
-        <h1>JavaScript is disabled</h1>
-        <p>It looks like you have JavaScript disabled.</p>
-        <p>
-          You need JavaScript to be enabled to view the demo; it's a JavaScript
-          component!
-        </p>
-      </div>
-    </noscript>
     <footer>
       <div class="container">
         <a href="{{ licenseUrl }}">{{ license }} Licensed</a>
