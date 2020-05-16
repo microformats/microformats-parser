@@ -20,6 +20,7 @@
     "build": "tsc",
     "lint": "eslint --cache './**/*.{ts,js}'",
     "prettier:list": "prettier '**/*.{ts,json,md,html}' --list-different",
+    "prettier:fix": "prettier '**/*.{ts,json,md,html}' --write",
     "test": "nyc mocha --require ts-node/register test/**/*.spec.ts",
     "test:package": "mocha test/package.spec.js"
   },
@@ -67,8 +68,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,json,css,md,html}": "prettier --write",
-    "*.{js,ts}": "eslint --cache --fix"
+    "*.{js,ts,json,css,md,html}": "prettier --write"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",

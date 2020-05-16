@@ -1,6 +1,6 @@
 <h1>microformats-parser</h1>
 
-A JavaScript microformats v2 parser, with v1 back-compatibility.
+A JavaScript microformats v2 parser, with v1 back-compatibility. [View the demo](https://aimee-gm.github.io/microformats-parser/).
 
 Follows the [microformats2 parsing specification](http://microformats.org/wiki/microformats2-parsing).
 
@@ -8,11 +8,15 @@ Follows the [microformats2 parsing specification](http://microformats.org/wiki/m
 
 - [Quick start](#quick-start)
   - [Installation](#installation)
-  - [Use](#use)
+  - [Simple use](#simple-use)
 - [API](#api)
   - [mf2()](#mf2)
+- [Support](#support)
+  - [Microformats v1](#microformats-v1)
+  - [Microformats v2](#microformats-v2)
+  - [Experimental options](#experimental-options)
+    - [`lang`](#lang)
 - [Contributing](#contributing)
-- [Microformats v1 support](#microformats-v1-support)
 
 ## Quick start
 
@@ -26,7 +30,7 @@ yarn add microformats-parser
 npm i microformats-parser
 ```
 
-### Use
+### Simple use
 
 ```javascript
 import { mf2 } from "microformats-parser";
@@ -73,14 +77,32 @@ Use: `mf2(html: string, options: { baseUrl: string, experimental: object })`
 - `options` (object, required) - parsing options, with the following properties:
   - `baseUrl` (string, required) - a base URL to resolve relative URLs
   - `experimental` (object, optional) - experimental (non-standard) options
-    - `lang` (boolean, optional) - whether to enable support for parsing `lang` attributes
+    - `lang` (boolean, optional) - enable support for parsing `lang` attributes
 
 Returns the parsed microformats from the HTML string
+
+## Support
+
+### Microformats v1
+
+This package will parse microformats v1, however support will be limited to the v1 tests in the [microformats test suite](https://github.com/microformats/tests). Contributions are still welcome for improving v1 support.
+
+### Microformats v2
+
+We provide support for all mircroformats v2 parsing, as detailed in the [microformats2 parsing specification](http://microformats.org/wiki/microformats2-parsing). If there is an issue with v2 parsing, please create an issue.
+
+### Experimental options
+
+There is also support for some experimental parsing options. These can be enabled with the `experimental` flags in the `options` API.
+
+**Note: Experimental options are subject to change at short notice and may change their behaviour without a major version update**
+
+#### `lang`
+
+Parse microformats for `lang` attributes. This will include `lang` on microformats and `e-*` properties where available.
+
+These are sourced from the element themselves, a parent microformat, the HTML document or a meta tag.
 
 ## Contributing
 
 See our [contributing guidelines](./CONTRIBUTING.md) for more information.
-
-## Microformats v1 support
-
-This package will parse microformats v1, however support will be limited to the v1 tests in the [microformats test suite](https://github.com/microformats/tests).
