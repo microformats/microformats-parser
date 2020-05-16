@@ -27,6 +27,71 @@
         "name": [""],
         "url": ["http://example.com/"]
       }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "name": ["Example post"],
+        "url": ["http://example.com/"]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "name": ["Example post"],
+        "url": ["http://example.com/relative/path.html"]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "url": ["http://example.com/"],
+        "content": [
+          {
+            "value": "Example post",
+            "html": "<a href=\"http://example.com/\">Example post</a>"
+          }
+        ]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "url": ["http://example.com/relative/path.html"],
+        "content": [
+          {
+            "value": "Example post",
+            "html": "<a href=\"http://example.com/relative/path.html\">Example post</a>"
+          }
+        ]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "name": ["A data value"],
+        "url": ["http://example.com/"]
+      }
+    },
+
+    {
+      "properties": {
+        "name": ["An image to be trimmed"],
+        "photo": ["http://example.com/photo.jpg"]
+      },
+      "type": ["h-entry"]
+    },
+    {
+      "properties": {
+        "name": ["Photo"],
+        "photo": [
+          {
+            "alt": "Photo",
+            "value": "http://example.com/photo.jpg"
+          }
+        ]
+      },
+      "type": ["h-entry"]
     }
   ],
   "rels": {},

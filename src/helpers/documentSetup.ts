@@ -82,6 +82,8 @@ const handleNode = (
 
       if (attr && isLocalLink(attr.value)) {
         attr.value = applyBaseUrl(attr.value, result.baseUrl);
+      } else if (attr) {
+        attr.value = attr.value.trim();
       }
     });
 

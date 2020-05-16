@@ -1,11 +1,12 @@
 {
   "rels": {
     "me": ["http://example.com"],
-    "home": ["http://example.com"]
+    "home": ["http://example.com"],
+    "example": ["http://example.com"]
   },
   "rel-urls": {
     "http://example.com": {
-      "rels": ["me", "home"],
+      "rels": ["me", "home", "example"],
       "text": "My name",
       "type": "text/html"
     }
