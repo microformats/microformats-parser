@@ -5,7 +5,7 @@ const {
   repository,
   license,
   keywords,
-} = require("./package.json");
+} = require("../../parser/package.json");
 
 const repo = repository.replace("git+", "").replace(".git", "");
 

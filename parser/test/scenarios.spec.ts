@@ -7,7 +7,7 @@ import loadScenarios = require("./utils/loadScenarios");
 
 const scenarioDir = path.resolve(
   __dirname,
-  `../node_modules/microformat-tests/tests`
+  `../../node_modules/microformat-tests/tests`
 );
 
 const suitesDir = path.resolve(__dirname, `./suites`);

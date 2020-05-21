@@ -16,16 +16,16 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: yarn
-      - name: Build package
+      - name: Build package and demo
         run: yarn build
-      - name: Publish to NPM
-        run: yarn publish --non-interactive
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Build demo pages
-        run: yarn demo:build
+      - name: Copy README and LICENSE
+        run: cp README.md parser && cp LICENSE parser
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./demo/public
+      - name: Publish to NPM
+        run: yarn workspace microformats-parser publish --non-interactive
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

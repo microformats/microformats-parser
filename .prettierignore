@@ -1,3 +1,4 @@
 dist/
 .nyc_output/
 .cache
+public/

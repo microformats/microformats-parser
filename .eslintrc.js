@@ -6,7 +6,7 @@ module.exports = {
     "plugin:import/typescript",
     "prettier",
   ],
-  ignorePatterns: ["node_modules/", "dist/"],
+  ignorePatterns: ["node_modules/", "dist/", "public/", ".cache/"],
   settings: {
     "import/resolver": {
       node: { extensions: [".ts"] },

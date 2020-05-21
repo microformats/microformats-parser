@@ -25,14 +25,14 @@ jobs:
       - name: Run prettier list
         run: yarn prettier:list
       - name: Test code
-        run: yarn test
+        run: yarn workspaces run test
       - name: Build package
-        run: yarn build
+        run: yarn workspaces run build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v1
         with:
           name: dist
-          path: dist
+          path: parser/dist
   test_dist:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -50,4 +50,4 @@ jobs:
         with:
           name: dist
       - name: Test package
-        run: yarn test:package
+        run: yarn workspace microformats-parser run test:package

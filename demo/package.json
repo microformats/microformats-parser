@@ -1,0 +1,15 @@
+{
+  "name": "microformats-parser-demo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel serve src/index.html",
+    "build": "parcel build src/index.html --out-dir public --public-url ./",
+    "test": "echo \"No tests for demo\""
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "posthtml-expressions": "^1.4.0"
+  }
+}

@@ -1,4 +1,4 @@
-const { mf2 } = require("../dist");
+const { mf2 } = require("../../parser/dist");
 
 const setResult = (result) => {
   const escaped = JSON.stringify(result, null, 2)
