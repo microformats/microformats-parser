@@ -29,8 +29,6 @@
   },
   "files": [
     "/dist",
-    "/README.md",
-    "/LICENSE",
     "/CONTRIBUTING.md"
   ],
   "dependencies": {
