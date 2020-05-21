@@ -33,7 +33,7 @@ npm i microformats-parser
 ### Simple use
 
 ```javascript
-import { mf2 } from "microformats-parser";
+const { mf2 } = require("microformats-parser");
 
 const parsed = mf2('<a class="h-card" href="/" rel="me">Jimmy</a>', {
   baseUrl: "http://example.com/",
