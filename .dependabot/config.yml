@@ -5,8 +5,8 @@ update_configs:
     update_schedule: weekly
     automerged_updates:
       - match:
-          dependency_type: "development"
-          update_type: "semver:patch"
+          dependency_type: "all"
+          update_type: "in_range"
     commit_message:
       prefix: "chore"
       include_scope: true
