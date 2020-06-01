@@ -14,7 +14,7 @@ export const parseRel = (
   { rels, relUrls }: ParseRelOptions
 ): void => {
   /**
-   * Ignores used as this metho is only ever called if they are defined
+   * Ignores used as this method is only ever called if they are defined
    * But required for TS typechecking
    */
   const text = relTextContent(child);

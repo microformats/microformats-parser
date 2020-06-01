@@ -3,6 +3,7 @@ import { DefaultTreeElement } from "parse5";
 import { impliedTextContent } from "../helpers/textContent";
 import { isElement } from "../helpers/nodeMatchers";
 import { getClassNames, getAttributeIfTag } from "../helpers/attributes";
+import { ParsingOptions } from "../types";
 
 const parseNode = (node: DefaultTreeElement): string | undefined =>
   getAttributeIfTag(node, ["img", "area"], "alt") ??
@@ -20,7 +21,8 @@ const parseGrandchild = (node: DefaultTreeElement): string | undefined => {
 
 export const impliedName = (
   node: DefaultTreeElement,
-  children: DefaultTreeElement[]
+  children: DefaultTreeElement[],
+  options: ParsingOptions
 ): string | undefined => {
   if (children.some((child) => getClassNames(child, /^(p|e|h)-/).length)) {
     return;
@@ -30,6 +32,6 @@ export const impliedName = (
     parseNode(node) ??
     parseChild(node) ??
     parseGrandchild(node) ??
-    impliedTextContent(node)
+    impliedTextContent(node, options)
   );
 };

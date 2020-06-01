@@ -58,7 +58,7 @@ export const microformatProperties = (
     if (typeof properties.name === "undefined") {
       addProperty(properties, {
         key: "name",
-        value: impliedName(node, propertyNodes),
+        value: impliedName(node, propertyNodes, options),
       });
     }
 

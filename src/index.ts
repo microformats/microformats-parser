@@ -6,6 +6,7 @@ export interface Options {
   baseUrl: string;
   experimental?: {
     lang?: boolean;
+    collapseWhitespace?: boolean;
   };
 }
 

@@ -54,7 +54,7 @@ describe("mf2() // scenarios", () => {
 describe("mf2() // local scenarios", () => {
   local.forEach(({ name, input, expected }) => {
     it(`should correctly parse ${name}`, () => {
-      const result = mf2(input, options);
+      const result = mf2(input, { ...options, experimental: {} });
       expect(result).to.deep.equal(expected);
     });
   });
@@ -63,10 +63,10 @@ describe("mf2() // local scenarios", () => {
 describe("mf2() // experimental scenarios", () => {
   experimental.forEach(({ name, input, expected }) => {
     it(`should correctly parse ${name}`, () => {
-      const result = mf2(
-        input,
-        Object.assign(options, { experimental: { lang: true } })
-      );
+      const result = mf2(input, {
+        ...options,
+        experimental: { lang: true, collapseWhitespace: true },
+      });
       expect(result).to.deep.equal(expected);
     });
   });

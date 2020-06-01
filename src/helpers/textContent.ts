@@ -2,6 +2,8 @@ import { DefaultTreeNode, DefaultTreeElement } from "parse5";
 
 import { getAttributeValue } from "./attributes";
 import { isElement, isTextNode } from "./nodeMatchers";
+import { ParsingOptions } from "../types";
+import { isEnabled } from "./experimental";
 
 const walk = (current: string, node: DefaultTreeNode): string => {
   /* istanbul ignore else */
@@ -49,11 +51,28 @@ const impliedWalk = (current: string, node: DefaultTreeNode): string => {
   return current;
 };
 
-export const textContent = (node: DefaultTreeElement): string =>
-  node.childNodes.reduce<string>(walk, "").trim();
+const collapseWhitespace = (str: string) => str.replace(/\s+/g, " ");
 
-export const impliedTextContent = (node: DefaultTreeElement): string =>
-  node.childNodes.reduce<string>(impliedWalk, "").trim();
+export const textContent = (
+  node: DefaultTreeElement,
+  options: ParsingOptions
+): string => {
+  const value = node.childNodes.reduce<string>(walk, "").trim();
+
+  return isEnabled(options, "collapseWhitespace")
+    ? collapseWhitespace(value)
+    : value;
+};
+
+export const impliedTextContent = (
+  node: DefaultTreeElement,
+  options: ParsingOptions
+): string => {
+  const value = node.childNodes.reduce<string>(impliedWalk, "").trim();
+  return isEnabled(options, "collapseWhitespace")
+    ? collapseWhitespace(value)
+    : value;
+};
 
 export const relTextContent = (node: DefaultTreeElement): string =>
   node.childNodes.reduce<string>(impliedWalk, "");

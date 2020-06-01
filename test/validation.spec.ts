@@ -152,6 +152,37 @@ describe("validation", () => {
             })
           ).to.throw("Microformats parser: experimental.lang is not a boolean");
         });
+
+        it("should not throw an error if it is  a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { lang: true },
+            })
+          ).to.not.throw();
+        });
+      });
+
+      describe("collapseWhitespace", () => {
+        it("should throw an error if it is not a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { collapseWhitespace: "true" },
+            })
+          ).to.throw(
+            "Microformats parser: experimental.collapseWhitespace is not a boolean"
+          );
+        });
+
+        it("should not throw an error if it is  a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { collapseWhitespace: true },
+            })
+          ).to.not.throw();
+        });
       });
     });
   });
