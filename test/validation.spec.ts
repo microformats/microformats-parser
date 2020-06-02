@@ -153,7 +153,7 @@ describe("validation", () => {
           ).to.throw("Microformats parser: experimental.lang is not a boolean");
         });
 
-        it("should not throw an error if it is  a boolean", () => {
+        it("should not throw an error if it is a boolean", () => {
           expect(() =>
             mf2(html, {
               baseUrl: "http://example.com",
@@ -175,7 +175,7 @@ describe("validation", () => {
           );
         });
 
-        it("should not throw an error if it is  a boolean", () => {
+        it("should not throw an error if it is a boolean", () => {
           expect(() =>
             mf2(html, {
               baseUrl: "http://example.com",

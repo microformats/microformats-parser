@@ -2,7 +2,7 @@ import { DefaultTreeNode, DefaultTreeElement } from "parse5";
 
 import { getAttributeValue } from "./attributes";
 import { isElement, isTextNode } from "./nodeMatchers";
-import { ParsingOptions } from "../types";
+import { ParserOptions } from "../types";
 import { isEnabled } from "./experimental";
 
 const walk = (current: string, node: DefaultTreeNode): string => {
@@ -51,28 +51,38 @@ const impliedWalk = (current: string, node: DefaultTreeNode): string => {
   return current;
 };
 
-const collapseWhitespace = (str: string) => str.replace(/\s+/g, " ");
+const experimentalTextContent = (node: DefaultTreeElement): string =>
+  node.childNodes.reduce<string>(walk, "").replace(/\s+/g, " ").trim();
 
 export const textContent = (
   node: DefaultTreeElement,
-  options: ParsingOptions
+  options: ParserOptions
 ): string => {
-  const value = node.childNodes.reduce<string>(walk, "").trim();
+  if (isEnabled(options, "collapseWhitespace")) {
+    return experimentalTextContent(node);
+  }
 
-  return isEnabled(options, "collapseWhitespace")
-    ? collapseWhitespace(value)
-    : value;
+  return node.childNodes.reduce<string>(walk, "").trim();
 };
 
 export const impliedTextContent = (
   node: DefaultTreeElement,
-  options: ParsingOptions
+  options: ParserOptions
 ): string => {
-  const value = node.childNodes.reduce<string>(impliedWalk, "").trim();
-  return isEnabled(options, "collapseWhitespace")
-    ? collapseWhitespace(value)
-    : value;
+  if (isEnabled(options, "collapseWhitespace")) {
+    return experimentalTextContent(node);
+  }
+
+  return node.childNodes.reduce<string>(impliedWalk, "").trim();
 };
 
-export const relTextContent = (node: DefaultTreeElement): string =>
-  node.childNodes.reduce<string>(impliedWalk, "");
+export const relTextContent = (
+  node: DefaultTreeElement,
+  options: ParserOptions
+): string => {
+  if (isEnabled(options, "collapseWhitespace")) {
+    return experimentalTextContent(node);
+  }
+
+  return node.childNodes.reduce<string>(impliedWalk, "");
+};

@@ -1,8 +1,8 @@
-import { ParsingOptions, ExperimentalOptions } from "../types";
+import { ExperimentalName, ParserOptions } from "../types";
 
 export const isEnabled = (
-  options: ParsingOptions | undefined,
-  flag: ExperimentalOptions
+  options: ParserOptions,
+  flag: ExperimentalName
 ): boolean => {
   if (!options || !options.experimental) {
     return false;

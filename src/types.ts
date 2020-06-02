@@ -2,7 +2,7 @@ import { DefaultTreeElement } from "parse5";
 
 import { BackcompatRoot } from "./backcompat";
 
-export type ExperimentalOptions = "lang" | "collapseWhitespace";
+export type ExperimentalName = "lang" | "collapseWhitespace";
 
 export interface ParserOptions {
   baseUrl: string;

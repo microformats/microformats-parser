@@ -107,7 +107,7 @@ These are sourced from the element themselves, a parent microformat, the HTML do
 
 #### `collapseWhitespace`
 
-When parsing microformats for text content, the all consecutive whitespace is collapsed into a single space.
+When parsing microformats for text content, all the consecutive whitespace is collapsed into a single space.
 
 ## Contributing
 
