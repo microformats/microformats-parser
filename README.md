@@ -107,7 +107,7 @@ These are sourced from the element themselves, a parent microformat, the HTML do
 
 #### `textContent`
 
-When parsing microformats for text content, all the consecutive whitespace is collapsed into a single space.
+When parsing microformats for text content, all the consecutive whitespace is collapsed into a single space. `<br/>` and `<p>` tags are treated as line breaks.
 
 ## Contributing
 
