@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "properties": {
+        "location": [
+          {
+            "type": ["h-adr"],
+            "properties": {
+              "locality": ["Berlin"],
+              "region": ["Berlin"],
+              "country-name": ["DE"],
+              "latitude": ["52.518606"],
+              "longitude": ["13.376127"]
+            },
+            "value": "Berlin, Berlin, DE"
+          }
+        ]
+      }
+    },
+    {
+      "type": ["h-card"],
+      "properties": {
+        "name": ["Bob Smith"],
+        "title": ["Senior\nGeneral\nWaste"]
+      }
+    },
+    {
+      "type": ["h-card"],
+      "properties": {
+        "name": ["Bob Smith"],
+        "photo": [
+          {
+            "alt": "Bob Smith",
+            "value": "http://example.com/profile-picture.jpg"
+          }
+        ]
+      }
+    }
+  ],
+  "rels": {
+    "me": ["http://example.com/"]
+  },
+  "rel-urls": {
+    "http://example.com/": {
+      "rels": ["me"],
+      "text": "Joe Bloggs"
+    }
+  }
+}

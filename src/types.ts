@@ -2,13 +2,13 @@ import { DefaultTreeElement } from "parse5";
 
 import { BackcompatRoot } from "./backcompat";
 
-export type ExperimentalName = "lang" | "collapseWhitespace";
+export type ExperimentalName = "lang" | "textContent";
 
 export interface ParserOptions {
   baseUrl: string;
   experimental?: {
     lang?: boolean;
-    collapseWhitespace?: boolean;
+    textContent?: boolean;
   };
 }
 

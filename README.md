@@ -16,7 +16,7 @@ Follows the [microformats2 parsing specification](http://microformats.org/wiki/m
   - [Microformats v2](#microformats-v2)
   - [Experimental options](#experimental-options)
     - [`lang`](#lang)
-    - [`collapseWhitespace`](#collapsewhitespace)
+    - [`textContent`](#textcontent)
 - [Contributing](#contributing)
 
 ## Quick start
@@ -79,7 +79,7 @@ Use: `mf2(html: string, options: { baseUrl: string, experimental: object })`
   - `baseUrl` (string, required) - a base URL to resolve relative URLs
   - `experimental` (object, optional) - experimental (non-standard) options
     - `lang` (boolean, optional) - enable support for parsing `lang` attributes
-    - `collapseWhitespace` (boolean, optional) - enable support for collapsing whitespace in properties and `value`s generated from text content.
+    - `textContent` (boolean, optional) - enable support for better collapsing whitespace in text content.
 
 Returns the parsed microformats from the HTML string
 
@@ -105,7 +105,7 @@ Parse microformats for `lang` attributes. This will include `lang` on microforma
 
 These are sourced from the element themselves, a parent microformat, the HTML document or a meta tag.
 
-#### `collapseWhitespace`
+#### `textContent`
 
 When parsing microformats for text content, all the consecutive whitespace is collapsed into a single space.
 

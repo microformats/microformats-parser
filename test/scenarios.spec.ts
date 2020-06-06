@@ -65,7 +65,7 @@ describe("mf2() // experimental scenarios", () => {
     it(`should correctly parse ${name}`, () => {
       const result = mf2(input, {
         ...options,
-        experimental: { lang: true, collapseWhitespace: true },
+        experimental: { lang: true, textContent: true },
       });
       expect(result).to.deep.equal(expected);
     });

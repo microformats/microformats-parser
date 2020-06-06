@@ -163,15 +163,15 @@ describe("validation", () => {
         });
       });
 
-      describe("collapseWhitespace", () => {
+      describe("textContent", () => {
         it("should throw an error if it is not a boolean", () => {
           expect(() =>
             mf2(html, {
               baseUrl: "http://example.com",
-              experimental: { collapseWhitespace: "true" },
+              experimental: { textContent: "true" },
             })
           ).to.throw(
-            "Microformats parser: experimental.collapseWhitespace is not a boolean"
+            "Microformats parser: experimental.textContent is not a boolean"
           );
         });
 
@@ -179,7 +179,7 @@ describe("validation", () => {
           expect(() =>
             mf2(html, {
               baseUrl: "http://example.com",
-              experimental: { collapseWhitespace: true },
+              experimental: { textContent: true },
             })
           ).to.not.throw();
         });

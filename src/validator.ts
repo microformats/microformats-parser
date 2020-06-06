@@ -82,7 +82,7 @@ export const validator = (
   if ("experimental" in options) {
     const experimental = assertIsObject(
       options.experimental,
-      ["lang", "collapseWhitespace"],
+      ["lang", "textContent"],
       "experimental"
     );
 
@@ -90,11 +90,8 @@ export const validator = (
       assertIsBoolean(experimental.lang, "experimental.lang");
     }
 
-    if ("collapseWhitespace" in experimental) {
-      assertIsBoolean(
-        experimental.collapseWhitespace,
-        "experimental.collapseWhitespace"
-      );
+    if ("textContent" in experimental) {
+      assertIsBoolean(experimental.textContent, "experimental.textContent");
     }
   }
 };
