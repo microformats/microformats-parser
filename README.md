@@ -91,7 +91,7 @@ This package will parse microformats v1, however support will be limited to the 
 
 ### Microformats v2
 
-We provide support for all mircroformats v2 parsing, as detailed in the [microformats2 parsing specification](http://microformats.org/wiki/microformats2-parsing). If there is an issue with v2 parsing, please create an issue.
+We provide support for all microformats v2 parsing, as detailed in the [microformats2 parsing specification](http://microformats.org/wiki/microformats2-parsing). If there is an issue with v2 parsing, please create an issue.
 
 ### Experimental options
 
