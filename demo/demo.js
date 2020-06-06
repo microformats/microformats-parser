@@ -30,6 +30,7 @@ window.parseHtml = () => {
   const html = document.getElementById("html").value;
   const baseUrl = document.getElementById("base-url").value;
   const lang = document.getElementById("lang").checked;
+  const textContent = document.getElementById("textContent").checked;
 
-  return parse(html, { baseUrl, experimental: { lang } });
+  return parse(html, { baseUrl, experimental: { lang, textContent } });
 };
