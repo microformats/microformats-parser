@@ -16,6 +16,7 @@ Follows the [microformats2 parsing specification](http://microformats.org/wiki/m
   - [Microformats v2](#microformats-v2)
   - [Experimental options](#experimental-options)
     - [`lang`](#lang)
+    - [`textContent`](#textcontent)
 - [Contributing](#contributing)
 
 ## Quick start
@@ -78,6 +79,7 @@ Use: `mf2(html: string, options: { baseUrl: string, experimental: object })`
   - `baseUrl` (string, required) - a base URL to resolve relative URLs
   - `experimental` (object, optional) - experimental (non-standard) options
     - `lang` (boolean, optional) - enable support for parsing `lang` attributes
+    - `textContent` (boolean, optional) - enable support for better collapsing whitespace in text content.
 
 Returns the parsed microformats from the HTML string
 
@@ -89,7 +91,7 @@ This package will parse microformats v1, however support will be limited to the 
 
 ### Microformats v2
 
-We provide support for all mircroformats v2 parsing, as detailed in the [microformats2 parsing specification](http://microformats.org/wiki/microformats2-parsing). If there is an issue with v2 parsing, please create an issue.
+We provide support for all microformats v2 parsing, as detailed in the [microformats2 parsing specification](http://microformats.org/wiki/microformats2-parsing). If there is an issue with v2 parsing, please create an issue.
 
 ### Experimental options
 
@@ -102,6 +104,10 @@ There is also support for some experimental parsing options. These can be enable
 Parse microformats for `lang` attributes. This will include `lang` on microformats and `e-*` properties where available.
 
 These are sourced from the element themselves, a parent microformat, the HTML document or a meta tag.
+
+#### `textContent`
+
+When parsing microformats for text content, all the consecutive whitespace is collapsed into a single space. `<br/>` and `<p>` tags are treated as line breaks.
 
 ## Contributing
 

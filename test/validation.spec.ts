@@ -152,6 +152,37 @@ describe("validation", () => {
             })
           ).to.throw("Microformats parser: experimental.lang is not a boolean");
         });
+
+        it("should not throw an error if it is a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { lang: true },
+            })
+          ).to.not.throw();
+        });
+      });
+
+      describe("textContent", () => {
+        it("should throw an error if it is not a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { textContent: "true" },
+            })
+          ).to.throw(
+            "Microformats parser: experimental.textContent is not a boolean"
+          );
+        });
+
+        it("should not throw an error if it is a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { textContent: true },
+            })
+          ).to.not.throw();
+        });
       });
     });
   });

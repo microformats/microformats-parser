@@ -4,6 +4,7 @@ import { getAttributeValue, hasClassName } from "./attributes";
 import { textContent } from "./textContent";
 import { findChildren } from "./findChildren";
 import { isValueClass } from "./nodeMatchers";
+import { ParsingOptions } from "../types";
 
 interface Options {
   datetime: boolean;
@@ -54,7 +55,7 @@ const handleDate = (dateStrings: string[]): string | undefined =>
 
 export const valueClassPattern = (
   node: DefaultTreeElement,
-  { datetime }: Partial<Options> = {}
+  options: ParsingOptions & Partial<Options>
 ): string | undefined => {
   const values = findChildren(node, isValueClass);
 
@@ -62,15 +63,16 @@ export const valueClassPattern = (
     return;
   }
 
-  if (datetime) {
+  if (options.datetime) {
     const date = values.map(
-      (node) => datetimeProp(node) ?? valueTitle(node) ?? textContent(node)
+      (node) =>
+        datetimeProp(node) ?? valueTitle(node) ?? textContent(node, options)
     );
     return handleDate(date);
   }
 
   return values
-    .map((node) => valueTitle(node) ?? textContent(node))
+    .map((node) => valueTitle(node) ?? textContent(node, options))
     .join("")
     .trim();
 };

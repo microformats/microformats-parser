@@ -16,6 +16,7 @@ import {
 } from "../backcompat";
 import { applyIncludesToRoot } from "../helpers/includes";
 import { parseE } from "./property";
+import { isEnabled } from "../helpers/experimental";
 
 interface ParseMicroformatOptions extends ParsingOptions {
   valueType?: PropertyType;
@@ -58,7 +59,7 @@ export const parseMicroformat = (
     item.id = id;
   }
 
-  if (options.experimental?.lang && lang) {
+  if (isEnabled(options, "lang") && lang) {
     item.lang = lang;
   }
 
@@ -72,12 +73,13 @@ export const parseMicroformat = (
     item.value =
       (item.properties.name && item.properties.name[0]) ??
       getAttributeValue(node, "title") ??
-      textContent(node);
+      textContent(node, options);
   }
 
   if (options.valueType === "u") {
     item.value =
-      (item.properties.url && item.properties.url[0]) ?? textContent(node);
+      (item.properties.url && item.properties.url[0]) ??
+      textContent(node, options);
   }
 
   /**

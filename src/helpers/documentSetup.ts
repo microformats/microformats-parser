@@ -38,7 +38,8 @@ export const findBase = (node: DefaultTreeElement): string | undefined => {
 
 const handleNode = (
   node: DefaultTreeElement,
-  result: DocumentSetupResult
+  result: DocumentSetupResult,
+  options: ParserOptions
 ): void => {
   for (const i in node.childNodes) {
     const child = node.childNodes[i];
@@ -97,13 +98,13 @@ const handleNode = (
     }
 
     if (isRel(child)) {
-      parseRel(child, result);
+      parseRel(child, result, options);
     }
 
     /**
      * Repeat this process for this node's children
      */
-    handleNode(child, result);
+    handleNode(child, result, options);
   }
 };
 
@@ -119,7 +120,7 @@ export const documentSetup = (
     lang: undefined,
   };
 
-  handleNode(node, result);
+  handleNode(node, result, options);
 
   return result;
 };

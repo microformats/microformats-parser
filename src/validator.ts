@@ -82,12 +82,16 @@ export const validator = (
   if ("experimental" in options) {
     const experimental = assertIsObject(
       options.experimental,
-      ["lang"],
+      ["lang", "textContent"],
       "experimental"
     );
 
     if ("lang" in experimental) {
       assertIsBoolean(experimental.lang, "experimental.lang");
+    }
+
+    if ("textContent" in experimental) {
+      assertIsBoolean(experimental.textContent, "experimental.textContent");
     }
   }
 };

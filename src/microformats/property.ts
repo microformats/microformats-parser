@@ -19,6 +19,7 @@ import { textContent } from "../helpers/textContent";
 import { parseImage } from "../helpers/images";
 import { isLocalLink, applyBaseUrl } from "../helpers/url";
 import { convertV1PropertyClassNames } from "../backcompat";
+import { isEnabled } from "../helpers/experimental";
 
 const propertyRegexp = /^(p|u|e|dt)-/;
 
@@ -28,12 +29,15 @@ const getType = (className: string): PropertyType =>
   (className.startsWith("e-") && "e") ||
   "dt";
 
-export const parseP = (node: DefaultTreeElement): string =>
-  valueClassPattern(node) ??
+export const parseP = (
+  node: DefaultTreeElement,
+  options: ParsingOptions
+): string =>
+  valueClassPattern(node, options) ??
   getAttributeIfTag(node, ["abbr", "link"], "title") ??
   getAttributeIfTag(node, ["data"], "value") ??
   getAttributeIfTag(node, ["img", "area"], "alt") ??
-  textContent(node);
+  textContent(node, options);
 
 export const parseU = (
   node: DefaultTreeElement,
@@ -45,10 +49,10 @@ export const parseU = (
     getAttributeIfTag(node, ["audio", "source", "iframe", "video"], "src") ??
     getAttributeIfTag(node, ["video"], "poster") ??
     getAttributeIfTag(node, ["object"], "data") ??
-    valueClassPattern(node) ??
+    valueClassPattern(node, options) ??
     getAttributeIfTag(node, ["abbr"], "title") ??
     getAttributeIfTag(node, ["data", "input"], "value") ??
-    textContent(node);
+    textContent(node, options);
 
   if (typeof url === "string" && isLocalLink(url)) {
     return applyBaseUrl(url, options.baseUrl);
@@ -57,24 +61,24 @@ export const parseU = (
   return typeof url === "string" ? url.trim() : url;
 };
 
-const parseDt = (node: DefaultTreeElement): string =>
-  valueClassPattern(node, { datetime: true }) ??
+const parseDt = (node: DefaultTreeElement, options: ParsingOptions): string =>
+  valueClassPattern(node, { ...options, datetime: true }) ??
   getAttributeIfTag(node, ["time", "ins", "del"], "datetime") ??
   getAttributeIfTag(node, ["abbr"], "title") ??
   getAttributeIfTag(node, ["data", "input"], "value") ??
-  textContent(node);
+  textContent(node, options);
 
 export const parseE = (
   node: DefaultTreeElement,
   options: ParsingOptions
 ): Html => {
   const value = {
-    value: textContent(node),
+    value: textContent(node, options),
     html: serialize(node).trim(),
   };
 
   const lang =
-    options.experimental?.lang &&
+    isEnabled(options, "lang") &&
     (getAttributeValue(node, "lang") || options.inherited.lang);
 
   return lang ? { ...value, lang } : value;
@@ -97,7 +101,7 @@ const handleProperty = (
   options: ParsingOptions
 ): MicroformatProperty => {
   if (type === "p") {
-    return parseP(node);
+    return parseP(node, options);
   }
 
   if (type === "e") {
@@ -108,7 +112,7 @@ const handleProperty = (
     return parseU(node, options);
   }
 
-  return parseDt(node);
+  return parseDt(node, options);
 };
 
 export const parseProperty = (

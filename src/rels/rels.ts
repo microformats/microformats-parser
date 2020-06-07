@@ -1,6 +1,6 @@
 import { DefaultTreeElement } from "parse5";
 
-import { Rels, RelUrls } from "../types";
+import { Rels, RelUrls, ParserOptions } from "../types";
 import { getAttributeValue } from "../helpers/attributes";
 import { relTextContent } from "../helpers/textContent";
 
@@ -11,13 +11,14 @@ interface ParseRelOptions {
 
 export const parseRel = (
   child: DefaultTreeElement,
-  { rels, relUrls }: ParseRelOptions
+  { rels, relUrls }: ParseRelOptions,
+  options: ParserOptions
 ): void => {
   /**
-   * Ignores used as this metho is only ever called if they are defined
+   * Ignores used as this method is only ever called if they are defined
    * But required for TS typechecking
    */
-  const text = relTextContent(child);
+  const text = relTextContent(child, options);
   const rel = getAttributeValue(child, "rel");
   /* istanbul ignore next */
   const href = getAttributeValue(child, "href")?.trim();
