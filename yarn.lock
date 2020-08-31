@@ -5473,9 +5473,9 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.11, postcss@^7.0.14, postcss@^7.0.1
     supports-color "^6.1.0"
 
 posthtml-expressions@^1.4.0:
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/posthtml-expressions/-/posthtml-expressions-1.4.6.tgz#5c8a8e21d12bc2ab173910c3df9c658930884d49"
-  integrity sha512-9reSvnKdlp8wbzGB7A/dmmCiJhhXwIZeLyXQuJNDbbfE2JHQxpnIbfXe2J6hu7411+SphKDRYDrparlkq4RkJA==
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/posthtml-expressions/-/posthtml-expressions-1.4.7.tgz#244772604a05ab343246e6d2942761e39b4eb3eb"
+  integrity sha512-zX6BBJUn/Wri33xPZiAQI+Bq5LeLnMadt6bWjXLPCieB3XC+BjH/pTKyd21pO47UF1u26avnxzfKXe06eU4JkA==
   dependencies:
     fclone "^1.0.11"
     posthtml-parser "^0.5.0"
