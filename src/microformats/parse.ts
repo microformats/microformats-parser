@@ -1,4 +1,4 @@
-import { DefaultTreeElement } from "parse5";
+import { Element } from "parse5";
 
 import { MicroformatRoot, PropertyType, ParsingOptions } from "../types";
 import { microformatProperties } from "./properties";
@@ -23,19 +23,19 @@ interface ParseMicroformatOptions extends ParsingOptions {
   valueKey?: string;
 }
 
-const getMicroformatType = (node: DefaultTreeElement): string[] => {
+const getMicroformatType = (node: Element): string[] => {
   const v2 = getClassNames(node, "h-");
   return v2.length ? v2 : convertV1RootClassNames(node);
 };
 
-const getRoots = (node: DefaultTreeElement): BackcompatRoot[] =>
+const getRoots = (node: Element): BackcompatRoot[] =>
   isMicroformatV2Root(node) ? [] : getBackcompatRootClassNames(node);
 
-const getId = (node: DefaultTreeElement): string | undefined =>
+const getId = (node: Element): string | undefined =>
   isMicroformatV2Root(node) ? getAttributeValue(node, "id") : undefined;
 
 export const parseMicroformat = (
-  node: DefaultTreeElement,
+  node: Element,
   options: ParseMicroformatOptions
 ): MicroformatRoot => {
   applyIncludesToRoot(node, options);

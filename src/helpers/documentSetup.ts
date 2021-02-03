@@ -1,4 +1,4 @@
-import { DefaultTreeElement } from "parse5";
+import { Document, Element } from "parse5";
 
 import { ParserOptions, IdRefs, Rels, RelUrls } from "../types";
 import { getAttribute, getAttributeValue } from "./attributes";
@@ -14,7 +14,7 @@ interface DocumentSetupResult {
   lang?: string;
 }
 
-export const findBase = (node: DefaultTreeElement): string | undefined => {
+export const findBase = (node: Element | Document): string | undefined => {
   for (const child of node.childNodes) {
     if (!isElement(child)) {
       continue;
@@ -37,7 +37,7 @@ export const findBase = (node: DefaultTreeElement): string | undefined => {
 // this is mutating the object, and will mutate it for everything else :-/
 
 const handleNode = (
-  node: DefaultTreeElement,
+  node: Element | Document,
   result: DocumentSetupResult,
   options: ParserOptions
 ): void => {
@@ -109,7 +109,7 @@ const handleNode = (
 };
 
 export const documentSetup = (
-  node: DefaultTreeElement,
+  node: Document,
   options: ParserOptions
 ): DocumentSetupResult => {
   const result = {

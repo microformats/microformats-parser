@@ -1,4 +1,4 @@
-import { DefaultTreeElement } from "parse5";
+import { Element } from "parse5";
 
 import { Rels, RelUrls, ParserOptions } from "../types";
 import { getAttributeValue } from "../helpers/attributes";
@@ -10,7 +10,7 @@ interface ParseRelOptions {
 }
 
 export const parseRel = (
-  child: DefaultTreeElement,
+  child: Element,
   { rels, relUrls }: ParseRelOptions,
   options: ParserOptions
 ): void => {

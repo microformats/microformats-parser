@@ -1,4 +1,4 @@
-import { DefaultTreeElement } from "parse5";
+import { Element } from "parse5";
 
 import { BackcompatRoot } from "./backcompat";
 
@@ -65,7 +65,7 @@ export type RelUrls = Record<
   }
 >;
 
-export type IdRefs = Record<string, DefaultTreeElement>;
+export type IdRefs = Record<string, Element>;
 
 export type PropertyType = "p" | "u" | "e" | "dt";
 

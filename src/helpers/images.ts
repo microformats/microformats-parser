@@ -1,10 +1,10 @@
-import { DefaultTreeElement } from "parse5";
+import { Element } from "parse5";
 
 import { getAttributeValue } from "./attributes";
 import { Image, ParsingOptions } from "../types";
 
 export const parseImage = (
-  node: DefaultTreeElement,
+  node: Element,
   { inherited }: Partial<ParsingOptions> = {}
 ): Image | string | undefined => {
   if (node.tagName !== "img") {
