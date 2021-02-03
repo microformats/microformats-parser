@@ -1,15 +1,15 @@
-import { DefaultTreeNode, DefaultTreeElement } from "parse5";
+import { Node, Element } from "parse5";
 
 import { getAttributeValue } from "./attributes";
 import { isElement, isTextNode } from "./nodeMatchers";
 import { ParserOptions } from "../types";
 import { isEnabled } from "./experimental";
 
-const imageValue = (node: DefaultTreeElement): string | undefined =>
+const imageValue = (node: Element): string | undefined =>
   getAttributeValue(node, "alt")?.trim() ??
   getAttributeValue(node, "src")?.trim();
 
-const walk = (current: string, node: DefaultTreeNode): string => {
+const walk = (current: string, node: Node): string => {
   /* istanbul ignore else */
   if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
@@ -33,7 +33,7 @@ const walk = (current: string, node: DefaultTreeNode): string => {
   return current;
 };
 
-const impliedWalk = (current: string, node: DefaultTreeNode): string => {
+const impliedWalk = (current: string, node: Node): string => {
   /* istanbul ignore else */
   if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
@@ -54,7 +54,7 @@ const impliedWalk = (current: string, node: DefaultTreeNode): string => {
   return current;
 };
 
-const experimentalWalk = (current: string, node: DefaultTreeNode): string => {
+const experimentalWalk = (current: string, node: Node): string => {
   /* istanbul ignore else */
   if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
@@ -89,17 +89,14 @@ const experimentalWalk = (current: string, node: DefaultTreeNode): string => {
   return current;
 };
 
-const experimentalTextContent = (node: DefaultTreeElement): string =>
+const experimentalTextContent = (node: Element): string =>
   node.childNodes
     .reduce<string>(experimentalWalk, "")
     .replace(/ +/g, " ")
     .replace(/ ?\n ?/g, "\n")
     .trim();
 
-export const textContent = (
-  node: DefaultTreeElement,
-  options: ParserOptions
-): string => {
+export const textContent = (node: Element, options: ParserOptions): string => {
   if (isEnabled(options, "textContent")) {
     return experimentalTextContent(node);
   }
@@ -108,7 +105,7 @@ export const textContent = (
 };
 
 export const impliedTextContent = (
-  node: DefaultTreeElement,
+  node: Element,
   options: ParserOptions
 ): string => {
   if (isEnabled(options, "textContent")) {
@@ -119,7 +116,7 @@ export const impliedTextContent = (
 };
 
 export const relTextContent = (
-  node: DefaultTreeElement,
+  node: Element,
   options: ParserOptions
 ): string => {
   if (isEnabled(options, "textContent")) {

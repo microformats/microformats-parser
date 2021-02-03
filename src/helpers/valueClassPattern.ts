@@ -1,4 +1,4 @@
-import { DefaultTreeElement } from "parse5";
+import { Element } from "parse5";
 
 import { getAttributeValue, hasClassName } from "./attributes";
 import { textContent } from "./textContent";
@@ -10,10 +10,10 @@ interface Options {
   datetime: boolean;
 }
 
-const datetimeProp = (node: DefaultTreeElement): string | undefined =>
+const datetimeProp = (node: Element): string | undefined =>
   getAttributeValue(node, "datetime");
 
-const valueTitle = (node: DefaultTreeElement): string | undefined => {
+const valueTitle = (node: Element): string | undefined => {
   if (hasClassName(node, "value-title")) {
     return getAttributeValue(node, "title");
   }
@@ -54,7 +54,7 @@ const handleDate = (dateStrings: string[]): string | undefined =>
     .toUpperCase();
 
 export const valueClassPattern = (
-  node: DefaultTreeElement,
+  node: Element,
   options: ParsingOptions & Partial<Options>
 ): string | undefined => {
   const values = findChildren(node, isValueClass);

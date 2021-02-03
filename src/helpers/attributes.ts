@@ -1,17 +1,17 @@
-import { Attribute, DefaultTreeElement } from "parse5";
+import { Attribute, Element } from "parse5";
 
 export const getAttribute = (
-  node: DefaultTreeElement,
+  node: Element,
   name: string
 ): Attribute | undefined => node.attrs.find((attr) => attr.name === name);
 
 export const getAttributeValue = (
-  node: DefaultTreeElement,
+  node: Element,
   name: string
 ): string | undefined => getAttribute(node, name)?.value;
 
 export const getClassNames = (
-  node: DefaultTreeElement,
+  node: Element,
   matcher?: RegExp | string
 ): string[] => {
   const classNames = getAttributeValue(node, "class")?.split(" ") || [];
@@ -26,44 +26,36 @@ export const getClassNames = (
 };
 
 export const getClassNameIntersect = <T extends string>(
-  node: DefaultTreeElement,
+  node: Element,
   toCompare: T[]
 ): T[] =>
   getClassNames(node).filter((name: string): name is T =>
     toCompare.includes(name as T)
   );
 
-export const hasClassName = (
-  node: DefaultTreeElement,
-  className: string
-): boolean => getClassNames(node).some((name) => name === className);
+export const hasClassName = (node: Element, className: string): boolean =>
+  getClassNames(node).some((name) => name === className);
 
 export const hasClassNameIntersect = (
-  node: DefaultTreeElement,
+  node: Element,
   toCompare: string[]
 ): boolean => getClassNames(node).some((name) => toCompare.includes(name));
 
 export const getAttributeIfTag = (
-  node: DefaultTreeElement,
+  node: Element,
   tagNames: string[],
   attr: string
 ): string | undefined =>
   tagNames.includes(node.tagName) ? getAttributeValue(node, attr) : undefined;
 
-export const hasRelIntersect = (
-  node: DefaultTreeElement,
-  toCompare: string[]
-): boolean =>
+export const hasRelIntersect = (node: Element, toCompare: string[]): boolean =>
   Boolean(
     getAttributeValue(node, "rel")
       ?.split(" ")
       .some((name) => toCompare.includes(name))
   );
 
-export const getRelIntersect = (
-  node: DefaultTreeElement,
-  toCompare: string[]
-): string[] =>
+export const getRelIntersect = (node: Element, toCompare: string[]): string[] =>
   getAttributeValue(node, "rel")
     ?.split(" ")
     .filter((name) => toCompare.includes(name)) || [];

@@ -1,4 +1,4 @@
-import { DefaultTreeElement } from "parse5";
+import { Document, Element } from "parse5";
 
 import { isElement } from "./helpers/nodeMatchers";
 
@@ -96,12 +96,11 @@ export const validator = (
   }
 };
 
-export const validateParsedHtml = (doc: DefaultTreeElement): void => {
+export const validateParsedHtml = (doc: Document): void => {
   // <html> and <body> are always defined (based on tests)
   // Provide error handling in the event they are ever not defined
   const html = doc.childNodes.find(
-    (child): child is DefaultTreeElement =>
-      isElement(child) && child.tagName === "html"
+    (child): child is Element => isElement(child) && child.tagName === "html"
   );
 
   /* istanbul ignore if */
@@ -110,8 +109,7 @@ export const validateParsedHtml = (doc: DefaultTreeElement): void => {
   }
 
   const body = html.childNodes.find(
-    (child): child is DefaultTreeElement =>
-      isElement(child) && child.tagName === "body"
+    (child): child is Element => isElement(child) && child.tagName === "body"
   );
 
   /* istanbul ignore if */

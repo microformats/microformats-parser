@@ -1,8 +1,4 @@
-import {
-  DefaultTreeTextNode,
-  DefaultTreeNode,
-  DefaultTreeElement,
-} from "parse5";
+import { TextNode, Node, Element } from "parse5";
 
 import {
   getAttribute,
@@ -21,47 +17,45 @@ const classRegex = (prefix: string): RegExp =>
 const rootClassRegex = classRegex("h");
 const propClassRegex = classRegex("(p|e|u|dt)");
 
-export const isElement = (node: DefaultTreeNode): node is DefaultTreeElement =>
+export const isElement = (node: Node): node is Element =>
   "tagName" in node && "childNodes" in node;
 
-export const isTextNode = (
-  node: DefaultTreeNode
-): node is DefaultTreeTextNode => "value" in node;
+export const isTextNode = (node: Node): node is TextNode => "value" in node;
 
-export const isMicroformatV2Root = (node: DefaultTreeElement): boolean =>
+export const isMicroformatV2Root = (node: Element): boolean =>
   getClassNames(node).some((cl) => cl.match(rootClassRegex));
 
-const isMicroformatV1Root = (node: DefaultTreeElement): boolean =>
+const isMicroformatV1Root = (node: Element): boolean =>
   hasClassNameIntersect(node, backcompatRoots);
 
-export const isMicroformatRoot = (node: DefaultTreeElement): boolean =>
+export const isMicroformatRoot = (node: Element): boolean =>
   isMicroformatV2Root(node) || isMicroformatV1Root(node);
 
 export const isMicroformatV1Property = (
-  node: DefaultTreeElement,
+  node: Element,
   roots: BackcompatRoot[]
 ): boolean => hasBackcompatMicroformatProperty(node, roots);
 
-export const isMicroformatV2Property = (node: DefaultTreeElement): boolean =>
+export const isMicroformatV2Property = (node: Element): boolean =>
   getClassNames(node, propClassRegex).length > 0;
 
 export const isMicroformatChild = (
-  node: DefaultTreeElement,
+  node: Element,
   roots: BackcompatRoot[]
 ): boolean =>
   !isMicroformatV2Property(node) &&
   !isMicroformatV1Property(node, roots) &&
   isMicroformatRoot(node);
 
-export const isBase = (node: DefaultTreeElement): boolean =>
+export const isBase = (node: Element): boolean =>
   Boolean(
     isElement(node) && node.tagName === "base" && getAttribute(node, "href")
   );
 
-export const isValueClass = (node: DefaultTreeElement): boolean =>
+export const isValueClass = (node: Element): boolean =>
   isElement(node) && hasClassNameIntersect(node, ["value", "value-title"]);
 
-export const isRel = (node: DefaultTreeElement): boolean =>
+export const isRel = (node: Element): boolean =>
   Boolean(
     isElement(node) &&
       node.attrs.some((attr) => attr.name === "rel") &&
