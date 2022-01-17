@@ -1,6 +1,6 @@
-<h1>microformats-parser</h1>
+# microformats-parser
 
-A JavaScript microformats v2 parser, with v1 back-compatibility. [View the demo](https://aimee-gm.github.io/microformats-parser/). Works with both the browser and node.js.
+A JavaScript microformats v2 parser, with v1 back-compatibility. [View the demo](https://microformats.github.io/microformats-parser/). Works with both the browser and node.js.
 
 Follows the [microformats2 parsing specification](http://microformats.org/wiki/microformats2-parsing).
 

@@ -4,8 +4,8 @@
   "description": "A JavaScript microformats v2 parser for the browser and node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "homepage": "https://aimee-gm.github.io/microformats-parser/",
-  "repository": "https://github.com/aimee-gm/microformats-parser.git",
+  "homepage": "https://microformats.github.io/microformats-parser/",
+  "repository": "https://github.com/microformats/microformats-parser.git",
   "author": "Aimee Gamble-Milner (https://github.com/aimee-gm)",
   "license": "MIT",
   "keywords": [
