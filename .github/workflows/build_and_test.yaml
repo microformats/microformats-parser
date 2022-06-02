@@ -39,10 +39,12 @@ jobs:
     needs: [build_and_test]
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [10, 12, 14, 16, 18]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: yarn
       - name: Download build artifacts
