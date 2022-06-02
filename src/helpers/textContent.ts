@@ -10,7 +10,6 @@ const imageValue = (node: Element): string | undefined =>
   getAttributeValue(node, "src")?.trim();
 
 const walk = (current: string, node: Node): string => {
-  /* istanbul ignore else */
   if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
@@ -29,12 +28,10 @@ const walk = (current: string, node: Node): string => {
     return `${current}${node.value}`;
   }
 
-  /* istanbul ignore next */
   return current;
 };
 
 const impliedWalk = (current: string, node: Node): string => {
-  /* istanbul ignore else */
   if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
@@ -50,12 +47,10 @@ const impliedWalk = (current: string, node: Node): string => {
     return `${current}${node.value}`;
   }
 
-  /* istanbul ignore next */
   return current;
 };
 
 const experimentalWalk = (current: string, node: Node): string => {
-  /* istanbul ignore else */
   if (isElement(node)) {
     if (["style", "script"].includes(node.tagName)) {
       return current;
@@ -85,7 +80,6 @@ const experimentalWalk = (current: string, node: Node): string => {
     }
   }
 
-  /* istanbul ignore next */
   return current;
 };
 

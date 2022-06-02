@@ -103,7 +103,6 @@ export const validateParsedHtml = (doc: Document): void => {
     (child): child is Element => isElement(child) && child.tagName === "html"
   );
 
-  /* istanbul ignore if */
   if (!html) {
     throw new Error("Microformats parser: No <html> element found");
   }
@@ -112,7 +111,6 @@ export const validateParsedHtml = (doc: Document): void => {
     (child): child is Element => isElement(child) && child.tagName === "body"
   );
 
-  /* istanbul ignore if */
   if (!body) {
     throw new Error("Microformats parser: No <body> element found");
   }

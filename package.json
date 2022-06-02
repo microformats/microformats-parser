@@ -17,6 +17,7 @@
     "indieweb"
   ],
   "scripts": {
+    "prepare": "husky install",
     "demo:prebuild": "yarn posthtml -o demo/index.html -c posthtml.config.cjs demo/index.tpl.html",
     "demo": "yarn demo:prebuild && parcel serve demo/index.html",
     "demo:build": "yarn demo:prebuild && parcel build demo/index.html --out-dir public --public-url ./",
@@ -25,7 +26,7 @@
     "lint": "eslint --cache './**/*.{ts,js}'",
     "prettier:list": "prettier '**/*.{ts,json,md,html}' --list-different",
     "prettier:fix": "prettier '**/*.{ts,json,md,html}' --write",
-    "test": "mocha ./test/*.spec.ts",
+    "test": "c8 mocha ./test/*.spec.ts",
     "test:package": "mocha ./test/package.spec.js"
   },
   "engines": {
@@ -39,17 +40,17 @@
     "parse5": "^6.0.0"
   },
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
     "@types/chai": "^4.2.11",
     "@types/glob": "^7.1.1",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^14.14.10",
+    "@types/node": "^16.0.0",
     "@types/parse5": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "c8": "^7.11.3",
     "chai": "^4.2.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.1.0",
@@ -59,7 +60,6 @@
     "lint-staged": ">=10",
     "microformat-tests": "https://github.com/microformats/tests",
     "mocha": "^10.0.0",
-    "nyc": "^15.1.0",
     "parcel-bundler": "^1.12.5",
     "posthtml-cli": "^0.10.0",
     "posthtml-expressions": "^1.9.0",
@@ -71,24 +71,8 @@
     "ts-node": "^10.8.0",
     "typescript": "^4.0.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{js,ts,json,css,md,html}": "prettier --write"
-  },
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
-    "all": true,
-    "check-coverage": true,
-    "include": [
-      "src/**"
-    ],
-    "branches": 100,
-    "lines": 100,
-    "functions": 100,
-    "statements": 100
+    "*.{js,ts,json,css,md,html}": "prettier --write",
+    "*.{js,ts}": "eslint --fix"
   }
 }
