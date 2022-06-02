@@ -1,14 +1,15 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 import { expect } from "chai";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { mf2 } from "../dist/index.esm";
+import pkg from "../package.json";
 import { loadScenarios } from "./utils/loadScenarios";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// get the correct module value from package.json and test that
+const { mf2 } = await import(`${path.resolve(__dirname, "../", pkg.module)}`);
 
 const scenarioDir = path.resolve(
   __dirname,
@@ -23,7 +24,7 @@ const options = {
   baseUrl: "http://example.com",
 };
 
-describe("mf2() // scenarios", () => {
+describe("package // esm // scenarios", () => {
   describe("microformats-v1", () => {
     v1.forEach(({ name, input, expected }) => {
       it(`should correctly parse ${name}`, () => {

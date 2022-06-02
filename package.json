@@ -3,8 +3,9 @@
   "version": "1.4.1",
   "description": "A JavaScript microformats v2 parser for the browser and node.js",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "types": "dist/dist/index.d.ts",
+  "module": "dist/index.esm.js",
   "homepage": "https://microformats.github.io/microformats-parser/",
   "repository": "https://github.com/microformats/microformats-parser.git",
   "author": "Aimee Gamble-Milner (https://github.com/aimee-gm)",
@@ -23,8 +24,8 @@
     "lint": "eslint --cache './**/*.{ts,js}'",
     "prettier:list": "prettier '**/*.{ts,json,md,html}' --list-different",
     "prettier:fix": "prettier '**/*.{ts,json,md,html}' --write",
-    "test": "mocha",
-    "test:package": "mocha test/package.spec.js"
+    "test": "mocha ./test/*.spec.ts",
+    "test:package": "mocha ./test/package.spec.js"
   },
   "engines": {
     "node": ">=10"
@@ -46,12 +47,12 @@
     "@types/mocha": "^9.1.1",
     "@types/node": "^14.14.10",
     "@types/parse5": "^6.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
-    "@typescript-eslint/parser": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
     "chai": "^4.2.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.26.0",
     "glob": "^7.1.6",
     "husky": ">=4",
     "lint-staged": ">=10",

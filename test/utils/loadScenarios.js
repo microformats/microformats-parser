@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import glob from "glob";
 import path from "path";
 import { readFileSync } from "fs";
