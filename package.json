@@ -17,8 +17,9 @@
     "indieweb"
   ],
   "scripts": {
-    "demo": "parcel serve demo/index.html",
-    "demo:build": "parcel build demo/index.html --out-dir public --public-url ./",
+    "demo:prebuild": "yarn posthtml -o demo/index.html -c posthtml.config.cjs demo/index.tpl.html",
+    "demo": "yarn demo:prebuild && parcel serve demo/index.html",
+    "demo:build": "yarn demo:prebuild && parcel build demo/index.html --out-dir public --public-url ./",
     "prebuild": "rm -rf ./dist",
     "build": "rollup -c",
     "lint": "eslint --cache './**/*.{ts,js}'",
@@ -60,6 +61,7 @@
     "mocha": "^10.0.0",
     "nyc": "^15.1.0",
     "parcel-bundler": "^1.12.5",
+    "posthtml-cli": "^0.10.0",
     "posthtml-expressions": "^1.9.0",
     "prettier": "^2.0.5",
     "rollup": "^2.75.5",

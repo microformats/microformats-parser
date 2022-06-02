@@ -24,7 +24,11 @@
   },
   "overrides": [
     {
-      "files": ["./demo/**/*.js", "./rollup.config.js"],
+      "files": [
+        "./demo/**/*.js",
+        "./rollup.config.js",
+        "./posthtml.config.cjs"
+      ],
       "rules": {
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/explicit-function-return-type": "off",

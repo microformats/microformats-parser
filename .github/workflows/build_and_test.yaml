@@ -28,6 +28,8 @@ jobs:
         run: yarn test
       - name: Build package
         run: yarn build
+      - name: Build demo
+        run: yarn demo:build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v1
         with:
