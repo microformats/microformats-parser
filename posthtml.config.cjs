@@ -1,15 +1,15 @@
-const {
+import {
   name,
   description,
   version,
   repository,
   license,
   keywords,
-} = require("./package.json");
+} from "./package.json";
 
 const repo = repository.replace("git+", "").replace(".git", "");
 
-module.exports = {
+export default {
   plugins: {
     "posthtml-expressions": {
       locals: {

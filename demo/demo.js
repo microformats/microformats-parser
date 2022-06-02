@@ -1,4 +1,5 @@
-const { mf2 } = require("../dist/index.cjs.js");
+// eslint-disable-next-line import/no-unresolved
+import { mf2 } from "../dist/index.esm.js";
 
 const setResult = (result) => {
   const escaped = JSON.stringify(result, null, 2)
