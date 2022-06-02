@@ -3,7 +3,7 @@
 const { expect } = require("chai");
 const path = require("path");
 
-const { mf2 } = require("../dist");
+const { mf2 } = require("../dist/index.cjs");
 const loadScenarios = require("./utils/loadScenarios");
 
 const scenarioDir = path.resolve(
