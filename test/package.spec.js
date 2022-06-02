@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const { expect } = require("chai");
-const path = require("path");
+import { expect } from "chai";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const { mf2 } = require("../dist/index.cjs");
-const loadScenarios = require("./utils/loadScenarios");
+import { mf2 } from "../dist/index.esm";
+import { loadScenarios } from "./utils/loadScenarios";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const scenarioDir = path.resolve(
   __dirname,

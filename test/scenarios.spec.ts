@@ -1,9 +1,13 @@
 import { expect } from "chai";
 import * as path from "path";
+import { fileURLToPath } from "url";
 
 import { mf2 } from "../src";
 
-import loadScenarios = require("./utils/loadScenarios");
+import { loadScenarios } from "./utils/loadScenarios";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const scenarioDir = path.resolve(
   __dirname,
