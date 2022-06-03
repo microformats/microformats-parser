@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { mf2 } from "../dist/index.esm.js";
+import { mf2 } from "../dist/index.mjs";
 
 const setResult = (result) => {
   const escaped = JSON.stringify(result, null, 2)
