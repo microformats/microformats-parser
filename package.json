@@ -27,7 +27,7 @@
     "prettier:list": "prettier '**/*.{ts,json,md,html}' --list-different",
     "prettier:fix": "prettier '**/*.{ts,json,md,html}' --write",
     "test": "c8 mocha ./test/*.spec.ts",
-    "test:package": "mocha ./test/package.spec.js"
+    "test:package": "mocha ./test/package.*.spec.js"
   },
   "engines": {
     "node": ">=10"
