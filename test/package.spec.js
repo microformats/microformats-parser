@@ -1,15 +1,17 @@
 import { expect } from "chai";
 import path from "path";
-import { fileURLToPath } from "url";
+import { readFileSync } from "fs";
 
-import pkg from "../package.json";
 import { loadScenarios } from "./utils/loadScenarios";
+import { dirname } from "./utils/dirname";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(import.meta.url);
+const pkg = JSON.parse(
+  readFileSync(path.resolve(__dirname, "../package.json"))
+);
 
 // get the correct module value from package.json and test that
-const { mf2 } = await import(`${path.resolve(__dirname, "../", pkg.module)}`);
+const { mf2 } = await import(path.resolve(__dirname, "../", pkg.module));
 
 const scenarioDir = path.resolve(
   __dirname,
