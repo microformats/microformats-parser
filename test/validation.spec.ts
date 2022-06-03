@@ -108,7 +108,7 @@ describe("validation", () => {
 
       it("should throw an error if it is not a valid URL", () => {
         expect(() => mf2(html, { baseUrl: "notavalidurl" })).to.throw(
-          "Invalid URL: notavalidurl"
+          "Invalid URL"
         );
       });
     });
