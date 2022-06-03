@@ -7,6 +7,8 @@ import { terser } from "rollup-plugin-terser";
 export default [
   {
     input: "./src/index.ts",
+    external: (id) =>
+      !id.startsWith("\0") && !id.startsWith(".") && !id.startsWith("/"),
     plugins: [
       typescript({
         outputToFilesystem: true,
