@@ -2,15 +2,16 @@
   "compilerOptions": {
     "target": "es2018",
     "lib": ["es2019.array", "DOM"],
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "./types",
+    "noEmit": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },

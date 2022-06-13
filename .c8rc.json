@@ -1,0 +1,10 @@
+{
+  "all": true,
+  "check-coverage": true,
+  "include": ["src/**"],
+  "exclude": ["src/types.ts"],
+  "statements": 99,
+  "branches": 98.5,
+  "functions": 100,
+  "lines": 99
+}

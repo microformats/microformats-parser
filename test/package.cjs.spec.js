@@ -1,10 +1,19 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+import { expect } from "chai";
+import path from "path";
+import { readFileSync } from "fs";
 
-const { expect } = require("chai");
-const path = require("path");
+import { loadScenarios } from "./utils/loadScenarios";
+import { dirname } from "./utils/dirname";
 
-const { mf2 } = require("../dist");
-const loadScenarios = require("./utils/loadScenarios");
+const __dirname = dirname(import.meta.url);
+const { main: modulePath } = JSON.parse(
+  readFileSync(path.resolve(__dirname, "../package.json"))
+);
+
+// get the correct module value from package.json and test that
+const { mf2, __esModule } = await import(
+  path.resolve(__dirname, "../", modulePath)
+);
 
 const scenarioDir = path.resolve(
   __dirname,
@@ -19,7 +28,15 @@ const options = {
   baseUrl: "http://example.com",
 };
 
-describe("mf2() // scenarios", () => {
+describe("package // cjs // scenarios", () => {
+  it("should have a .cjs extension", () => {
+    expect(modulePath).to.match(/\.cjs$/);
+  });
+
+  it("should have __esModule = true", () => {
+    expect(__esModule).to.equal(true);
+  });
+
   describe("microformats-v1", () => {
     v1.forEach(({ name, input, expected }) => {
       it(`should correctly parse ${name}`, () => {

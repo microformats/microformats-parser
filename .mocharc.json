@@ -1,0 +1,7 @@
+{
+  "extension": ["ts", "mjs", "cjs", "js"],
+  "node-option": [
+    "experimental-specifier-resolution=node",
+    "loader=ts-node/esm"
+  ]
+}

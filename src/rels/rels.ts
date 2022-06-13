@@ -20,14 +20,12 @@ export const parseRel = (
    */
   const text = relTextContent(child, options);
   const rel = getAttributeValue(child, "rel");
-  /* istanbul ignore next */
   const href = getAttributeValue(child, "href")?.trim();
   const title = getAttributeValue(child, "title");
   const media = getAttributeValue(child, "media");
   const hreflang = getAttributeValue(child, "hreflang");
   const type = getAttributeValue(child, "type");
 
-  /* istanbul ignore if */
   if (!rel || !href) {
     return;
   }

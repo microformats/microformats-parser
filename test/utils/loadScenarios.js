@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-const glob = require("glob");
-const path = require("path");
-const { readFileSync } = require("fs");
+import glob from "glob";
+import path from "path";
+import { readFileSync } from "fs";
 
-const loadScenarios = (baseDir, dir) => {
+export const loadScenarios = (baseDir, dir) => {
   const scenarios = glob
     .sync(`${baseDir}/${dir}/**/*.json`)
     .map((testFile) => path.relative(path.join(baseDir, dir), testFile))
@@ -26,5 +24,3 @@ const loadScenarios = (baseDir, dir) => {
 
   return scenarios;
 };
-
-module.exports = loadScenarios;
