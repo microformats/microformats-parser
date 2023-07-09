@@ -82,7 +82,7 @@ export const validator = (
   if ("experimental" in options) {
     const experimental = assertIsObject(
       options.experimental,
-      ["lang", "textContent"],
+      ["lang", "textContent", "metaformats"],
       "experimental"
     );
 
@@ -92,6 +92,10 @@ export const validator = (
 
     if ("textContent" in experimental) {
       assertIsBoolean(experimental.textContent, "experimental.textContent");
+    }
+
+    if ("metaformats" in experimental) {
+      assertIsBoolean(experimental.metaformats, "experimental.metaformats");
     }
   }
 };

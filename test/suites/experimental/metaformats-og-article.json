@@ -1,0 +1,15 @@
+{
+  "items": {
+    "type": ["h-entry"],
+    "properties": {
+      "name": ["Test title"],
+      "summary": ["Test description"],
+      "photo": ["http://example.com/image.png"],
+      "published": "2015-05-29",
+      "updated": "2016-02-14",
+      "author": "Glenn Jones"
+    }
+  },
+  "rels": {},
+  "rel-urls": {}
+}
