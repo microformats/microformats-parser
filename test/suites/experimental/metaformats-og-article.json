@@ -1,15 +1,24 @@
 {
-  "items": {
-    "type": ["h-entry"],
-    "properties": {
-      "name": ["Test title"],
-      "summary": ["Test description"],
-      "photo": ["http://example.com/image.png"],
-      "published": "2015-05-29",
-      "updated": "2016-02-14",
-      "author": "Glenn Jones"
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["Open Graph Protocol"],
+        "url": ["https://ogp.me/"],
+        "summary": ["OG is preferred over other meta tags"],
+        "featured": [
+          {
+            "value": "http://example.com/image.png",
+            "alt": "Alt text for image. "
+          }
+        ],
+        "published": ["2015-05-29"],
+        "updated": ["2016-02-14"],
+        "author": ["Glenn Jones", "Ghost Writer"]
+      }
     }
-  },
+  ],
   "rels": {},
   "rel-urls": {}
 }

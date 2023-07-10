@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect, assert } from "chai";
 import * as path from "path";
 
 import { mf2 } from "../src";
@@ -71,5 +71,20 @@ describe("mf2() // experimental scenarios", () => {
       });
       expect(result).to.deep.equal(expected);
     });
+  });
+
+  it("should respect the experimental flag", () => {
+    const findTestCase = (searchName: string) =>
+      experimental.find(({ name }) => name === searchName) ??
+      assert.fail(`Test case "${searchName}" not found`);
+    const { input } = findTestCase("metaformats-og-article");
+    const { expected: emptyMfResult } = findTestCase(
+      "metaformats-missing-head"
+    );
+
+    const result = mf2(input, {
+      ...options,
+    });
+    expect(result).to.deep.equal(emptyMfResult);
   });
 });

@@ -6,6 +6,8 @@ import { isMicroformatRoot } from "./helpers/nodeMatchers";
 import { ParsedDocument, ParserOptions, ParsingOptions } from "./types";
 import { validateParsedHtml } from "./validator";
 import { documentSetup } from "./helpers/documentSetup";
+import { parseMetaformats } from "./helpers/metaformats";
+import { isEnabled } from "./helpers/experimental";
 
 export const parser = (
   html: string,
@@ -22,12 +24,17 @@ export const parser = (
     idRefs,
     inherited: { roots: [], lang },
   };
+  let items = findChildren(doc, isMicroformatRoot).map((mf) =>
+    parseMicroformat(mf, parsingOptions)
+  );
+
+  if (items.length === 0 && isEnabled(parsingOptions, "metaformats")) {
+    items = parseMetaformats(doc, parsingOptions);
+  }
 
   return {
     rels,
     "rel-urls": relUrls,
-    items: findChildren(doc, isMicroformatRoot).map((mf) =>
-      parseMicroformat(mf, parsingOptions)
-    ),
+    items,
   };
 };

@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["Microformats"],
+        "content": ["True microformats should prevent metaformats"],
+        "photo": ["http://example.com/mf-image.png"]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}

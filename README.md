@@ -109,6 +109,10 @@ These are sourced from the element themselves, a parent microformat, the HTML do
 
 When parsing microformats for text content, all the consecutive whitespace is collapsed into a single space. `<br/>` and `<p>` tags are treated as line breaks.
 
+#### `metaformats`
+
+Enables fallback to [metaformats](https://microformats.org/wiki/metaformats) parsing which looks at `<meta>` tags to infer content.
+
 ## Contributing
 
 See our [contributing guidelines](./CONTRIBUTING.md) for more information.

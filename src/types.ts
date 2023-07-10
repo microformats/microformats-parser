@@ -2,15 +2,16 @@ import { Element } from "parse5";
 
 import { BackcompatRoot } from "./backcompat";
 
-export type ExperimentalName = "lang" | "textContent";
-
 export interface ParserOptions {
   baseUrl: string;
   experimental?: {
     lang?: boolean;
     textContent?: boolean;
+    metaformats?: boolean;
   };
 }
+
+export type ExperimentalName = keyof NonNullable<ParserOptions["experimental"]>;
 
 export interface ParsingOptions extends ParserOptions {
   implyProperties?: boolean;

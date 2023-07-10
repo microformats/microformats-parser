@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>OGP | Title</title>
     <meta charset="utf-8" />
     <meta property="og:type" content="article" />
     <meta name="twitter:title" content="Title 4 Twitter" />
-    <meta property="og:title" content="Open Graph Protocol" />
-    <meta property="og:url" content="https://ogp.me/" />
-    <meta
-      property="og:description"
-      content="OG is preferred over other meta tags"
-    />
-    <meta name="twitter:description" content="Twitter description" />
-    <meta name="description" content="Description tag" />
+    <meta property="og:title" content="Test title" />
+    <meta property="og:description" content="Test description" />
+    <meta name="twitter:description" content="OG is preferred over twitter" />
     <meta property="og:image" content="http://example.com/image.png" />
-    <meta property="og:image:alt" content="Alt text for image. " />
-    <meta
-      property="og:image:alt"
-      content="Ignored since alt text was already found"
-    />
     <meta name="twitter:image" content="http://example.com/twitter-image.png" />
     <meta property="article:published_time" content="2015-05-29" />
     <meta property="article:modified_time" content="2016-02-14" />
@@ -27,9 +16,9 @@
     <meta property="article:tag" content="Programming" />
     <meta property="article:tag" content="Testing" />
   </head>
-  <body>
-    <h1>OGP</h1>
-    <p>OGP tags are read if no microformats are found</p>
-    <img src="http://example.com/img-image.png" />
+  <body class="h-entry">
+    <h1 class="p-name">Microformats</h1>
+    <p class="p-content">True microformats should prevent metaformats</p>
+    <img src="http://example.com/mf-image.png" class="u-photo" />
   </body>
 </html>
