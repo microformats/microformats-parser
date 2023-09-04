@@ -20,7 +20,7 @@ jobs:
         run: yarn build
       - name: Set correct version
         if: ${{ !startsWith(github.ref, 'refs/heads') }}
-        run: yarn version --no-git-tag-version --new-version $VERSION
+        run: npm --no-git-tag-version version $VERSION
         env:
           VERSION: ${{ github.event.release.tag_name }}
       - name: Publish to NPM
