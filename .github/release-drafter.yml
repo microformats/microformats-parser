@@ -1,0 +1,41 @@
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+template: |
+  ## What’s Changed
+
+  $CHANGES
+version-resolver:
+  major:
+    labels:
+      - major
+      - breaking change
+  minor:
+    labels:
+      - minor
+      - enhancement
+  patch:
+    labels:
+      - bug
+      - maintenance
+  default: patch
+autolabeler:
+  - label: bug
+    title:
+      - "/fix/i"
+  - label: maintenance
+    title:
+      - "/perf/i"
+      - "/refactor/i"
+      - "/style/i"
+      - "/test/i"
+      - "/build/i"
+      - "/chore/i"
+      - "/ci/i"
+  - label: enhancement
+    title:
+      - "/feat/i"
+  - label: breaking change
+    title:
+      - "/breaking change/i"
+    body:
+      - "/breaking change/i"
