@@ -2,22 +2,27 @@ name: Publish NPM package
 
 on:
   release:
-    types: [created]
+    types:
+      - released
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version-file: ".nvmrc"
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: yarn
       - name: Build package
         run: yarn build
+      - name: Set correct version
+        if: ${{ !startsWith(github.ref, 'refs/heads') }}
+        run: yarn version --no-git-tag-version --new-version $VERSION
+        env:
+          VERSION: ${{ github.event.release.tag_name }}
       - name: Publish to NPM
         run: yarn publish --non-interactive
         env:
