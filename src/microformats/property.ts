@@ -34,6 +34,7 @@ export const parseP = (node: Element, options: ParsingOptions): string =>
   getAttributeIfTag(node, ["abbr", "link"], "title") ??
   getAttributeIfTag(node, ["data"], "value") ??
   getAttributeIfTag(node, ["img", "area"], "alt") ??
+  getAttributeIfTag(node, ["meta"], "content") ??
   textContent(node, options);
 
 export const parseU = (
@@ -49,6 +50,7 @@ export const parseU = (
     valueClassPattern(node, options) ??
     getAttributeIfTag(node, ["abbr"], "title") ??
     getAttributeIfTag(node, ["data", "input"], "value") ??
+    getAttributeIfTag(node, ["meta"], "content") ??
     textContent(node, options);
 
   if (typeof url === "string" && isLocalLink(url)) {
@@ -63,6 +65,7 @@ const parseDt = (node: Element, options: ParsingOptions): string =>
   getAttributeIfTag(node, ["time", "ins", "del"], "datetime") ??
   getAttributeIfTag(node, ["abbr"], "title") ??
   getAttributeIfTag(node, ["data", "input"], "value") ??
+  getAttributeIfTag(node, ["meta"], "content") ??
   textContent(node, options);
 
 export const parseE = (node: Element, options: ParsingOptions): Html => {

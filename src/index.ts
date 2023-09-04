@@ -7,6 +7,7 @@ export interface Options {
   experimental?: {
     lang?: boolean;
     textContent?: boolean;
+    metaformats?: boolean;
   };
 }
 

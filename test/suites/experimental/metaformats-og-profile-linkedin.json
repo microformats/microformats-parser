@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "lang": "en",
+      "type": ["h-card"],
+      "properties": {
+        "name": [
+          "Tantek Çelik - Web Standards Lead - Mozilla Corporation | LinkedIn"
+        ],
+        "summary": [
+          "OG: View Tantek Çelik’s profile on LinkedIn, the world’s largest professional community. Tantek has 9 jobs listed on their profile. See the complete profile on LinkedIn and discover Tantek’s connections and jobs at similar companies."
+        ],
+        "featured": [
+          "https://media.licdn.com/dms/image/C4E03AQFCJlpMj8yLiA/profile-displayphoto-shrink_800_800/0/1516166857593?e=2147483647&v=beta&t=JKdFRqEQmtFMizqPGG-yegxmy0vCycdFZMDVS4elPSY"
+        ],
+        "given-name": ["Tantek"],
+        "family-name": ["Çelik"],
+        "url": ["https://www.linkedin.com/in/tantek"]
+      }
+    }
+  ],
+  "rels": {
+    "canonical": ["https://www.linkedin.com/in/tantek"]
+  },
+  "rel-urls": {
+    "https://www.linkedin.com/in/tantek": {
+      "rels": ["canonical"],
+      "text": ""
+    }
+  }
+}
