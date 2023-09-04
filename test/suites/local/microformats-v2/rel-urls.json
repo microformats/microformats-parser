@@ -6,7 +6,7 @@
   },
   "rel-urls": {
     "http://example.com": {
-      "rels": ["me", "home", "example"],
+      "rels": ["example", "home", "me"],
       "text": "My name",
       "type": "text/html"
     }

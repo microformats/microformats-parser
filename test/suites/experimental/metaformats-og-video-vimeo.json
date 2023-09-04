@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "lang": "en",
+      "type": ["h-cite"],
+      "properties": {
+        "name": ["Ultromedia Please (Interactive)"],
+        "url": ["https://vimeo.com/789006133"],
+        "summary": [
+          "Ultromedia Please is a winner of the 2022 Best of the Year award. To explore the full list of winners, check out vimeo.com/bestoftheyear   What begins as a helpful…"
+        ],
+        "featured": [
+          {
+            "value": "https://i.vimeocdn.com/video/1586931541-9f193de8dc4391b9676499e272f48c10669bc145876d549fb70c917c0cb1a7dd-d",
+            "alt": "Image alt text."
+          }
+        ],
+        "video": [
+          "https://player.vimeo.com/video/789006133?autoplay=1&h=82e9bae2d0"
+        ],
+        "publication": ["Vimeo"]
+      }
+    }
+  ],
+  "rels": {
+    "canonical": ["https://vimeo.com/789006133"]
+  },
+  "rel-urls": {
+    "https://vimeo.com/789006133": {
+      "rels": ["canonical"],
+      "text": ""
+    }
+  }
+}

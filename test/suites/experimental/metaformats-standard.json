@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["Standard Meta Tags"],
+        "summary": ["Standard meta tags are also parsed"],
+        "published": ["2023-08-02"],
+        "url": ["https://microformats.org/wiki/rel-canonical"],
+        "author": ["Ted Lasso"],
+        "publication": ["microformats-parser"]
+      }
+    }
+  ],
+  "rels": {
+    "canonical": ["https://microformats.org/wiki/rel-canonical"]
+  },
+  "rel-urls": {
+    "https://microformats.org/wiki/rel-canonical": {
+      "rels": ["canonical"],
+      "text": ""
+    }
+  }
+}

@@ -1,6 +1,6 @@
-import { Document, Element } from "parse5";
+import { Document } from "parse5";
 
-import { isElement } from "./helpers/nodeMatchers";
+import { isElement, isTag } from "./helpers/nodeMatchers";
 
 const assertIsString = (str: unknown, name: string): string => {
   if (typeof str === "undefined") {
@@ -82,7 +82,7 @@ export const validator = (
   if ("experimental" in options) {
     const experimental = assertIsObject(
       options.experimental,
-      ["lang", "textContent"],
+      ["lang", "textContent", "metaformats"],
       "experimental"
     );
 
@@ -93,23 +93,23 @@ export const validator = (
     if ("textContent" in experimental) {
       assertIsBoolean(experimental.textContent, "experimental.textContent");
     }
+
+    if ("metaformats" in experimental) {
+      assertIsBoolean(experimental.metaformats, "experimental.metaformats");
+    }
   }
 };
 
 export const validateParsedHtml = (doc: Document): void => {
   // <html> and <body> are always defined (based on tests)
   // Provide error handling in the event they are ever not defined
-  const html = doc.childNodes.find(
-    (child): child is Element => isElement(child) && child.tagName === "html"
-  );
+  const html = doc.childNodes.find(isTag("html"));
 
   if (!html) {
     throw new Error("Microformats parser: No <html> element found");
   }
 
-  const body = html.childNodes.find(
-    (child): child is Element => isElement(child) && child.tagName === "body"
-  );
+  const body = html.childNodes.find(isTag("body"));
 
   if (!body) {
     throw new Error("Microformats parser: No <body> element found");

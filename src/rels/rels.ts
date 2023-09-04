@@ -43,6 +43,7 @@ export const parseRel = (
       relUrls[href] = { rels: [rel], text };
     } else if (!relUrls[href].rels.includes(rel)) {
       relUrls[href].rels.push(rel);
+      relUrls[href].rels.sort();
     }
 
     if (text && !relUrls[href].text) {

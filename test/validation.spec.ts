@@ -184,6 +184,28 @@ describe("validation", () => {
           ).to.not.throw();
         });
       });
+
+      describe("metaformats", () => {
+        it("should throw an error if it is not a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { metaformats: "true" },
+            })
+          ).to.throw(
+            "Microformats parser: experimental.metaformats is not a boolean"
+          );
+        });
+
+        it("should not throw an error if it is a boolean", () => {
+          expect(() =>
+            mf2(html, {
+              baseUrl: "http://example.com",
+              experimental: { metaformats: true },
+            })
+          ).to.not.throw();
+        });
+      });
     });
   });
 });

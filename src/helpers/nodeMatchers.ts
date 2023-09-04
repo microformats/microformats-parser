@@ -20,6 +20,11 @@ const propClassRegex = classRegex("(p|e|u|dt)");
 export const isElement = (node: Node): node is Element =>
   "tagName" in node && "childNodes" in node;
 
+export const isTag =
+  (tagName: string) =>
+  (node: Node): node is Element =>
+    isElement(node) && node.tagName === tagName;
+
 export const isTextNode = (node: Node): node is TextNode => "value" in node;
 
 export const isMicroformatV2Root = (node: Element): boolean =>

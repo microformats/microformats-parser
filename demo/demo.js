@@ -32,6 +32,10 @@ window.parseHtml = () => {
   const baseUrl = document.getElementById("base-url").value;
   const lang = document.getElementById("lang").checked;
   const textContent = document.getElementById("textContent").checked;
+  const metaformats = document.getElementById("metaformats").checked;
 
-  return parse(html, { baseUrl, experimental: { lang, textContent } });
+  return parse(html, {
+    baseUrl,
+    experimental: { lang, textContent, metaformats },
+  });
 };

@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "lang": "en",
+      "properties": {
+        "name": ["Over The Moon"],
+        "featured": [
+          "https://i1.sndcdn.com/artworks-92VWfGsSB6dA-0-t500x500.jpg"
+        ],
+        "publication": ["SoundCloud"],
+        "summary": [
+          "Surprise Chef’s music is based on evoking mood; their vivid arrangements utilize time and space to build soundscapes that invite the listener into their world. The quintet’s distinct sound pulls from "
+        ],
+        "audio": ["https://soundcloud.com/surprisechef/over-the-moon.mp3"],
+        "url": ["https://soundcloud.com/surprisechef/over-the-moon"]
+      },
+      "type": ["h-cite"]
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}

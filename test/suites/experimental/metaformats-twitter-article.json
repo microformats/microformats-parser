@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["Title 4 Twitter"],
+        "summary": ["Twitter tags are used if no OGP tags are found."],
+        "featured": [
+          {
+            "value": "http://example.com/twitter-image.png",
+            "alt": "This is alt text for an image. "
+          }
+        ],
+        "published": ["2015-05-29"],
+        "updated": ["2016-02-14"],
+        "author": ["Glenn Jones"]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}
