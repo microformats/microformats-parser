@@ -100,7 +100,7 @@ export const textContent = (node: Element, options: ParserOptions): string => {
 
 export const impliedTextContent = (
   node: Element,
-  options: ParserOptions
+  options: ParserOptions,
 ): string => {
   if (isEnabled(options, "textContent")) {
     return experimentalTextContent(node);
@@ -111,7 +111,7 @@ export const impliedTextContent = (
 
 export const relTextContent = (
   node: Element,
-  options: ParserOptions
+  options: ParserOptions,
 ): string => {
   if (isEnabled(options, "textContent")) {
     return experimentalTextContent(node);

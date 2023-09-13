@@ -2,17 +2,17 @@ import { Attribute, Element } from "parse5";
 
 export const getAttribute = (
   node: Element,
-  name: string
+  name: string,
 ): Attribute | undefined => node.attrs.find((attr) => attr.name === name);
 
 export const getAttributeValue = (
   node: Element,
-  name: string
+  name: string,
 ): string | undefined => getAttribute(node, name)?.value;
 
 export const getClassNames = (
   node: Element,
-  matcher?: RegExp | string
+  matcher?: RegExp | string,
 ): string[] => {
   const classNames = getAttributeValue(node, "class")?.split(" ") || [];
 
@@ -20,17 +20,17 @@ export const getClassNames = (
     ? classNames.filter((name) =>
         typeof matcher === "string"
           ? name.startsWith(matcher)
-          : name.match(matcher)
+          : name.match(matcher),
       )
     : classNames;
 };
 
 export const getClassNameIntersect = <T extends string>(
   node: Element,
-  toCompare: T[]
+  toCompare: T[],
 ): T[] =>
   getClassNames(node).filter((name: string): name is T =>
-    toCompare.includes(name as T)
+    toCompare.includes(name as T),
   );
 
 export const hasClassName = (node: Element, className: string): boolean =>
@@ -38,13 +38,13 @@ export const hasClassName = (node: Element, className: string): boolean =>
 
 export const hasClassNameIntersect = (
   node: Element,
-  toCompare: string[]
+  toCompare: string[],
 ): boolean => getClassNames(node).some((name) => toCompare.includes(name));
 
 export const getAttributeIfTag = (
   node: Element,
   tagNames: string[],
-  attr: string
+  attr: string,
 ): string | undefined =>
   tagNames.includes(node.tagName) ? getAttributeValue(node, attr) : undefined;
 
@@ -52,7 +52,7 @@ export const hasRelIntersect = (node: Element, toCompare: string[]): boolean =>
   Boolean(
     getAttributeValue(node, "rel")
       ?.split(" ")
-      .some((name) => toCompare.includes(name))
+      .some((name) => toCompare.includes(name)),
   );
 
 export const getRelIntersect = (node: Element, toCompare: string[]): string[] =>

@@ -5,7 +5,7 @@ import { Image, ParsingOptions } from "../types";
 
 export const parseImage = (
   node: Element,
-  { inherited }: Partial<ParsingOptions> = {}
+  { inherited }: Partial<ParsingOptions> = {},
 ): Image | string | undefined => {
   if (node.tagName !== "img") {
     return;

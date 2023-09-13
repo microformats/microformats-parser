@@ -89,7 +89,7 @@ const initializeMetaContentCollection = (): MetaContentCollection => {
         .map((existingValue) =>
           typeof existingValue === "string"
             ? existingValue
-            : existingValue.value
+            : existingValue.value,
         )
         .some((existingValue) => value === existingValue);
 
@@ -160,7 +160,7 @@ const collectMetaTags = (head: Element): MetaContentCollection => {
  */
 const combineRoot = (
   metaTags: MetaContentCollection,
-  options: ParsingOptions
+  options: ParsingOptions,
 ): MicroformatRoot[] => {
   const item: MicroformatRoot = { properties: {} };
 
@@ -175,7 +175,7 @@ const combineRoot = (
    */
   const setMicroformatProp = (
     property: string,
-    value: MetaTagContent[] = []
+    value: MetaTagContent[] = [],
   ) => {
     const filteredValue = value.filter(Boolean);
     if (filteredValue.length) {
@@ -196,18 +196,18 @@ const combineRoot = (
 
   setMicroformatProp(
     "name",
-    metaTags.get(["og:title", "twitter:title", TITLE_TAG_KEY])
+    metaTags.get(["og:title", "twitter:title", TITLE_TAG_KEY]),
   );
   setMicroformatProp(
     "summary",
-    metaTags.get(["og:description", "twitter:description", "description"])
+    metaTags.get(["og:description", "twitter:description", "description"]),
   );
   setMicroformatProp("featured", metaTags.get(["og:image", "twitter:image"]));
   setMicroformatProp("video", metaTags.get(["og:video", "twitter:video"]));
   setMicroformatProp("audio", metaTags.get(["og:audio", "twitter:audio"]));
   setMicroformatProp(
     "published",
-    metaTags.get(["article:published_time", "date"])
+    metaTags.get(["article:published_time", "date"]),
   );
   setMicroformatProp("updated", metaTags.get(["article:modified_time"]));
   setMicroformatProp("author", metaTags.get(["article:author", "author"]));
@@ -216,7 +216,7 @@ const combineRoot = (
   // Publication properties useful for h-cite
   setMicroformatProp(
     "publication",
-    metaTags.get(["og:site_name", "publisher"])
+    metaTags.get(["og:site_name", "publisher"]),
   );
 
   if (impliedRootClass === "h-card") {
@@ -233,7 +233,7 @@ const combineRoot = (
 
 export const parseMetaformats = (
   doc: Document,
-  options: ParsingOptions
+  options: ParsingOptions,
 ): MicroformatRoot[] => {
   // Per validation, html element will always be found
   const html = doc.childNodes.find(isTag("html"));

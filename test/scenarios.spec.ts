@@ -9,7 +9,7 @@ const __dirname = dirname(import.meta.url);
 
 const scenarioDir = path.resolve(
   __dirname,
-  `../node_modules/microformat-tests/tests`
+  `../node_modules/microformat-tests/tests`,
 );
 
 const suitesDir = path.resolve(__dirname, `./suites`);
@@ -79,7 +79,7 @@ describe("mf2() // experimental scenarios", () => {
       assert.fail(`Test case "${searchName}" not found`);
     const { input } = findTestCase("metaformats-og-article");
     const { expected: emptyMfResult } = findTestCase(
-      "metaformats-missing-head"
+      "metaformats-missing-head",
     );
 
     const result = mf2(input, {

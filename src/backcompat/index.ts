@@ -56,7 +56,7 @@ export const convertV1RootClassNames = (node: Element): string[] => {
 
 export const hasBackcompatMicroformatProperty = (
   node: Element,
-  roots: BackcompatRoot[]
+  roots: BackcompatRoot[],
 ): boolean =>
   roots.some((root) => {
     const { properties, rels } = backcompat[root];
@@ -68,7 +68,7 @@ export const hasBackcompatMicroformatProperty = (
 
 export const convertV1PropertyClassNames = (
   node: Element,
-  roots: BackcompatRoot[]
+  roots: BackcompatRoot[],
 ): string[] => [
   ...new Set(
     roots
@@ -77,7 +77,7 @@ export const convertV1PropertyClassNames = (
 
         const classes = getClassNameIntersect(
           node,
-          Object.keys(properties)
+          Object.keys(properties),
         ).map((cl) => properties[cl]);
 
         const relClasses =
@@ -87,7 +87,7 @@ export const convertV1PropertyClassNames = (
 
         return [...classes, ...relClasses];
       })
-      .reduce(flatten)
+      .reduce(flatten),
   ),
 ];
 

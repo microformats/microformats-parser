@@ -25,14 +25,14 @@ const handleDate = (dateStrings: string[]): string | undefined =>
   dateStrings
     .sort((a) =>
       // Sort the date elements to move date components to the start
-      a.match(/^[0-9]{4}/) ? -1 : 1
+      a.match(/^[0-9]{4}/) ? -1 : 1,
     )
     .join(" ")
     .trim()
     .replace(
       // remove ":" from timezones
       /((\+|-)[0-2][0-9]):([0-5][0-9])$/,
-      (s) => s.replace(":", "")
+      (s) => s.replace(":", ""),
     )
     .replace(
       // handle am and pm times
@@ -49,13 +49,13 @@ const handleDate = (dateStrings: string[]): string | undefined =>
 
         // reconstruct, and add mins if any are missing
         return `${newHour}${min ? min : ":00"}${sec || ""}`;
-      }
+      },
     )
     .toUpperCase();
 
 export const valueClassPattern = (
   node: Element,
-  options: ParsingOptions & Partial<Options>
+  options: ParsingOptions & Partial<Options>,
 ): string | undefined => {
   const values = findChildren(node, isValueClass);
 
@@ -66,7 +66,7 @@ export const valueClassPattern = (
   if (options.datetime) {
     const date = values.map(
       (node) =>
-        datetimeProp(node) ?? valueTitle(node) ?? textContent(node, options)
+        datetimeProp(node) ?? valueTitle(node) ?? textContent(node, options),
     );
     return handleDate(date);
   }

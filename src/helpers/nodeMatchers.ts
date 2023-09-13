@@ -38,7 +38,7 @@ export const isMicroformatRoot = (node: Element): boolean =>
 
 export const isMicroformatV1Property = (
   node: Element,
-  roots: BackcompatRoot[]
+  roots: BackcompatRoot[],
 ): boolean => hasBackcompatMicroformatProperty(node, roots);
 
 export const isMicroformatV2Property = (node: Element): boolean =>
@@ -46,7 +46,7 @@ export const isMicroformatV2Property = (node: Element): boolean =>
 
 export const isMicroformatChild = (
   node: Element,
-  roots: BackcompatRoot[]
+  roots: BackcompatRoot[],
 ): boolean =>
   !isMicroformatV2Property(node) &&
   !isMicroformatV1Property(node, roots) &&
@@ -54,7 +54,7 @@ export const isMicroformatChild = (
 
 export const isBase = (node: Element): boolean =>
   Boolean(
-    isElement(node) && node.tagName === "base" && getAttribute(node, "href")
+    isElement(node) && node.tagName === "base" && getAttribute(node, "href"),
   );
 
 export const isValueClass = (node: Element): boolean =>
@@ -64,5 +64,5 @@ export const isRel = (node: Element): boolean =>
   Boolean(
     isElement(node) &&
       node.attrs.some((attr) => attr.name === "rel") &&
-      node.attrs.some((attr) => attr.name === "href")
+      node.attrs.some((attr) => attr.name === "href"),
   );

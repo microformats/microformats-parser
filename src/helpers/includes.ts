@@ -22,13 +22,13 @@ const applyIncludes = (node: Element, options: ParsingOptions): void => {
     (child) =>
       isElement(child) &&
       !isMicroformatRoot(child) &&
-      applyIncludes(child, options)
+      applyIncludes(child, options),
   );
 };
 
 export const applyIncludesToRoot = (
   node: Element,
-  options: ParsingOptions
+  options: ParsingOptions,
 ): void => {
   if (isMicroformatV2Root(node)) {
     return;

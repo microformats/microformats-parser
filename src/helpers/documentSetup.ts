@@ -39,7 +39,7 @@ export const findBase = (node: Element | Document): string | undefined => {
 const handleNode = (
   node: Element | Document,
   result: DocumentSetupResult,
-  options: ParserOptions
+  options: ParserOptions,
 ): void => {
   for (const i in node.childNodes) {
     const child = node.childNodes[i];
@@ -110,7 +110,7 @@ const handleNode = (
 
 export const documentSetup = (
   node: Document,
-  options: ParserOptions
+  options: ParserOptions,
 ): DocumentSetupResult => {
   const result = {
     idRefs: {},
