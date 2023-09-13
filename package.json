@@ -60,7 +60,7 @@
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.26.0",
-    "glob": "^7.1.6",
+    "glob": "^10.3.4",
     "husky": ">=4",
     "lint-staged": ">=10",
     "microformat-tests": "https://github.com/microformats/tests",
