@@ -1,5 +1,4 @@
-import { TextNode, Node, Element } from "parse5";
-
+import { TextNode, Node, Element } from "../types";
 import {
   getAttribute,
   hasClassNameIntersect,

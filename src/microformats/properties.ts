@@ -1,9 +1,8 @@
-import { Element } from "parse5";
-
 import {
   ParsedProperty,
   MicroformatProperties,
   ParsingOptions,
+  Element,
 } from "../types";
 import { findChildren } from "../helpers/findChildren";
 import { impliedName } from "../implied/name";

@@ -1,5 +1,4 @@
-import { Document, Element } from "parse5";
-
+import { Document, Element } from "../types";
 import { MicroformatRoot, ParsingOptions } from "../types";
 import {
   getAttributeIfTag,

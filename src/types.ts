@@ -1,4 +1,10 @@
-import { Element } from "parse5";
+import { DefaultTreeAdapterMap } from "parse5";
+
+export type Element = DefaultTreeAdapterMap["element"];
+export type Document = DefaultTreeAdapterMap["document"];
+export type Attribute = Element["attrs"][number];
+export type Node = DefaultTreeAdapterMap["node"];
+export type TextNode = DefaultTreeAdapterMap["textNode"];
 
 import { BackcompatRoot } from "./backcompat";
 

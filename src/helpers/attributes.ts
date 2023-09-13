@@ -1,4 +1,4 @@
-import { Attribute, Element } from "parse5";
+import { Attribute, Element } from "../types";
 
 export const getAttribute = (
   node: Element,

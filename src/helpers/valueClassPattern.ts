@@ -1,10 +1,8 @@
-import { Element } from "parse5";
-
 import { getAttributeValue, hasClassName } from "./attributes";
 import { textContent } from "./textContent";
 import { findChildren } from "./findChildren";
 import { isValueClass } from "./nodeMatchers";
-import { ParsingOptions } from "../types";
+import { ParsingOptions, Element } from "../types";
 
 interface Options {
   datetime: boolean;

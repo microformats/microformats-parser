@@ -1,10 +1,9 @@
-import { Document, Element } from "parse5";
-
 import { ParserOptions, IdRefs, Rels, RelUrls } from "../types";
 import { getAttribute, getAttributeValue } from "./attributes";
 import { isLocalLink, applyBaseUrl } from "./url";
 import { isElement, isRel, isBase } from "./nodeMatchers";
 import { parseRel } from "../rels/rels";
+import { Document, Element } from "../types";
 
 interface DocumentSetupResult {
   idRefs: IdRefs;
