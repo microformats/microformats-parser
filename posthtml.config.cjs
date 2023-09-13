@@ -18,7 +18,7 @@ module.exports = {
         version: `v${version}`,
         repo,
         releases: `${repo}/releases`,
-        licenseUrl: `${repo}/blob/master/LICENSE`,
+        licenseUrl: `${repo}/blob/main/LICENSE`,
         npm: `https://npmjs.org/package/${name}`,
         license,
         keywords: keywords.join(", "),
