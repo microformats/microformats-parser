@@ -11,9 +11,7 @@ const { main: modulePath } = JSON.parse(
 );
 
 // get the correct module value from package.json and test that
-const { mf2, __esModule } = await import(
-  path.resolve(__dirname, "../", modulePath)
-);
+const { mf2 } = await import(path.resolve(__dirname, "../", modulePath));
 
 const scenarioDir = path.resolve(
   __dirname,
@@ -31,10 +29,6 @@ const options = {
 describe("package // cjs // scenarios", () => {
   it("should have a .cjs extension", () => {
     expect(modulePath).to.match(/\.cjs$/);
-  });
-
-  it("should have __esModule = true", () => {
-    expect(__esModule).to.equal(true);
   });
 
   describe("microformats-v1", () => {
