@@ -18,7 +18,7 @@ import { flatten } from "../helpers/array";
 
 const addProperty = (
   properties: MicroformatProperties,
-  { key, value }: Pick<ParsedProperty, "key" | "value">
+  { key, value }: Pick<ParsedProperty, "key" | "value">,
 ): void => {
   if (typeof value === "undefined") {
     return;
@@ -39,7 +39,7 @@ const getPropertyNodes = (node: Element, options: ParsingOptions): Element[] =>
 
 export const microformatProperties = (
   node: Element,
-  options: ParsingOptions
+  options: ParsingOptions,
 ): MicroformatProperties => {
   const properties: MicroformatProperties = {};
 

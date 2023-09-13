@@ -38,7 +38,7 @@ const parseGrandchild = (node: Element): string | Image | undefined => {
 
 export const impliedPhoto = (
   node: Element,
-  children: Element[]
+  children: Element[],
 ): Image | string | undefined => {
   if (children.some((child) => getClassNames(child, "u-").length)) {
     return;

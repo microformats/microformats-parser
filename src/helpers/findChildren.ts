@@ -18,7 +18,7 @@ const getElementChildren = (node: Element | Document): Element[] =>
 const reducer = (
   microformats: Element[],
   node: Element,
-  options: ReducerOptions
+  options: ReducerOptions,
 ): Element[] => {
   const { matcher, roots } = options;
   const match = matcher(node, roots) && node;
@@ -34,7 +34,7 @@ const reducer = (
 
   const childMicroformats = getElementChildren(node).reduce<Element[]>(
     (prev, curr) => reducer(prev, curr, options),
-    match ? [match] : []
+    match ? [match] : [],
   );
 
   return [...microformats, ...childMicroformats];
@@ -42,7 +42,7 @@ const reducer = (
 
 export const findChildren = (
   parent: Element | Document,
-  matcher: Matcher
+  matcher: Matcher,
 ): Element[] => {
   const findOptions = {
     roots: isElement(parent) ? getBackcompatRootClassNames(parent) : [],
@@ -52,6 +52,6 @@ export const findChildren = (
 
   return getElementChildren(parent).reduce<Element[]>(
     (prev, curr) => reducer(prev, curr, findOptions),
-    []
+    [],
   );
 };

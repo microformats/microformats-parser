@@ -22,7 +22,7 @@ const parseGrandchild = (node: Element): string | undefined => {
 export const impliedName = (
   node: Element,
   children: Element[],
-  options: ParsingOptions
+  options: ParsingOptions,
 ): string | undefined => {
   if (children.some((child) => getClassNames(child, /^(p|e|h)-/).length)) {
     return;

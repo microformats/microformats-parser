@@ -12,7 +12,7 @@ interface ParseRelOptions {
 export const parseRel = (
   child: Element,
   { rels, relUrls }: ParseRelOptions,
-  options: ParserOptions
+  options: ParserOptions,
 ): void => {
   /**
    * Ignores used as this method is only ever called if they are defined

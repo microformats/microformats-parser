@@ -39,7 +39,7 @@ export const parseP = (node: Element, options: ParsingOptions): string =>
 
 export const parseU = (
   node: Element,
-  options: ParsingOptions
+  options: ParsingOptions,
 ): MicroformatProperty => {
   const url =
     getAttributeIfTag(node, ["a", "area", "link"], "href") ??
@@ -83,7 +83,7 @@ export const parseE = (node: Element, options: ParsingOptions): Html => {
 
 const getPropertyClassNames = (
   node: Element,
-  { inherited }: ParsingOptions
+  { inherited }: ParsingOptions,
 ): string[] => {
   if (inherited.roots.length) {
     return convertV1PropertyClassNames(node, inherited.roots);
@@ -95,7 +95,7 @@ const getPropertyClassNames = (
 const handleProperty = (
   node: Element,
   type: PropertyType,
-  options: ParsingOptions
+  options: ParsingOptions,
 ): MicroformatProperty => {
   if (type === "p") {
     return parseP(node, options);
@@ -114,7 +114,7 @@ const handleProperty = (
 
 export const parseProperty = (
   child: Element,
-  options: ParsingOptions
+  options: ParsingOptions,
 ): ParsedProperty[] =>
   getPropertyClassNames(child, options)
     .map((className): ParsedProperty | undefined => {
@@ -141,7 +141,7 @@ export const parseProperty = (
 export const postParseNode = (
   prop: ParsedProperty,
   _i: number,
-  all: ParsedProperty[]
+  all: ParsedProperty[],
 ): ParsedProperty => {
   // Imply an end date if only time specified
   if (
@@ -153,7 +153,7 @@ export const postParseNode = (
   ) {
     const value = all.find(
       (p) =>
-        p.type === "dt" && p.key === "start" && typeof prop.value === "string"
+        p.type === "dt" && p.key === "start" && typeof prop.value === "string",
     )?.value as string;
 
     if (value) {

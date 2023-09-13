@@ -11,7 +11,7 @@ import { isEnabled } from "./helpers/experimental";
 
 export const parser = (
   html: string,
-  options: ParserOptions
+  options: ParserOptions,
 ): ParsedDocument => {
   const doc = parse(html);
   validateParsedHtml(doc);
@@ -25,7 +25,7 @@ export const parser = (
     inherited: { roots: [], lang },
   };
   let items = findChildren(doc, isMicroformatRoot).map((mf) =>
-    parseMicroformat(mf, parsingOptions)
+    parseMicroformat(mf, parsingOptions),
   );
 
   if (items.length === 0 && isEnabled(parsingOptions, "metaformats")) {

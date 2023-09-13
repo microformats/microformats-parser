@@ -36,7 +36,7 @@ const getId = (node: Element): string | undefined =>
 
 export const parseMicroformat = (
   node: Element,
-  options: ParseMicroformatOptions
+  options: ParseMicroformatOptions,
 ): MicroformatRoot => {
   applyIncludesToRoot(node, options);
 
@@ -65,7 +65,7 @@ export const parseMicroformat = (
 
   if (children.length) {
     item.children = children.map((child) =>
-      parseMicroformat(child, { ...options, inherited })
+      parseMicroformat(child, { ...options, inherited }),
     );
   }
 

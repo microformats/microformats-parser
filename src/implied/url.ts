@@ -27,7 +27,7 @@ const parseGrandchild = (node: Element): string | undefined => {
 
 export const impliedUrl = (
   node: Element,
-  children: Element[]
+  children: Element[],
 ): string | undefined => {
   if (children.some((child) => getClassNames(child, "u-").length)) {
     return;
