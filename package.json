@@ -1,6 +1,6 @@
 {
   "name": "microformats-parser",
-  "version": "1.4.1",
+  "version": "1.5.2",
   "description": "A JavaScript microformats v2 parser for the browser and node.js",
   "type": "module",
   "main": "dist/index.cjs",
