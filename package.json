@@ -30,7 +30,7 @@
     "test:package": "mocha ./test/package.*.spec.js"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "files": [
     "/dist/index.cjs",
