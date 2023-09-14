@@ -1,5 +1,4 @@
-import { Document, Element } from "parse5";
-
+import { Document, Element } from "../types";
 import { isMicroformatRoot, isElement } from "./nodeMatchers";
 import { BackcompatRoot, getBackcompatRootClassNames } from "../backcompat";
 

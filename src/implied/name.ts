@@ -1,9 +1,7 @@
-import { Element } from "parse5";
-
 import { impliedTextContent } from "../helpers/textContent";
 import { isElement } from "../helpers/nodeMatchers";
 import { getClassNames, getAttributeIfTag } from "../helpers/attributes";
-import { ParsingOptions } from "../types";
+import { ParsingOptions, Element } from "../types";
 
 const parseNode = (node: Element): string | undefined =>
   getAttributeIfTag(node, ["img", "area"], "alt") ??

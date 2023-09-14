@@ -1,6 +1,9 @@
-import { Element } from "parse5";
-
-import { MicroformatRoot, PropertyType, ParsingOptions } from "../types";
+import {
+  MicroformatRoot,
+  PropertyType,
+  ParsingOptions,
+  Element,
+} from "../types";
 import { microformatProperties } from "./properties";
 import { textContent } from "../helpers/textContent";
 import { getAttributeValue, getClassNames } from "../helpers/attributes";

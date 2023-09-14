@@ -39,7 +39,7 @@
     "/CONTRIBUTING.md"
   ],
   "dependencies": {
-    "parse5": "^6.0.0"
+    "parse5": "^7.1.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",
@@ -51,7 +51,6 @@
     "@types/glob": "^7.1.1",
     "@types/mocha": "^9.1.1",
     "@types/node": "^16.0.0",
-    "@types/parse5": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "c8": "^8.0.1",

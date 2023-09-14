@@ -1,4 +1,4 @@
-import { Element } from "parse5";
+import { Element } from "../types";
 
 import { getClassNames, getAttributeIfTag } from "../helpers/attributes";
 import { isElement, isMicroformatV2Root } from "../helpers/nodeMatchers";

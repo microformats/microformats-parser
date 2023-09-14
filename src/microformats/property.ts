@@ -1,4 +1,4 @@
-import { serialize, Element } from "parse5";
+import { serialize } from "parse5";
 
 import {
   getAttributeIfTag,
@@ -11,6 +11,7 @@ import {
   Html,
   PropertyType,
   ParsingOptions,
+  Element,
 } from "../types";
 import { isMicroformatRoot } from "../helpers/nodeMatchers";
 import { parseMicroformat } from "./parse";
