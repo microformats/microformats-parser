@@ -1,9 +1,25 @@
 name-template: "v$RESOLVED_VERSION"
 tag-template: "v$RESOLVED_VERSION"
 template: |
-  ## What’s Changed
+  ## What's Changed
 
   $CHANGES
+categories:
+  - title: Breaking changes
+    labels:
+      - major
+      - breaking change
+  - title: Features
+    labels:
+      - enhancement
+      - minor
+  - title: Bug fixes
+    labels:
+      - bug
+  - title: Maintenance
+    labels:
+      - maintenance
+      - documentation
 version-resolver:
   major:
     labels:
@@ -39,3 +55,6 @@ autolabeler:
       - "/breaking change/i"
     body:
       - "/breaking change/i"
+  - label: documentation
+    title:
+      - "/docs/i"
