@@ -90,6 +90,7 @@ export default [
             title,
             name,
             description,
+            metas,
             version: `v${version}`,
             repo,
             releases: `${repo}/releases`,
