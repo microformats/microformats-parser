@@ -104,4 +104,6 @@ dist
 .tern-port
 
 public
-demo/index.html
+demo/dist
+
+.DS_Store
