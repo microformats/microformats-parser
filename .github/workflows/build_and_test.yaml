@@ -51,5 +51,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
+          path: dist
       - name: Test package
         run: yarn test:package
