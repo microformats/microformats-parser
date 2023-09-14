@@ -58,6 +58,9 @@ export default [
     },
     plugins: [
       nodeResolve(),
+      commonjs({
+        ignoreGlobal: true,
+      }),
       css(),
       html({
         title: `${name} demo`,
