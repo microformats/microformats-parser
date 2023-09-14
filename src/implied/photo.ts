@@ -1,6 +1,4 @@
-import { Element } from "parse5";
-
-import { Image } from "../types";
+import { Image, Element } from "../types";
 import { parseImage } from "../helpers/images";
 import { getAttributeValue, getClassNames } from "../helpers/attributes";
 import { isElement, isMicroformatV2Root } from "../helpers/nodeMatchers";

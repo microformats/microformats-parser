@@ -1,6 +1,4 @@
-import { Element } from "parse5";
-
-import { Rels, RelUrls, ParserOptions } from "../types";
+import { Rels, RelUrls, ParserOptions, Element } from "../types";
 import { getAttributeValue } from "../helpers/attributes";
 import { relTextContent } from "../helpers/textContent";
 

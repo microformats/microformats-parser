@@ -1,4 +1,4 @@
-import { Element } from "parse5";
+import { Element } from "../types";
 
 import {
   isMicroformatV2Root,

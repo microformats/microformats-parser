@@ -1,6 +1,5 @@
-import { Document } from "parse5";
-
 import { isElement, isTag } from "./helpers/nodeMatchers";
+import { Document } from "./types";
 
 const assertIsString = (str: unknown, name: string): string => {
   if (typeof str === "undefined") {

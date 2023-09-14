@@ -1,5 +1,4 @@
-import { Element } from "parse5";
-
+import { Element } from "../types";
 import { adr } from "./adr";
 import { geo } from "./geo";
 import { hentry } from "./hentry";

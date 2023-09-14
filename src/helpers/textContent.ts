@@ -1,8 +1,6 @@
-import { Node, Element } from "parse5";
-
 import { getAttributeValue } from "./attributes";
 import { isElement, isTextNode } from "./nodeMatchers";
-import { ParserOptions } from "../types";
+import { ParserOptions, Node, Element } from "../types";
 import { isEnabled } from "./experimental";
 
 const imageValue = (node: Element): string | undefined =>
