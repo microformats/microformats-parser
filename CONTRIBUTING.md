@@ -39,7 +39,7 @@ We're more than happy to help with any TypeScript, linting or test problems, or 
 
 ### Testing your changes
 
-You can test your changes using the interactive demo. Just run `yarn demo` and visit `http://localhost:1234` to parse a real-world example.
+You can test your changes using the interactive demo. Just run `yarn build` and `yarn demo` and visit `http://localhost:8080` to parse a real-world example.
 
 ## Microformats specifications
 

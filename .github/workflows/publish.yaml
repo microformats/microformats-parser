@@ -27,8 +27,6 @@ jobs:
         run: yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Build demo pages
-        run: yarn demo:build
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
         with:
