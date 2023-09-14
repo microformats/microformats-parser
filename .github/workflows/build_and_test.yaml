@@ -48,8 +48,9 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Download build artifacts
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: dist
+          path: dist
       - name: Test package
         run: yarn test:package
