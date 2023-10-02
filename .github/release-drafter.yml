@@ -53,8 +53,6 @@ autolabeler:
   - label: breaking change
     title:
       - "/breaking change/i"
-    body:
-      - "/breaking change/i"
   - label: documentation
     title:
       - "/docs/i"
