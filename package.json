@@ -28,7 +28,7 @@
     "test:package": "mocha ./test/package.*.spec.js"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "files": [
     "/dist/index.cjs",
