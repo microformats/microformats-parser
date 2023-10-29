@@ -18,7 +18,7 @@ import {
   BackcompatRoot,
 } from "../backcompat";
 import { applyIncludesToRoot } from "../helpers/includes";
-import { parseE } from "./property";
+import { parseE, parseDt } from "./property";
 import { isEnabled } from "../helpers/experimental";
 
 interface ParseMicroformatOptions extends ParsingOptions {
@@ -83,6 +83,15 @@ export const parseMicroformat = (
     item.value =
       (item.properties.url && item.properties.url[0]) ??
       textContent(node, options);
+  }
+
+  /**
+   * The `value` is set as per default parsing as nothing else has been added
+   * to the spec. A proposal has been made:
+   * https://github.com/microformats/microformats2-parsing/issues/71
+   */
+  if (options.valueType === "dt") {
+    item.value = parseDt(node, options);
   }
 
   /**

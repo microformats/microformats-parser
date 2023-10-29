@@ -61,7 +61,7 @@ export const parseU = (
   return typeof url === "string" ? url.trim() : url;
 };
 
-const parseDt = (node: Element, options: ParsingOptions): string =>
+export const parseDt = (node: Element, options: ParsingOptions): string =>
   valueClassPattern(node, { ...options, datetime: true }) ??
   getAttributeIfTag(node, ["time", "ins", "del"], "datetime") ??
   getAttributeIfTag(node, ["abbr"], "title") ??
@@ -122,7 +122,7 @@ export const parseProperty = (
       const type = getType(className);
       const key = className.replace(propertyRegexp, "");
       const value =
-        ["u", "p", "e"].includes(type) && isMicroformatRoot(child)
+        ["u", "p", "e", "dt"].includes(type) && isMicroformatRoot(child)
           ? parseMicroformat(child, {
               ...options,
               valueType: type,
