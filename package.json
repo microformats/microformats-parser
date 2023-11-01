@@ -65,7 +65,7 @@
     "microformat-tests": "https://github.com/microformats/tests",
     "mocha": "^10.0.0",
     "prettier": "^3.0.3",
-    "rollup": "^3.25.0",
+    "rollup": "^4.1.5",
     "rollup-plugin-dts": "^6.0.2",
     "rollup-plugin-import-css": "^3.3.3",
     "source-map-support": "^0.5.19",
