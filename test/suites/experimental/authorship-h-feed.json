@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "type": ["h-feed"],
+      "lang": "en",
+      "properties": {
+        "author": [
+          {
+            "type": ["h-card"],
+            "lang": "en",
+            "properties": {
+              "name": ["Aristotle"],
+              "photo": ["https://aristotle.example/photo.jpg"],
+              "url": ["https://aristotle.example"]
+            },
+            "value": "Aristotle"
+          }
+        ]
+      },
+      "children": [
+        {
+          "type": ["h-entry"],
+          "lang": "en",
+          "properties": {
+            "author": [
+              {
+                "type": ["h-card"],
+                "lang": "en",
+                "properties": {
+                  "name": ["Aristotle"],
+                  "photo": ["https://aristotle.example/photo.jpg"],
+                  "url": ["https://aristotle.example"]
+                },
+                "value": "Aristotle"
+              }
+            ],
+            "content": [
+              {
+                "html": "<p>Quality is not an act, it is a habit.</p>",
+                "lang": "en",
+                "value": "Quality is not an act, it is a habit."
+              }
+            ]
+          }
+        },
+        {
+          "type": ["h-entry"],
+          "lang": "en",
+          "properties": {
+            "author": [
+              {
+                "type": ["h-card"],
+                "lang": "en",
+                "properties": {
+                  "name": ["Aristotle"],
+                  "photo": ["https://aristotle.example/photo.jpg"],
+                  "url": ["https://aristotle.example"]
+                },
+                "value": "Aristotle"
+              }
+            ],
+            "content": [
+              {
+                "html": "<p>Whosoever is delighted in solitude is either a wild beast or a god.</p>",
+                "lang": "en",
+                "value": "Whosoever is delighted in solitude is either a wild beast or a god."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "rel-urls": {},
+  "rels": {}
+}

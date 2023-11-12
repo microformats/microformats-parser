@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "author": [
+          {
+            "type": ["h-card"],
+            "lang": "en",
+            "properties": {
+              "name": ["Homer"],
+              "photo": ["https://homer.example/photo.jpg"],
+              "url": ["https://homer.example"]
+            },
+            "value": "Homer"
+          }
+        ],
+        "content": [
+          {
+            "value": "Even in the house of Hades there is left something, a soul and an image, but there is no real heart of life in it.",
+            "lang": "en",
+            "html": "<p>Even in the house of Hades there is left something, a soul and an image, but there is no real heart of life in it.</p>"
+          }
+        ]
+      }
+    }
+  ],
+  "rel-urls": {},
+  "rels": {}
+}

@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "author": [
+          {
+            "type": ["h-card"],
+            "lang": "en",
+            "properties": {
+              "name": ["Virginia Woolf"],
+              "photo": ["https://virginia.example/photo.jpg"],
+              "url": ["https://virginia.example"]
+            },
+            "value": "Virginia Woolf"
+          }
+        ],
+        "content": [
+          {
+            "value": "A woman must have money and a room of her own if she is to write fiction.",
+            "lang": "en",
+            "html": "<p>A woman must have money and a room of her own if she is to write fiction.</p>"
+          }
+        ]
+      }
+    }
+  ],
+  "rel-urls": {
+    "https://virginia.woolf": {
+      "rels": ["author"],
+      "text": "About Virginia Woolf"
+    }
+  },
+  "rels": {
+    "author": ["https://virginia.woolf"]
+  }
+}
