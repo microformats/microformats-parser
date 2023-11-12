@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "author": ["William Shakespeare"],
+        "content": [
+          {
+            "value": "To be, or not to be: that is the question.",
+            "lang": "en",
+            "html": "<p>To be, or not to be: that is the question.</p>"
+          }
+        ]
+      }
+    }
+  ],
+  "rel-urls": {},
+  "rels": {}
+}

@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "author": [
+          {
+            "type": ["h-card"],
+            "lang": "en",
+            "properties": {
+              "name": ["Basho"],
+              "photo": ["https://basho.example/photo.jpg"],
+              "url": ["https://basho.example"]
+            },
+            "value": "Basho"
+          }
+        ],
+        "content": [
+          {
+            "value": "古池や\n蛙飛び込む\n水の音",
+            "lang": "jp",
+            "html": "<p>古池や<br>蛙飛び込む<br>水の音</p>"
+          }
+        ]
+      }
+    }
+  ],
+  "rel-urls": {
+    "https://basho.example": {
+      "rels": ["author"],
+      "text": "About Basho"
+    }
+  },
+  "rels": {
+    "author": ["https://basho.example"]
+  }
+}

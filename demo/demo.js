@@ -34,9 +34,10 @@ window.parseHtml = () => {
   const lang = document.getElementById("lang").checked;
   const textContent = document.getElementById("textContent").checked;
   const metaformats = document.getElementById("metaformats").checked;
+  const authorship = document.getElementById("authorship").checked;
 
   return parse(html, {
     baseUrl,
-    experimental: { lang, textContent, metaformats },
+    experimental: { lang, textContent, metaformats, authorship },
   });
 };

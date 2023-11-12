@@ -14,6 +14,7 @@ export interface ParserOptions {
     lang?: boolean;
     textContent?: boolean;
     metaformats?: boolean;
+    authorship?: boolean;
   };
 }
 
@@ -26,6 +27,7 @@ export interface ParsingOptions extends ParserOptions {
     roots: BackcompatRoot[];
     lang?: string;
   };
+  rels: Rels;
 }
 
 export interface ParsedDocument {
@@ -45,6 +47,13 @@ export interface MicroformatRoot {
   value?: MicroformatProperty;
 }
 
+export interface Author {
+  name?: string;
+  value: string;
+  photo?: string;
+  url?: string;
+}
+
 export interface Image {
   alt: string;
   value?: string;
@@ -56,7 +65,12 @@ export interface Html {
   lang?: string;
 }
 
-export type MicroformatProperty = MicroformatRoot | Image | Html | string;
+export type MicroformatProperty =
+  | MicroformatRoot
+  | Author
+  | Image
+  | Html
+  | string;
 
 export type Rels = Record<string, string[]>;
 

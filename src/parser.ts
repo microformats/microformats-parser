@@ -23,6 +23,7 @@ export const parser = (
     baseUrl,
     idRefs,
     inherited: { roots: [], lang },
+    rels,
   };
   let items = findChildren(doc, isMicroformatRoot).map((mf) =>
     parseMicroformat(mf, parsingOptions),

@@ -8,6 +8,7 @@ export interface Options {
     lang?: boolean;
     textContent?: boolean;
     metaformats?: boolean;
+    authorship?: boolean;
   };
 }
 

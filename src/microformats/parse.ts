@@ -5,6 +5,7 @@ import {
   Element,
 } from "../types";
 import { microformatProperties } from "./properties";
+import { findAuthor } from "../helpers/authorship";
 import { textContent } from "../helpers/textContent";
 import { getAttributeValue, getClassNames } from "../helpers/attributes";
 import { findChildren } from "../helpers/findChildren";
@@ -66,6 +67,15 @@ export const parseMicroformat = (
     item.lang = lang;
   }
 
+  if (isEnabled(options, "authorship")) {
+    const author = findAuthor(item, options.rels);
+
+    if (author) {
+      console.log("author", author);
+      // item.properties.author = author;
+    }
+  }
+
   if (children.length) {
     item.children = children.map((child) =>
       parseMicroformat(child, { ...options, inherited }),
@@ -86,7 +96,7 @@ export const parseMicroformat = (
   }
 
   /**
-   * There is some ambigutity on how this should be handled.
+   * There is some ambiguity on how this should be handled.
    * At the moment, we're following other parsers and keeping `value` a string
    * and adding `html` as an undocumented property.
    */
