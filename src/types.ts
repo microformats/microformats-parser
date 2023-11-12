@@ -14,6 +14,7 @@ export interface ParserOptions {
     lang?: boolean;
     textContent?: boolean;
     metaformats?: boolean;
+    authorship?: boolean;
   };
 }
 
