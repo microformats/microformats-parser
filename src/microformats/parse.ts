@@ -86,7 +86,7 @@ export const parseMicroformat = (
   }
 
   /**
-   * There is some ambigutity on how this should be handled.
+   * There is some ambiguity on how this should be handled.
    * At the moment, we're following other parsers and keeping `value` a string
    * and adding `html` as an undocumented property.
    */
