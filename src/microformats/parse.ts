@@ -5,6 +5,7 @@ import {
   Element,
 } from "../types";
 import { microformatProperties } from "./properties";
+import { findAuthor } from "../helpers/authorship";
 import { textContent } from "../helpers/textContent";
 import { getAttributeValue, getClassNames } from "../helpers/attributes";
 import { findChildren } from "../helpers/findChildren";
@@ -64,6 +65,15 @@ export const parseMicroformat = (
 
   if (isEnabled(options, "lang") && lang) {
     item.lang = lang;
+  }
+
+  if (isEnabled(options, "authorship")) {
+    const author = findAuthor(item, options.rels);
+
+    if (author) {
+      console.log("author", author);
+      // item.properties.author = author;
+    }
   }
 
   if (children.length) {
