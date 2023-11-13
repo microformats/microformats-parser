@@ -60,6 +60,22 @@
           }
         ]
       }
+    },
+    {
+      "type": ["h-card"],
+      "properties": {
+        "bday": [
+          {
+            "type": ["h-event"],
+            "properties": {
+              "name": ["2nd May"],
+              "start": ["2010-05-02"],
+              "end": ["2010-05-02"]
+            },
+            "value": "2nd May"
+          }
+        ]
+      }
     }
   ],
   "rels": {},
