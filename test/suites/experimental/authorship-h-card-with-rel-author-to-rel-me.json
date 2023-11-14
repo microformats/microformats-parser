@@ -20,7 +20,7 @@
           {
             "value": "A woman must have money and a room of her own if she is to write fiction.",
             "lang": "en",
-            "html": "<p>A woman must have money and a room of her own if she is to write fiction.</p>"
+            "html": "<p>\n        A woman must have money and a room of her own if she is to write\n        fiction.\n      </p>"
           }
         ]
       }

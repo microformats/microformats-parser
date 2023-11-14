@@ -6,6 +6,18 @@ import {
   Rels,
 } from "../types";
 
+type DraftAuthor = Partial<Author>;
+
+function isAuthor(value: DraftAuthor): value is Author {
+  return value.value !== undefined;
+}
+
+function isMicroformatRoot(
+  value: MicroformatProperty,
+): value is MicroformatRoot {
+  return typeof value !== "object" || !("id" in value);
+}
+
 function getPlainText(values: MicroformatProperty[]): string | null {
   if (values.length === 0) {
     return null;
@@ -24,11 +36,10 @@ function getPlainText(values: MicroformatProperty[]): string | null {
   return plainText && plainText.trim();
 }
 
-const parseAuthor = (hCard: MicroformatRoot) => {
-  // TODO: Figure out how to stop TypeScript complaining about missing `value`
-  const result: Author = {};
+const parseAuthor = (hCard: MicroformatRoot): Author | undefined => {
+  const result: DraftAuthor = {};
 
-  if (hCard.properties !== undefined) {
+  if (hCard.properties) {
     // Use first (or only) name
     const names = hCard.properties.name as string[];
     if (names?.length > 0) {
@@ -57,25 +68,29 @@ const parseAuthor = (hCard: MicroformatRoot) => {
     }
   }
 
-  return result as Author;
-};
-
-const findEntryAuthor = (hEntry: MicroformatRoot) => {
-  const values = hEntry.properties.author || [];
-
-  if (Object.keys(values).length === 0) {
-    return;
+  if (isAuthor(result)) {
+    return result;
   }
 
-  return parseAuthor(values[0] as MicroformatRoot);
+  return undefined;
 };
 
-const findFeedAuthor = () => false;
+const findEntryAuthor = (hEntry: MicroformatRoot): Author | undefined => {
+  const [value] = hEntry.properties.author || [];
 
-export const findAuthor = async (item: MicroformatRoot, rels: Rels) => {
+  if (!isMicroformatRoot(value)) {
+    return undefined;
+  }
+
+  return parseAuthor(value);
+};
+
+const findFeedAuthor = () => undefined;
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const findAuthor = (item: MicroformatRoot, _rels: Rels) => {
   // 1. If no `h-entry` then there’s no post to find authorship for.
-  const itemIsEntry = item.type && item.type[0] === "h-entry";
-  if (!itemIsEntry) {
+  if (item.type?.[0] !== "h-entry") {
     return false;
   }
 
@@ -84,20 +99,20 @@ export const findAuthor = async (item: MicroformatRoot, rels: Rels) => {
   const feedAuthor = findFeedAuthor(); // TODO
 
   // 3 & 4. Return author in `h-entry`, else find author in parent `h-feed`
-  const author = entryAuthor ? entryAuthor : feedAuthor;
+  const author = entryAuthor || feedAuthor;
 
   // 5. Return `author` if `h-card`
-  const authorIsCard = author && author.type[0] === "h-card";
-  if (authorIsCard) {
-    return author;
-  }
+  // const authorIsCard = author && author.type[0] === "h-card";
+  // if (authorIsCard) {
+  //   return author;
+  // }
 
   // 6. Use `h-card` fetched from rel=author
-  const authorPage = author.properties?.url || rels.author;
-  if (authorPage) {
-    // Fetch `authorPage` and parse result using `parseMicroformat`
-    // This is an async function, which would bubble up to the parent function
-  }
+  // const authorPage = author.properties?.url || rels.author;
+  // if (authorPage) {
+  // Fetch `authorPage` and parse result using `parseMicroformat`
+  // This is an async function, which would bubble up to the parent function
+  // }
 
   // 7. From the parsed `authorPage`, return the first `h-card` that either:
   //    * Has a value for `u-url` (or `u-uid`) that matches the `authorPage` URL

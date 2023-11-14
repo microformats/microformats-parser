@@ -71,8 +71,7 @@ export const parseMicroformat = (
     const author = findAuthor(item, options.rels);
 
     if (author) {
-      console.log("author", author);
-      // item.properties.author = author;
+      item.properties.author = [author];
     }
   }
 

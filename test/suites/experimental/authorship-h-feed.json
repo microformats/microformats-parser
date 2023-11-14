@@ -61,7 +61,7 @@
             ],
             "content": [
               {
-                "html": "<p>Whosoever is delighted in solitude is either a wild beast or a god.</p>",
+                "html": "<p>\n          Whosoever is delighted in solitude is either a wild beast or a god.\n        </p>",
                 "lang": "en",
                 "value": "Whosoever is delighted in solitude is either a wild beast or a god."
               }
