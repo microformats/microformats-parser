@@ -81,6 +81,7 @@ Use: `mf2(html: string, options: { baseUrl: string, experimental: object })`
   - `experimental` (object, optional) - experimental (non-standard) options
     - `lang` (boolean, optional) - enable support for parsing `lang` attributes
     - `textContent` (boolean, optional) - enable support for better collapsing whitespace in text content.
+    - `metaformats` (boolean, optional) - enable meta tag fallback.
 
 Returns the parsed microformats from the HTML string
 
