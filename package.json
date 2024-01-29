@@ -17,7 +17,7 @@
     "indieweb"
   ],
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "prebuild": "rm -rf ./dist",
     "build": "rollup -c",
     "demo": "http-server public",
