@@ -10,6 +10,7 @@ import { getAttributeValue, getClassNames } from "../helpers/attributes";
 import { findChildren } from "../helpers/findChildren";
 import {
   isMicroformatChild,
+  isMicroformatRoot,
   isMicroformatV2Root,
 } from "../helpers/nodeMatchers";
 import {
@@ -53,7 +54,7 @@ export const parseMicroformat = (
     type: getMicroformatType(node).sort(),
     properties: microformatProperties(node, {
       ...options,
-      implyProperties: !children.length,
+      implyProperties: !findChildren(node, isMicroformatRoot).length,
       inherited,
     }),
   };
