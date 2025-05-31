@@ -92,6 +92,20 @@
         ]
       },
       "type": ["h-entry"]
+    },
+    {
+      "properties": {
+        "author": [
+          {
+            "properties": {
+              "name": ["microformats"]
+            },
+            "type": ["h-card"],
+            "value": "microformats"
+          }
+        ]
+      },
+      "type": ["h-entry"]
     }
   ],
   "rels": {},
