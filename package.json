@@ -67,7 +67,7 @@
     "prettier": "^3.0.3",
     "rollup": "^4.1.5",
     "rollup-plugin-dts": "^6.0.2",
-    "rollup-plugin-import-css": "^3.3.3",
+    "rollup-plugin-import-css": "^4.0.1",
     "source-map-support": "^0.5.19",
     "ts-node": "^10.8.0",
     "tslib": "^2.6.2",
