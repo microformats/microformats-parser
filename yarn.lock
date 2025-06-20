@@ -200,10 +200,10 @@
     is-reference "1.2.1"
     magic-string "^0.30.3"
 
-"@rollup/plugin-html@^1.0.2":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-html/-/plugin-html-1.0.3.tgz#9802e94bbca1d9acdca1066e9f919b7bc2516bf3"
-  integrity sha512-bbjQciNXitHX+Bgk0xsW3/0wFWih/356/r7/kvmdz4wzWhAU/a0zYBWTczihrlzz/6Qpw/kZ0yXqOJwsETgg7A==
+"@rollup/plugin-html@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-html/-/plugin-html-2.0.0.tgz#828d6b22948dcb9e603e25cbcd39f1c5669730e1"
+  integrity sha512-6S0ezKfDRw5FvHk3xm1T/eXP9IlLf82zmV+z2V1/yQL5hXwIUL/Gl2RrNMMIe2rt85rk6+0smvSAtjfTLGylDQ==
 
 "@rollup/plugin-node-resolve@^15.2.1":
   version "15.2.3"
