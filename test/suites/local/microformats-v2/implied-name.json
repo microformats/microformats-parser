@@ -1,0 +1,13 @@
+{
+  "rels": {},
+  "rel-urls": {},
+  "items": [
+    {
+      "type": ["h-card"],
+      "properties": {
+        "photo": ["http://example.com/photo.jpg"],
+        "name": ["Author"]
+      }
+    }
+  ]
+}
