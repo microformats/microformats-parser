@@ -8,7 +8,10 @@ export const getAttribute = (
 export const getAttributeValue = (
   node: Element,
   name: string,
-): string | undefined => getAttribute(node, name)?.value;
+): string | undefined => {
+  const attr = getAttribute(node, name)?.value;
+  return attr?.length ? attr : undefined;
+};
 
 export const getClassNames = (
   node: Element,
