@@ -16,7 +16,7 @@ import {
 import { isMicroformatRoot } from "../helpers/nodeMatchers";
 import { parseMicroformat } from "./parse";
 import { valueClassPattern } from "../helpers/valueClassPattern";
-import { textContent } from "../helpers/textContent";
+import { textContent, impliedTextContent } from "../helpers/textContent";
 import { parseImage } from "../helpers/images";
 import { isLocalLink, applyBaseUrl } from "../helpers/url";
 import { convertV1PropertyClassNames } from "../backcompat";
@@ -36,7 +36,7 @@ export const parseP = (node: Element, options: ParsingOptions): string =>
   getAttributeIfTag(node, ["data"], "value") ??
   getAttributeIfTag(node, ["img", "area"], "alt") ??
   getAttributeIfTag(node, ["meta"], "content") ??
-  textContent(node, options);
+  impliedTextContent(node, options);
 
 export const parseU = (
   node: Element,
