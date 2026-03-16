@@ -3,18 +3,11 @@
   "rel-urls": {},
   "items": [
     {
-      "type": [
-        "h-item"
-      ],
+      "type": ["h-item"],
       "properties": {
-        "name": [
-          "A"
-        ],
-        "value": [
-          "10"
-        ]
-      },
-      "lang": "en"
+        "name": ["A"],
+        "value": ["10"]
+      }
     }
   ]
 }
