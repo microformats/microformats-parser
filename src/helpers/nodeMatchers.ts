@@ -62,6 +62,6 @@ export const isValueClass = (node: Element): boolean =>
 export const isRel = (node: Element): boolean =>
   Boolean(
     isElement(node) &&
-      node.attrs.some((attr) => attr.name === "rel") &&
-      node.attrs.some((attr) => attr.name === "href"),
+    node.attrs.some((attr) => attr.name === "rel") &&
+    node.attrs.some((attr) => attr.name === "href"),
   );
