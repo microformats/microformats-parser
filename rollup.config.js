@@ -7,7 +7,7 @@ import html, { makeHtmlAttributes } from "@rollup/plugin-html";
 import { readFileSync } from "fs";
 import css from "rollup-plugin-import-css";
 
-import pkg from "./package.json" assert { type: "json" };
+import pkg from "./package.json" with { type: "json" };
 const { name, description, version, repository, license, keywords } = pkg;
 
 export default [
