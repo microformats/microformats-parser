@@ -5,12 +5,16 @@ on:
     types:
       - released
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
           registry-url: https://registry.npmjs.org/
@@ -24,8 +28,6 @@ jobs:
         run: yarn build
       - name: Publish to NPM
         run: yarn publish --non-interactive
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v4
         with:

@@ -33,7 +33,7 @@ const getType = (className: string): PropertyType =>
 export const parseP = (node: Element, options: ParsingOptions): string =>
   valueClassPattern(node, options) ??
   getAttributeIfTag(node, ["abbr", "link"], "title") ??
-  getAttributeIfTag(node, ["data"], "value") ??
+  getAttributeIfTag(node, ["input", "data"], "value") ??
   getAttributeIfTag(node, ["img", "area"], "alt") ??
   getAttributeIfTag(node, ["meta"], "content") ??
   impliedTextContent(node, options);
