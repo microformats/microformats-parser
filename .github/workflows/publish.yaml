@@ -7,7 +7,7 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
   publish:
@@ -25,7 +25,7 @@ jobs:
         env:
           VERSION: ${{ github.event.release.tag_name }}
       - name: Build package
-        run: npm run build[=---]
+        run: npm run build
       - name: Publish to NPM
         run: npm publish
       - name: Deploy pages
