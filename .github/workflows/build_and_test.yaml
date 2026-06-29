@@ -20,15 +20,15 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "npm"
       - name: Install dependencies
-        run: yarn
+        run: npm ci
       - name: Lint code
-        run: yarn lint
+        run: npm run lint
       - name: Run prettier list
-        run: yarn prettier:list
+        run: npm run prettier:list
       - name: Test code
-        run: yarn test
+        run: npm run test
       - name: Build package
-        run: yarn build
+        run: npm run build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -47,11 +47,11 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Install dependencies
-        run: yarn
+        run: npm ci
       - name: Download build artifacts
         uses: actions/download-artifact@v8
         with:
           name: dist
           path: dist
       - name: Test package
-        run: yarn test:package
+        run: npm run test:package

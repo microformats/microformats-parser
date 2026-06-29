@@ -7,7 +7,7 @@
 - [Microformats specifications](#microformats-specifications)
 - [Node support](#node-support)
 - [Developer environment](#developer-environment)
-  - [Node/yarn version](#nodeyarn-version)
+  - [Node version](#node-version)
   - [Developer tools](#developer-tools)
 - [License](#license)
 
@@ -23,7 +23,7 @@ Anyone can contribute to this project in one of many ways, for example:
 ## Making Changes
 
 1. Fork the repo into your own GitHub account and clone it to your local machine.
-2. Use the versions of node and yarn from [development environment](#developer-environment).
+2. Use the version of node from [development environment](#developer-environment).
 3. Create a branch for the code changes you're looking to make with `git checkout -b branch-name`.
 4. Add some tests to our test suites to describe the change you want to make. These are in the form of JSON/HTML pairs.
 5. Write some code to pass the tests!
@@ -39,7 +39,7 @@ We're more than happy to help with any TypeScript, linting or test problems, or 
 
 ### Testing your changes
 
-You can test your changes using the interactive demo. Just run `yarn build` and `yarn demo` and visit `http://localhost:8080` to parse a real-world example.
+You can test your changes using the interactive demo. Just run `npm run build` and `npm run demo` and visit `http://localhost:8080` to parse a real-world example.
 
 ## Microformats specifications
 
@@ -53,12 +53,11 @@ We support all versions that are currently supported on the [node LTS schedule](
 
 ## Developer environment
 
-### Node/yarn version
+### Node version
 
 This project is developed using:
 
 - node@lts (active)
-- yarn@1
 
 If you use `nvm`, you can run `nvm use` in the root of this project to switch to the correct version of node.
 
@@ -67,9 +66,9 @@ If you use `nvm`, you can run `nvm use` in the root of this project to switch to
 We use a few developer tools to help maintain code quality.
 
 - TypeScript is used to statically typecheck all code.
-- Prettier (`yarn prettier:list`) is used as an opinionated code-formatter. A fix command is executed on each commit automatically.
-- ESLint (`yarn lint`) validates your code against specific rules. A check is executed on each commit automatically, and will prevent a commit if there are any errors found.
-- Mocha (`yarn test`) tests the package against a set of tests (located in `/test`). These are ran automatically in CI for each push.
+- Prettier (`npm run prettier:list`) is used as an opinionated code-formatter. A fix command is executed on each commit automatically.
+- ESLint (`npm run lint`) validates your code against specific rules. A check is executed on each commit automatically, and will prevent a commit if there are any errors found.
+- Mocha (`npm test`) tests the package against a set of tests (located in `/test`). These are ran automatically in CI for each push.
   - These tests are ran against the [microformats test suite](https://github.com/microformats/tests) and some additional test cases.
   - Mocha tests for the built package is ran against all supported LTS versions of node.
   - Tests require 100% code coverage to pass.
