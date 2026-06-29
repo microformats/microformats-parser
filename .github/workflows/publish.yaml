@@ -5,27 +5,29 @@ on:
     types:
       - released
 
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
-        run: yarn
+        run: npm ci
       - name: Set correct version
         run: npm --no-git-tag-version version $VERSION
         env:
           VERSION: ${{ github.event.release.tag_name }}
       - name: Build package
-        run: yarn build
+        run: npm run build
       - name: Publish to NPM
-        run: yarn publish --non-interactive
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v4
         with:

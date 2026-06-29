@@ -107,3 +107,4 @@ public
 demo/dist
 
 .DS_Store
+.idea
