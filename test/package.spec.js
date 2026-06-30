@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect, describe, it } from "vitest";
 import path from "path";
 import { readFileSync } from "fs";
 

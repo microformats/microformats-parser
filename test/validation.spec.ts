@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect, describe, it } from "vitest";
 
 import { mf2 as parser } from "../src/index.js";
 
