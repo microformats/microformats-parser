@@ -239,7 +239,6 @@ export const parseMetaformats = (
   const head = html?.childNodes.find(isTag("head"));
 
   // Per manual testing, head will always be defined
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const metaContent = collectMetaTags(head!);
   return combineRoot(metaContent, options);
 };
