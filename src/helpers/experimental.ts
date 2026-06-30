@@ -1,4 +1,4 @@
-import { ExperimentalName, ParserOptions } from "../types";
+import { ExperimentalName, ParserOptions } from "../types.js";
 
 export const isEnabled = (
   options: ParserOptions,

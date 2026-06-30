@@ -1,7 +1,7 @@
-import { Element } from "../types";
+import { Element } from "../types.js";
 
-import { getClassNames, getAttributeIfTag } from "../helpers/attributes";
-import { isElement, isMicroformatV2Root } from "../helpers/nodeMatchers";
+import { getClassNames, getAttributeIfTag } from "../helpers/attributes.js";
+import { isElement, isMicroformatV2Root } from "../helpers/nodeMatchers.js";
 
 const parseNode = (node: Element): string | undefined =>
   getAttributeIfTag(node, ["a", "area"], "href");

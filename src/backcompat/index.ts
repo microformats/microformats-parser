@@ -1,12 +1,12 @@
-import { Element } from "../types";
-import { adr } from "./adr";
-import { geo } from "./geo";
-import { hentry } from "./hentry";
-import { hfeed } from "./hfeed";
-import { hnews } from "./hnews";
-import { hproduct } from "./hproduct";
-import { hreview } from "./hreview";
-import { vcard } from "./vcard";
+import { Element } from "../types.js";
+import { adr } from "./adr.js";
+import { geo } from "./geo.js";
+import { hentry } from "./hentry.js";
+import { hfeed } from "./hfeed.js";
+import { hnews } from "./hnews.js";
+import { hproduct } from "./hproduct.js";
+import { hreview } from "./hreview.js";
+import { vcard } from "./vcard.js";
 import {
   getClassNameIntersect,
   hasClassNameIntersect,
@@ -14,12 +14,12 @@ import {
   hasRelIntersect,
   getAttributeValue,
   getClassNames,
-} from "../helpers/attributes";
-import { hreviewAggregate } from "./hreview-aggregate";
-import { hresume } from "./hresume";
-import { vevent } from "./vevent";
-import { item } from "./item";
-import { flatten } from "../helpers/array";
+} from "../helpers/attributes.js";
+import { hreviewAggregate } from "./hreview-aggregate.js";
+import { hresume } from "./hresume.js";
+import { vevent } from "./vevent.js";
+import { item } from "./item.js";
+import { flatten } from "../helpers/array.js";
 
 export const backcompat = {
   adr,

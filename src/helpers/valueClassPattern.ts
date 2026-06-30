@@ -1,8 +1,8 @@
-import { getAttributeValue, hasClassName } from "./attributes";
-import { textContent } from "./textContent";
-import { findChildren } from "./findChildren";
-import { isValueClass } from "./nodeMatchers";
-import { ParsingOptions, Element } from "../types";
+import { getAttributeValue, hasClassName } from "./attributes.js";
+import { textContent } from "./textContent.js";
+import { findChildren } from "./findChildren.js";
+import { isValueClass } from "./nodeMatchers.js";
+import { ParsingOptions, Element } from "../types.js";
 
 interface Options {
   datetime: boolean;

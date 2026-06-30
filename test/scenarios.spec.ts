@@ -1,9 +1,9 @@
 import { expect, assert } from "chai";
 import * as path from "path";
 
-import { mf2 } from "../src";
-import { dirname } from "./utils/dirname";
-import { loadScenarios } from "./utils/loadScenarios";
+import { mf2 } from "../src/index.js";
+import { dirname } from "./utils/dirname.js";
+import { loadScenarios } from "./utils/loadScenarios.js";
 
 const __dirname = dirname(import.meta.url);
 

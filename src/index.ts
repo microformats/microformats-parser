@@ -1,6 +1,6 @@
-import { parser } from "./parser";
-import { validator } from "./validator";
-import { ParsedDocument } from "./types";
+import { parser } from "./parser.js";
+import { validator } from "./validator.js";
+import { ParsedDocument } from "./types.js";
 
 export interface Options {
   baseUrl: string;

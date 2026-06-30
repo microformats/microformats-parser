@@ -1,6 +1,6 @@
-import { Rels, RelUrls, ParserOptions, Element } from "../types";
-import { getAttributeValue } from "../helpers/attributes";
-import { relTextContent } from "../helpers/textContent";
+import { Rels, RelUrls, ParserOptions, Element } from "../types.js";
+import { getAttributeValue } from "../helpers/attributes.js";
+import { relTextContent } from "../helpers/textContent.js";
 
 interface ParseRelOptions {
   rels: Rels;

@@ -6,7 +6,7 @@ export type Attribute = Element["attrs"][number];
 export type Node = DefaultTreeAdapterMap["node"];
 export type TextNode = DefaultTreeAdapterMap["textNode"];
 
-import { BackcompatRoot } from "./backcompat";
+import { BackcompatRoot } from "./backcompat/index.js";
 
 export interface ParserOptions {
   baseUrl: string;

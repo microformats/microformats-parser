@@ -1,13 +1,13 @@
 import { parse } from "parse5";
 
-import { findChildren } from "./helpers/findChildren";
-import { parseMicroformat } from "./microformats/parse";
-import { isMicroformatRoot } from "./helpers/nodeMatchers";
-import { ParsedDocument, ParserOptions, ParsingOptions } from "./types";
-import { validateParsedHtml } from "./validator";
-import { documentSetup } from "./helpers/documentSetup";
-import { parseMetaformats } from "./helpers/metaformats";
-import { isEnabled } from "./helpers/experimental";
+import { findChildren } from "./helpers/findChildren.js";
+import { parseMicroformat } from "./microformats/parse.js";
+import { isMicroformatRoot } from "./helpers/nodeMatchers.js";
+import { ParsedDocument, ParserOptions, ParsingOptions } from "./types.js";
+import { validateParsedHtml } from "./validator.js";
+import { documentSetup } from "./helpers/documentSetup.js";
+import { parseMetaformats } from "./helpers/metaformats.js";
+import { isEnabled } from "./helpers/experimental.js";
 
 export const parser = (
   html: string,

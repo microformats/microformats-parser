@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-import { mf2 as parser } from "../src";
+import { mf2 as parser } from "../src/index.js";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mf2: (html?: unknown, options?: unknown) => string = parser as any;
