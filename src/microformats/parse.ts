@@ -3,24 +3,24 @@ import {
   PropertyType,
   ParsingOptions,
   Element,
-} from "../types";
-import { microformatProperties } from "./properties";
-import { textContent } from "../helpers/textContent";
-import { getAttributeValue, getClassNames } from "../helpers/attributes";
-import { findChildren } from "../helpers/findChildren";
+} from "../types.js";
+import { microformatProperties } from "./properties.js";
+import { textContent } from "../helpers/textContent.js";
+import { getAttributeValue, getClassNames } from "../helpers/attributes.js";
+import { findChildren } from "../helpers/findChildren.js";
 import {
   isMicroformatChild,
   isMicroformatRoot,
   isMicroformatV2Root,
-} from "../helpers/nodeMatchers";
+} from "../helpers/nodeMatchers.js";
 import {
   convertV1RootClassNames,
   getBackcompatRootClassNames,
   BackcompatRoot,
-} from "../backcompat";
-import { applyIncludesToRoot } from "../helpers/includes";
-import { parseE, parseDt } from "./property";
-import { isEnabled } from "../helpers/experimental";
+} from "../backcompat/index.js";
+import { applyIncludesToRoot } from "../helpers/includes.js";
+import { parseE, parseDt } from "./property.js";
+import { isEnabled } from "../helpers/experimental.js";
 
 interface ParseMicroformatOptions extends ParsingOptions {
   valueType?: PropertyType;

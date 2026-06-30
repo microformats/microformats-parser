@@ -1,14 +1,14 @@
-import { TextNode, Node, Element } from "../types";
+import { TextNode, Node, Element } from "../types.js";
 import {
   getAttribute,
   hasClassNameIntersect,
   getClassNames,
-} from "./attributes";
+} from "./attributes.js";
 import {
   backcompatRoots,
   hasBackcompatMicroformatProperty,
   BackcompatRoot,
-} from "../backcompat";
+} from "../backcompat/index.js";
 
 const classRegex = (prefix: string): RegExp =>
   new RegExp(`^${prefix}-([a-z0-9]+-)?([a-z]+-)*[a-z]+$`);

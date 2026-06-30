@@ -1,4 +1,4 @@
-import { Attribute, Element } from "../types";
+import { Attribute, Element } from "../types.js";
 
 export const getAttribute = (
   node: Element,

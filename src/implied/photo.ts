@@ -1,7 +1,7 @@
-import { Image, Element } from "../types";
-import { parseImage } from "../helpers/images";
-import { getAttributeValue, getClassNames } from "../helpers/attributes";
-import { isElement, isMicroformatV2Root } from "../helpers/nodeMatchers";
+import { Image, Element } from "../types.js";
+import { parseImage } from "../helpers/images.js";
+import { getAttributeValue, getClassNames } from "../helpers/attributes.js";
+import { isElement, isMicroformatV2Root } from "../helpers/nodeMatchers.js";
 
 const parseNode = (node: Element): Image | string | undefined => {
   if (node.tagName === "img") {

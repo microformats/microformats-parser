@@ -3,17 +3,17 @@ import {
   MicroformatProperties,
   ParsingOptions,
   Element,
-} from "../types";
-import { findChildren } from "../helpers/findChildren";
-import { impliedName } from "../implied/name";
-import { impliedUrl } from "../implied/url";
+} from "../types.js";
+import { findChildren } from "../helpers/findChildren.js";
+import { impliedName } from "../implied/name.js";
+import { impliedUrl } from "../implied/url.js";
 import {
   isMicroformatV1Property,
   isMicroformatV2Property,
-} from "../helpers/nodeMatchers";
-import { impliedPhoto } from "../implied/photo";
-import { parseProperty, postParseNode } from "./property";
-import { flatten } from "../helpers/array";
+} from "../helpers/nodeMatchers.js";
+import { impliedPhoto } from "../implied/photo.js";
+import { parseProperty, postParseNode } from "./property.js";
+import { flatten } from "../helpers/array.js";
 
 const addProperty = (
   properties: MicroformatProperties,

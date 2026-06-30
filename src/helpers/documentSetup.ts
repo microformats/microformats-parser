@@ -1,9 +1,9 @@
-import { ParserOptions, IdRefs, Rels, RelUrls } from "../types";
-import { getAttribute, getAttributeValue } from "./attributes";
-import { isLocalLink, applyBaseUrl } from "./url";
-import { isElement, isRel, isBase } from "./nodeMatchers";
-import { parseRel } from "../rels/rels";
-import { Document, Element } from "../types";
+import { ParserOptions, IdRefs, Rels, RelUrls } from "../types.js";
+import { getAttribute, getAttributeValue } from "./attributes.js";
+import { isLocalLink, applyBaseUrl } from "./url.js";
+import { isElement, isRel, isBase } from "./nodeMatchers.js";
+import { parseRel } from "../rels/rels.js";
+import { Document, Element } from "../types.js";
 
 interface DocumentSetupResult {
   idRefs: IdRefs;

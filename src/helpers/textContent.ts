@@ -1,7 +1,7 @@
-import { getAttributeValue } from "./attributes";
-import { isElement, isTextNode } from "./nodeMatchers";
-import { ParserOptions, Node, Element } from "../types";
-import { isEnabled } from "./experimental";
+import { getAttributeValue } from "./attributes.js";
+import { isElement, isTextNode } from "./nodeMatchers.js";
+import { ParserOptions, Node, Element } from "../types.js";
+import { isEnabled } from "./experimental.js";
 
 const imageValue = (node: Element): string | undefined =>
   getAttributeValue(node, "alt")?.trim() ??

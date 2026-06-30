@@ -1,4 +1,4 @@
-import { Backcompat } from "../types";
+import { Backcompat } from "../types.js";
 
 export const hreviewAggregate: Backcompat = {
   type: ["h-review-aggregate"],

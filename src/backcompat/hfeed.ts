@@ -1,4 +1,4 @@
-import { Backcompat } from "../types";
+import { Backcompat } from "../types.js";
 
 export const hfeed: Backcompat = {
   type: ["h-feed"],

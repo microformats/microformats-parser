@@ -1,6 +1,9 @@
-import { Document, Element } from "../types";
-import { isMicroformatRoot, isElement } from "./nodeMatchers";
-import { BackcompatRoot, getBackcompatRootClassNames } from "../backcompat";
+import { Document, Element } from "../types.js";
+import { isMicroformatRoot, isElement } from "./nodeMatchers.js";
+import {
+  BackcompatRoot,
+  getBackcompatRootClassNames,
+} from "../backcompat/index.js";
 
 type Matcher =
   | ((node: Element) => boolean)

@@ -1,5 +1,5 @@
-import { isElement, isTag } from "./helpers/nodeMatchers";
-import { Document } from "./types";
+import { isElement, isTag } from "./helpers/nodeMatchers.js";
+import { Document } from "./types.js";
 
 const assertIsString = (str: unknown, name: string): string => {
   if (typeof str === "undefined") {

@@ -1,7 +1,7 @@
-import { impliedTextContent } from "../helpers/textContent";
-import { isElement } from "../helpers/nodeMatchers";
-import { getClassNames, getAttributeIfTag } from "../helpers/attributes";
-import { ParsingOptions, Element } from "../types";
+import { impliedTextContent } from "../helpers/textContent.js";
+import { isElement } from "../helpers/nodeMatchers.js";
+import { getClassNames, getAttributeIfTag } from "../helpers/attributes.js";
+import { ParsingOptions, Element } from "../types.js";
 
 const parseNode = (node: Element): string | undefined =>
   getAttributeIfTag(node, ["img", "area"], "alt") ??

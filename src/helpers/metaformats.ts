@@ -1,12 +1,12 @@
-import { Document, Element } from "../types";
-import { MicroformatRoot, ParsingOptions } from "../types";
+import { Document, Element } from "../types.js";
+import { MicroformatRoot, ParsingOptions } from "../types.js";
 import {
   getAttributeIfTag,
   getAttributeValue,
   hasRelIntersect,
-} from "./attributes";
-import { isEnabled } from "./experimental";
-import { isElement, isTag } from "./nodeMatchers";
+} from "./attributes.js";
+import { isEnabled } from "./experimental.js";
+import { isElement, isTag } from "./nodeMatchers.js";
 
 /** Special key for title tag in meta collection */
 const TITLE_TAG_KEY = "<title>";

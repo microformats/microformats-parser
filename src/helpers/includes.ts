@@ -1,12 +1,12 @@
-import { Element } from "../types";
+import { Element } from "../types.js";
 
 import {
   isMicroformatV2Root,
   isElement,
   isMicroformatRoot,
-} from "./nodeMatchers";
-import { ParsingOptions } from "../types";
-import { getV1IncludeNames } from "../backcompat";
+} from "./nodeMatchers.js";
+import { ParsingOptions } from "../types.js";
+import { getV1IncludeNames } from "../backcompat/index.js";
 
 const applyIncludes = (node: Element, options: ParsingOptions): void => {
   const includeNames = getV1IncludeNames(node);

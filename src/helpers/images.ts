@@ -1,7 +1,7 @@
-import { Element } from "../types";
+import { Element } from "../types.js";
 
-import { getAttributeValue } from "./attributes";
-import { Image, ParsingOptions } from "../types";
+import { getAttributeValue } from "./attributes.js";
+import { Image, ParsingOptions } from "../types.js";
 
 export const parseImage = (
   node: Element,

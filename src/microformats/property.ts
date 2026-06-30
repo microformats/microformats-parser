@@ -4,7 +4,7 @@ import {
   getAttributeIfTag,
   getClassNames,
   getAttributeValue,
-} from "../helpers/attributes";
+} from "../helpers/attributes.js";
 import {
   ParsedProperty,
   MicroformatProperty,
@@ -12,15 +12,15 @@ import {
   PropertyType,
   ParsingOptions,
   Element,
-} from "../types";
-import { isMicroformatRoot } from "../helpers/nodeMatchers";
-import { parseMicroformat } from "./parse";
-import { valueClassPattern } from "../helpers/valueClassPattern";
-import { textContent, impliedTextContent } from "../helpers/textContent";
-import { parseImage } from "../helpers/images";
-import { isLocalLink, applyBaseUrl } from "../helpers/url";
-import { convertV1PropertyClassNames } from "../backcompat";
-import { isEnabled } from "../helpers/experimental";
+} from "../types.js";
+import { isMicroformatRoot } from "../helpers/nodeMatchers.js";
+import { parseMicroformat } from "./parse.js";
+import { valueClassPattern } from "../helpers/valueClassPattern.js";
+import { textContent, impliedTextContent } from "../helpers/textContent.js";
+import { parseImage } from "../helpers/images.js";
+import { isLocalLink, applyBaseUrl } from "../helpers/url.js";
+import { convertV1PropertyClassNames } from "../backcompat/index.js";
+import { isEnabled } from "../helpers/experimental.js";
 
 const propertyRegexp = /^(p|u|e|dt)-/;
 
