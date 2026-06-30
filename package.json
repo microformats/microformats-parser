@@ -40,6 +40,7 @@
     "parse5": "^8.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-html": "^2.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
@@ -50,9 +51,8 @@
     "@typescript-eslint/eslint-plugin": "^8.62.1",
     "@typescript-eslint/parser": "^8.62.1",
     "@vitest/coverage-v8": "^4.1.9",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-import": "^2.32.0",
+    "eslint": "^10.6.0",
+    "eslint-config-prettier": "^10.1.8",
     "glob": "^13.0.6",
     "http-server": "^14.1.1",
     "husky": ">=9",

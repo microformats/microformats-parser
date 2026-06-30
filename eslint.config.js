@@ -1,29 +1,26 @@
 import eslintConfigPrettier from "eslint-config-prettier";
-import importPlugin from "eslint-plugin-import";
-import tseslint from "typescript-eslint";
+import pluginJs from "@eslint/js";
+import tsEslint from "typescript-eslint";
 
-export default tseslint.config(
+export default tsEslint.config(
   {
-    ignores: ["dist/**", "public/**", "**/*.html"],
+    ignores: ["dist/**", "public/**", "**/*.html", "coverage/**"],
   },
-  tseslint.configs.recommended,
-  importPlugin.flatConfigs.errors,
-  importPlugin.flatConfigs.typescript,
+  pluginJs.configs.recommended,
+  tsEslint.configs.recommended,
   {
     rules: {
-      "import/no-unresolved": "off",
       "arrow-body-style": ["error", "as-needed"],
-      "import/order": [
-        "error",
-        {
-          groups: [["builtin", "external", "internal"]],
-          "newlines-between": "always-and-inside-groups",
-        },
-      ],
     },
   },
   {
     files: ["demo/**/*.js", "rollup.config.js"],
+    languageOptions: {
+      globals: {
+        document: "readonly",
+        window: "readonly",
+      },
+    },
     rules: {
       "@typescript-eslint/no-var-requires": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
