@@ -15,7 +15,7 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["mocha", "node"],
+    "types": ["node"],
     "rootDir": "./src"
   },
   "include": ["src"]

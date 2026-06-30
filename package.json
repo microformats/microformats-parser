@@ -24,8 +24,8 @@
     "lint": "eslint --cache .",
     "prettier:list": "prettier '**/*.{ts,json,md,html}' --list-different",
     "prettier:fix": "prettier '**/*.{ts,json,md,html}' --write",
-    "test": "c8 mocha ./test/*.spec.ts",
-    "test:package": "mocha ./test/package.spec.js"
+    "test": "vitest run --coverage ./test/*.spec.ts",
+    "test:package": "vitest run ./test/package.spec.js"
   },
   "engines": {
     "node": ">=18"
@@ -45,14 +45,11 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@types/chai": "^5.2.3",
     "@types/glob": "^9.0.0",
-    "@types/mocha": "^10.0.10",
     "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.62.1",
     "@typescript-eslint/parser": "^8.62.1",
-    "c8": "^11.0.0",
-    "chai": "^6.2.2",
+    "@vitest/coverage-v8": "^4.1.9",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.32.0",
@@ -61,7 +58,6 @@
     "husky": ">=9",
     "lint-staged": ">=17",
     "microformat-tests": "https://github.com/microformats/tests",
-    "mocha": "^11.7.6",
     "prettier": "^3.9.4",
     "rollup": "^4.62.2",
     "rollup-plugin-dts": "^6.4.1",
@@ -70,7 +66,8 @@
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.1"
+    "typescript-eslint": "^8.62.1",
+    "vitest": "^4.1.9"
   },
   "lint-staged": {
     "*.{js,ts,json,css,md,html}": "prettier --write",
