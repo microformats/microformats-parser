@@ -42,10 +42,10 @@
     "parse5": "^7.1.2"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-html": "^2.0.0",
-    "@rollup/plugin-node-resolve": "^15.2.1",
-    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/chai": "^5.2.3",
     "@types/glob": "^9.0.0",
