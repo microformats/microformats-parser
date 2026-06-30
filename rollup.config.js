@@ -32,15 +32,9 @@ export default [
     ],
     output: [
       {
-        exports: "named",
-        format: "cjs",
-        sourcemap: true,
-        file: "dist/index.cjs",
-      },
-      {
         format: "esm",
         sourcemap: true,
-        file: "dist/index.mjs",
+        file: "dist/index.js",
       },
     ],
   },
