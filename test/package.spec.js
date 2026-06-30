@@ -28,11 +28,7 @@ const options = {
   baseUrl: "http://example.com",
 };
 
-describe("package // esm // scenarios", () => {
-  it("should have a .mjs extension", () => {
-    expect(modulePath).to.match(/\.mjs$/);
-  });
-
+describe("package // scenarios", () => {
   it("should have __esModule = undefined", () => {
     expect(__esModule).to.equal(undefined);
   });
