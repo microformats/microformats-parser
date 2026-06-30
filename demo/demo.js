@@ -1,4 +1,4 @@
-import { mf2 } from "../dist/index.mjs";
+import { mf2 } from "../dist/index.js";
 import "./demo.css";
 
 const setResult = (result) => {

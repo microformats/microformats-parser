@@ -6,16 +6,18 @@ import { loadScenarios } from "./utils/loadScenarios";
 import { dirname } from "./utils/dirname";
 
 const __dirname = dirname(import.meta.url);
-const { main: modulePath } = JSON.parse(
-  readFileSync(path.resolve(__dirname, "../package.json"))
+const { module: modulePath } = JSON.parse(
+  readFileSync(path.resolve(__dirname, "../package.json")),
 );
 
 // get the correct module value from package.json and test that
-const { mf2 } = await import(path.resolve(__dirname, "../", modulePath));
+const { mf2, __esModule } = await import(
+  path.resolve(__dirname, "../", modulePath)
+);
 
 const scenarioDir = path.resolve(
   __dirname,
-  `../node_modules/microformat-tests/tests`
+  `../node_modules/microformat-tests/tests`,
 );
 
 const v1 = loadScenarios(scenarioDir, "microformats-v1");
@@ -26,9 +28,13 @@ const options = {
   baseUrl: "http://example.com",
 };
 
-describe("package // cjs // scenarios", () => {
-  it("should have a .cjs extension", () => {
-    expect(modulePath).to.match(/\.cjs$/);
+describe("package // esm // scenarios", () => {
+  it("should have a .mjs extension", () => {
+    expect(modulePath).to.match(/\.mjs$/);
+  });
+
+  it("should have __esModule = undefined", () => {
+    expect(__esModule).to.equal(undefined);
   });
 
   describe("microformats-v1", () => {
