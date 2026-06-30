@@ -28,7 +28,7 @@
     "test:package": "vitest run ./test/package.spec.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "files": [
     "/dist/index.js",
