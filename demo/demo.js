@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { mf2 } from "../dist/index.mjs";
 import "./demo.css";
 
